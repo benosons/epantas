@@ -60,7 +60,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 # Top Bar
 --------------------------------------------------------------*/
 #topbar {
-  background: #001f3f;
+  background: #01652F;
   padding: 10px 0;
   border-bottom: 1px solid #eee;
   font-size: 14px;
@@ -1340,9 +1340,9 @@ section {
 }
 
 #footer .footer-top {
-  background: #001f3f;
-  border-top: 1px solid #001f3f;
-  border-bottom: 1px solid #001f3f;
+  background: #01652F;
+  border-top: 1px solid #01652F;
+  border-bottom: 1px solid #01652F;
   padding: 60px 0 30px 0;
 }
 

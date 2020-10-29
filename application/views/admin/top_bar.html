@@ -125,9 +125,9 @@
 	{% if role == 10 and role == 30 %}
 	<a href="/" class="brand-link">
 	{% else %}
-	<a href="dashboard" class="brand-link" style="padding:.2rem .2rem;">
+	<a href="dashboard" class="brand-link" style="padding:.4rem .2rem;">
 	{% endif %}
-		<img src="{{base_url}}assets/img/logo/SIPPIII.png" alt="AdminLTE Logo" class="brand-image" style="width:145px;margin-left: 1.0rem;margin-top: 0px;max-height: 50px;">
+		<img src="{{base_url}}assets/dokumen/gambar/LOGO-1.png" alt="AdminLTE Logo" class="brand-image" style="width:145px;margin-left: 1.0rem;margin-top: 0px;max-height: 50px;">
 		<!-- <span class="brand-text font-weight-light">AdminLTE 3</span> -->
 	</a>
 
@@ -158,100 +158,90 @@
 					</a>
 				</li>
 				{% if role == 10 or role == 20 %}
-				<li class="nav-item" id="siar">
+				<li class="nav-item" id="pengelola">
 					<a href="#" class="nav-link">
-						<i class="nav-icon fas fa-satellite-dish"></i>
+						<i class="nav-icon fas fa-server"></i>
 						<p>
-							Penyiaran
+							Profile Pengelola
 							<i class="fas fa-angle-left right"></i>
 						</p>
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="{{base_url}}listtelevisi" class="nav-link" id="tv">
+							<a href="{{base_url}}provinsi" class="nav-link" id="data-prov">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Televisi</p>
+								<p>Data Provinsi</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{{base_url}}listradio" class="nav-link" id="radio">
+							<a href="{{base_url}}kabupaten" class="nav-link" id="data-kab">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Radio</p>
+								<p>Data Kabupaten</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{base_url}}kecamatan" class="nav-link" id="data-kec">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Data BPP Kecamatan</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{base_url}}gapoktan" class="nav-link" id="data-pok">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Data GAPOKTAN</p>
 							</a>
 						</li>
 					</ul>
 				</li>
 				{% endif %}
-				<li class="nav-item" id="aduan">
+				<li class="nav-item" id="kegiatan">
 					<a href="#" class="nav-link">
-						<i class="nav-icon fas fa-comments"></i>
+						<i class="nav-icon far fa-list-alt"></i>
 						<p>
-							Pengaduan
+							Realisasi Kegiatan
 							<!-- <span class="badge badge-info right" id="badge-menu">3</span> -->
 							<i class="fas fa-angle-left right"></i>
 						</p>
 					</a>
 					<ul class="nav nav-treeview">
-						{% if role== 10 %}
 						<li class="nav-item">
-							<a href="{{base_url}}listaduan?par=0" class="nav-link" id="new-msg">
+							<a href="{{base_url}}apbntp" class="nav-link" id="data-apbn">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Pesan Baru
-									<span class="badge badge-info right" id="badge-menu-pesan-admin"></span>
-								</p>
+								<p>Data APBN TP Provinsi</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="{{base_url}}listaduan?par=2" class="nav-link" id="reply-msg">
+							<a href="{{base_url}}apbd" class="nav-link" id="data-apbd">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Pesan Balasan
-									<span class="badge badge-info right" id="badge-menu-balasan-admin"></span>
-								</p>
+								<p>Data APBD Provinsi</p>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="{{base_url}}listaduan?par=4" class="nav-link" id="close-msg">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Close</p>
-							</a>
-						</li>
-						{% endif %}
-						{% if role== 30 %}
-						<li class="nav-item">
-							<a href="{{base_url}}new" class="nav-link" id="new-msg-user">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Pesan Baru
-									<!-- <span class="badge badge-info right" id="badge-menu-new">3</span> -->
-								</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="{{base_url}}reply" class="nav-link" id="reply-msg-user">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Pesan Balasan
-									<span class="badge badge-info right" id="badge-menu-total-user"></span>
-								</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="{{base_url}}close" class="nav-link" id="close-msg-user">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Close</p>
-							</a>
-						</li>
-						{% endif %}
 					</ul>
 				</li>
-				{% if role == 10 or role == 20 %}
-				<li class="nav-item" id="video-tutor">
-					<a href="{{base_url}}listvideo" class="nav-link">
-						<i class="nav-icon fas fa-chalkboard-teacher"></i>
+				<li class="nav-item" id="banpem">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-list-alt"></i>
 						<p>
-							Video Tutorial
+							Realisasi Banpem
+							<!-- <span class="badge badge-info right" id="badge-menu">3</span> -->
+							<i class="fas fa-angle-left right"></i>
 						</p>
 					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="{{base_url}}transuang" class="nav-link" id="data-uang">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Transfer Uang</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{base_url}}transbarang" class="nav-link" id="data-barang">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Transfer Barang</p>
+							</a>
+						</li>
+					</ul>
 				</li>
-				{% endif %}
 				{% if role == 10 %}
 				<li class="nav-item" id="users">
 					<a href="{{base_url}}listuser" class="nav-link">

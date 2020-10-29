@@ -1,0 +1,337 @@
+{% extends "admin/layout.html" %} {% block content %}
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Tambah Data Transfer Barang</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Realisasi Banpem</a></li>
+            <li class="breadcrumb-item">Data Transfer Barang</li>
+            <li class="breadcrumb-item active">Tambah Data Transfer Barang</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+
+    <!-- Default box -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-warning card-outline">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="callout callout-info">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="kabupatan">Kabupaten :</label>
+                          <input type="text" class="form-control" id="kabupatan" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="kecamatan">Kecamatan :</label>
+                          <input type="text" class="form-control" id="kecamatan" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="desa">Desa :</label>
+                          <input type="text" class="form-control" id="desa" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="kelompok_tani">Kelompok Tani :</label>
+                          <input type="text" class="form-control" id="kelompok_tani" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <br/>
+                            <center><h6><i class="fas fa-check-circle"></i><i> Target Benih/ Barang Lainnya</i></h6></center>
+                            <hr/>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <br/>
+                            <center><h6><i class="fas fa-check-circle"></i><i> Realisasi Benih/ Barang Lainnya</i></h6></center>
+                            <hr/>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="callout callout-info">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="dinas_pertanian_provinsi">Vol :</label>
+                                <input type="text" class="form-control" id="target_vol" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="kecamatan">Rp :</label>
+                                <input type="text" class="form-control" id="target_rp" placeholder="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="callout callout-info">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="realisasi_vol">Vol :</label>
+                                <input type="text" class="form-control" id="realisasi_vol" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="realisasi_rp">Rp :</label>
+                                <input type="text" class="form-control" id="realisasi_rp" placeholder="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="no_bast_kab">No BAST Kab Benih/ Barang Lainnya :</label>
+                          <input type="text" class="form-control" id="no_bast_kab" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="no_bast_kelompok">No BAST Kelompok Benih/ Barang Lainnya :</label>
+                          <input type="text" class="form-control" id="no_bast_kelompok" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <br/>
+                          <center><h6><i class="fas fa-check-circle"></i><i> Waktu Distribusi/ Surat Jalan</i></h6></center>
+                          <hr/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="callout callout-info">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="surat_jalan_nomor">Nomor :</label>
+                                <input type="text" class="form-control" id="surat_jalan_nomor" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="surat_jalan_tanggal">Tanggal :</label>
+                                <input type="text" class="form-control" id="surat_jalan_tanggal" placeholder="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="penyedia_barang">Penyedia Barang :</label>
+                          <input type="text" class="form-control" id="penyedia_barang" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <br/>
+                          <center><h6><i class="fas fa-exclamation-circle"></i><i> Varietas / Merk</i></h6></center>
+                          <hr/>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="callout callout-info">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="jenis_varietas">Jenis :</label>
+                                <input type="text" class="form-control" id="jenis_varietas" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="lot">LOT / Nomor mesin & rangka :</label>
+                                <input type="text" class="form-control" id="lot" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="sertifikat">Sertifikat :</label>
+                                <input type="text" class="form-control" id="sertifikat" placeholder="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <br/>
+                          <center><h6><i class="fas fa-exclamation-circle"></i><i> Realisasi Penggunaan</i></h6></center>
+                          <hr/>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="callout callout-info">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="tanam">Tanam/ Salur <code>(HA)</code> :</label>
+                                <input type="text" class="form-control" id="tanam" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div class="form-group">
+                                <label for="panen">Panen Pemanfaatan <code>(HA)</code> :</label>
+                                <input type="text" class="form-control" id="panen" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="prov">Prov <code>(KU/HA)</code> :</label>
+                                <input type="text" class="form-control" id="prov" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="produksi">Produksi <code>(TON)</code> :</label>
+                                <input type="text" class="form-control" id="produksi" placeholder="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="keterangan">Keterangan :</label>
+                  <input type="text" class="form-control" id="keterangan" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button type="submit" id="btnSave" class="btn btn-success float-right"><i class="fas fa-check"></i> simpan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog modal-lg card card-danger card-outline">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Detail</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Penanggung Jawab</label>
+                <input id="pimpinan" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>E-mail</label>
+                <input id="email" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Frekuensi</label>
+                <input id="frekuensi" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Koordinat Lokasi</label>
+                <input id="koor" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Alamat</label>
+                <textarea id="alamat" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Kontak</label>
+                <textarea id="kontak" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12" id="maps">
+              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d116862.54554679655!2d90.40409584970706!3d23.749000170125925!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1550040341458" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+          <button type="button" class="btn btn-info" data-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.card -->
+
+</section>
+<!-- /.content -->
+
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{base_url}}assets/js/action/banpem/transbarang.js"></script>
+{% endblock %}

@@ -425,8 +425,8 @@
   .swal2-input.swal2-inputerror,
   .swal2-file.swal2-inputerror,
   .swal2-textarea.swal2-inputerror {
-    border-color: #dc3545 !important;
-    box-shadow: 0 0 2px #dc3545 !important; }
+    border-color: #E79900 !important;
+    box-shadow: 0 0 2px #E79900 !important; }
   .swal2-input:focus,
   .swal2-file:focus,
   .swal2-textarea:focus {
@@ -544,8 +544,8 @@
     align-items: center;
     font-size: 3.75em; }
   .swal2-icon.swal2-error {
-    border-color: #dc3545;
-    color: #dc3545; }
+    border-color: #E79900;
+    color: #E79900; }
     .swal2-icon.swal2-error .swal2-x-mark {
       position: relative;
       flex-grow: 1; }
@@ -556,7 +556,7 @@
       width: 2.9375em;
       height: .3125em;
       border-radius: .125em;
-      background-color: #dc3545; }
+      background-color: #E79900; }
       .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='left'] {
         left: 1.0625em;
         transform: rotate(45deg); }
@@ -1215,7 +1215,7 @@ body.swal2-toast-column .swal2-toast {
     box-shadow: none !important; }
     .swal2-input.swal2-inputerror:focus,
     .swal2-textarea.swal2-inputerror:focus {
-      border-color: #dc3545;
+      border-color: #E79900;
       box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important; }
 
 .swal2-styled.swal2-confirm {

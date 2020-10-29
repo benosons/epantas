@@ -1,0 +1,312 @@
+{% extends "admin/layout.html" %} {% block content %}
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Tambah Data Provinsi</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Profile Pengelola</a></li>
+            <li class="breadcrumb-item">Data Provinsi</li>
+            <li class="breadcrumb-item active">Tambah Data Provinsi</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+
+    <!-- Default box -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-warning card-outline">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="callout callout-info">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="dinas_pertanian_provinsi">Dinas Pertanian Provinsi :</label>
+                          <input type="text" class="form-control" id="dinas_pertanian_provinsi" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="kecamatan">Kecamatan :</label>
+                          <input type="text" class="form-control" id="kecamatan" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="desa_kelurahan">Desa / Kelurahan :</label>
+                          <input type="text" class="form-control" id="desa_kelurahan" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="callout callout-info">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="nama_pejabat">Nama Pejabat :</label>
+                          <input type="text" class="form-control" id="nama_pejabat" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="nip_pejabat">NIP Pejabat :</label>
+                          <input type="text" class="form-control" id="nip_pejabat" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="nik_pejabat">NIK Pejabat :</label>
+                          <input type="text" class="form-control" id="nik_pejabat" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="jabatan" class="col-sm-12">Jabatan :</label>
+                          <div class="col-sm-12">
+                            <select id="jabatan" class="form-control select2">
+                              <option value="0">-Pilih jabatan-</option>
+                              <option value="1">Kabid</option>
+                              <option value="2">Kasie Serealia</option>
+                              <option value="3">Kasie AKABI</option>
+                              <option value="4">Kasie Pascapanen</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <br/>
+                        <center><h6><i class="fas fa-check-circle"></i><i> Luas Lahan Kabupaten (ha)</i></h6></center>
+                        <hr/>
+                      </div>
+                    </div>
+                  </div>
+                <div class="row">
+                <div class="col-md-6">
+                  <div class="callout callout-info">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="luas_sawah">Luas Sawah <code>(ha)</code> :</label>
+                          <input type="text" class="form-control" id="luas_sawah" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="luas_ladang">Luas Ladang <code>(ha)</code>:</label>
+                          <input type="text" class="form-control" id="luas_ladang" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="luas_ladang_sawah">Luas Sawah Ladang :</label>
+                          <input type="text" class="form-control" id="luas_ladang_sawah" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="ip">Indeks Pertanaman <code>(IP)</code> :</label>
+                          <input type="text" class="form-control" id="ip" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="hasil">Hasil per Hektar <code>(Ku/Ha)</code> :</label>
+                          <input type="text" class="form-control" id="hasil" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="produksi">Produksi <code>(ton)</code> :</label>
+                          <input type="text" class="form-control" id="produksi" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="pola_tanam">POLA TANAM <code>(padi-padi-jagung)</code> :</label>
+                          <input type="text" class="form-control" id="pola_tanam" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="callout callout-info">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="varietas" class="col-sm-12">Varietas :</label>
+                          <div class="col-sm-12">
+                            <select id="varietas" class="form-control select2">
+                              <option value="0">-Pilih varietas-</option>
+                              <option value="1">Hibrida</option>
+                              <option value="2">Inbrida</option>
+                              <option value="3">Ciherang</option>
+                              <option value="4">Sintanur</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="bantuan" class="col-sm-12">Bantuan Pemerintah :</label>
+                          <div class="col-sm-12">
+                            <select id="bantuan" class="form-control select2">
+                              <option value="0">-Pilih-</option>
+                              <option value="1">Benih</option>
+                              <option value="2">Alsintan</option>
+                              <option value="3">Seritifkasi</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="pemilik_aset" class="col-sm-12">Kepemilikan Aset :</label>
+                          <div class="col-sm-12">
+                            <select id="pemilik_aset" class="form-control select2">
+                              <option value="0">-Pilih aset-</option>
+                              <option value="1">Kelompok</option>
+                              <option value="2">Brigade</option>
+                              <option value="3">Kabupaten</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="jml_aset">Jumlah Aset :</label>
+                          <input type="text" class="form-control" id="jml_aset" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="tahun_perolehan">Tahun Perolehan :</label>
+                          <input type="text" class="form-control" id="tahun_perolehan" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="sumber_aset" class="col-sm-12">Sumber Perolehan Aset :</label>
+                          <div class="col-sm-12">
+                            <select id="sumber_aset" class="form-control select2">
+                              <option value="0">-Pilih Bantuan-</option>
+                              <option value="1">Bantuan APBN Pusat</option>
+                              <option value="2">Bantuan APBN TP Provinsi</option>
+                              <option value="3">Bantuan APBD Provinsi</option>
+                              <option value="4">Bantuan APBD Kabupaten</option>
+                              <option value="5">Swadaya</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button type="submit" id="btnSave" class="btn btn-success float-right"><i class="fas fa-check"></i> simpan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog modal-lg card card-danger card-outline">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Detail</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Penanggung Jawab</label>
+                <input id="pimpinan" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>E-mail</label>
+                <input id="email" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Frekuensi</label>
+                <input id="frekuensi" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Koordinat Lokasi</label>
+                <input id="koor" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Alamat</label>
+                <textarea id="alamat" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Kontak</label>
+                <textarea id="kontak" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12" id="maps">
+              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d116862.54554679655!2d90.40409584970706!3d23.749000170125925!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1550040341458" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+          <button type="button" class="btn btn-info" data-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.card -->
+
+</section>
+<!-- /.content -->
+
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{base_url}}assets/js/action/profile/listprovinsi.js"></script>
+{% endblock %}

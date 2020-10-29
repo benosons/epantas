@@ -1,0 +1,244 @@
+{% extends "admin/layout.html" %} {% block content %}
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Tambah Data APBD Provinsi</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Realisasi Kegiatan</a></li>
+            <li class="breadcrumb-item">Data APBD Provinsi</li>
+            <li class="breadcrumb-item active">Tambah Data APBD Provinsi</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+
+    <!-- Default box -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-warning card-outline">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="callout callout-info">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="kegiatan">Kegiatan :</label>
+                          <input type="text" class="form-control" id="kegiatan" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="prov_kab_kot">Provinsi / Kabupaten / Kota :</label>
+                          <input type="text" class="form-control" id="prov_kab_kot" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <br/>
+                      <center><h6><i class="fas fa-exclamation-circle"></i><i> Realisasi Kegiatan</i></h6></center>
+                      <hr/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="callout callout-info">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="satuan">Satuan :</label>
+                            <input type="text" class="form-control" id="satuan" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <center><h6><i class="fas fa-check-circle"></i><i> Target DIPA</i></h6></center>
+                            <hr/>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <center><h6><i class="fas fa-check-circle"></i><i> Realisasi</i></h6></center>
+                            <hr/>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="callout callout-info">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="target_vol">Vol / Fisik :</label>
+                                <input type="text" class="form-control" id="target_vol" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="target_rp">Rp :</label>
+                                <input type="text" class="form-control" id="target_rp" placeholder="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="callout callout-info">
+                          <div class="row">
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label for="realis_vol">Vol / Fisik :</label>
+                                <input type="text" class="form-control" id="realis_vol" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label for="relais_persen_1">% :</label>
+                                <input type="text" class="form-control" id="relais_persen_1" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label for="realis_rp" class="col-sm-12">Rp :</label>
+                                <div class="col-sm-12">
+                                  <select id="realis_rp" class="form-control select2">
+                                    <option value="0">-Pilih-</option>
+                                    <option value="1">Kabid</option>
+                                    <option value="2">Kasie Serealia</option>
+                                    <option value="3">Kasie AKABI</option>
+                                    <option value="4">Kasie Pascapanen</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label for="realis_persen_2">% :</label>
+                                <input type="text" class="form-control" id="realis_persen_2" placeholder="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="dinas_pertanian_provinsi">Permasalahan :</label>
+                          <input type="text" class="form-control" id="permasalahan" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="dinas_pertanian_provinsi">Tindak Lanjut :</label>
+                          <input type="text" class="form-control" id="tindak_lanjut" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="card-footer">
+              <button type="submit" id="btnSave" class="btn btn-success float-right"><i class="fas fa-check"></i> simpan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog modal-lg card card-danger card-outline">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Detail</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Penanggung Jawab</label>
+                <input id="pimpinan" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>E-mail</label>
+                <input id="email" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Frekuensi</label>
+                <input id="frekuensi" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Koordinat Lokasi</label>
+                <input id="koor" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Alamat</label>
+                <textarea id="alamat" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Kontak</label>
+                <textarea id="kontak" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12" id="maps">
+              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d116862.54554679655!2d90.40409584970706!3d23.749000170125925!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1550040341458" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+          <button type="button" class="btn btn-info" data-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.card -->
+
+</section>
+<!-- /.content -->
+
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{base_url}}assets/js/action/kegiatan/apbd.js"></script>
+{% endblock %}

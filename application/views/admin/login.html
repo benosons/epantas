@@ -89,8 +89,21 @@
   border-bottom-right-radius:2rem;
   border-top-right-radius:2rem;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-  background: #001f3f;
+  background: #009343;
   width:60%;
+}
+
+.card-signin-kiri {
+  border: 0;
+  border-bottom-left-radius:2rem;
+  border-top-left-radius:2rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+  width:51%;
+  left: 51%;
+  height: 454px;
+  top: 48px;
+
 }
 
 .logo-login {
@@ -114,6 +127,27 @@
 .card-signin .card-body {
   padding: 2rem;
 }
+
+.login-section-wrapper-1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 100vh;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .login-section-wrapper {
+      padding-right: 0px;
+  }
+
+  .card-signin {
+    border: 0;
+    border-radius: 2rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    background: #009343;
+    width: 100%;
+  }
+}
   </style>
 </head>
 <body>
@@ -121,90 +155,85 @@
     <div class="container-fluid" style="background:url('assets/login/images/big-bg.png')">
 
       <div class="row">
-        <div class="brand-wrapper">
-          <a href="{{base_url}}">
-            <img src="{{base_url}}assets/img/logo/SIPPIII.png" alt="logo" class="logo logo-login">
-          </a>
-        </div>
-        <div class="col-sm-6 px-0 d-none d-sm-block">
+        <div class="col-sm-6 login-section-wrapper-1" style="padding-left: 0px;background-color: #fff0;">
+          <div class="card card-signin-kiri my-5">
+            <div class="card-body col-md-12">
 
+              <div class="col-sm-6 px-0 d-none d-sm-block">
                 <div class="login-img">
-
-                  <img src="assets/login/images/mic.png" alt="login image" class="" style="padding: 15% 9px 18px 46%;">
+                  <img src="assets/dokumen/gambar/LOGO.png" alt="login image" class="" style="padding: 25px 0 0 35px;width:180%;">
                 </div>
-
+              </div>
+            </div>
+          </div>
         </div>
+
 
         <div class="col-sm-6 login-section-wrapper" style="padding-left: 0px;background-color: #fff0;">
-          <!-- <div class="brand-wrapper">
-            <a href="{{base_url}}">
-              <img src="{{base_url}}assets/img/logo/SIPPIII.png" alt="logo" class="logo" style="height:100px;">
-            </a>
-          </div> -->
           <div class="card card-signin my-5">
             <div class="card-body col-md-12">
-          <div class="login-wrapper my-auto" id="login-form" style="width: 100%;">
-            <h1 class="login-title" style="color: #fff;">Log in</h1>
+              <div class="login-wrapper my-auto" id="login-form" style="width: 100%;">
+                <h1 class="login-title" style="color: #fff;">Log in</h1>
 
-            <form method="post" action="{{ base_url }}auth/">
-              <div class="form-group">
-                <label for="email">Username</label>
-                <input type="text" name="username" id="username" class="form-control" placeholder="Username">
-              </div>
-              <div class="form-group mb-4">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="masukan passsword">
-              </div>
-              <input hidden id="message" value="{{message}}"/>
-              <input hidden id="code" value="{{code}}"/>
+                <form method="post" action="{{ base_url }}auth/">
+                  <div class="form-group">
+                    <label for="email">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+                  </div>
+                  <div class="form-group mb-4">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="masukan passsword">
+                  </div>
+                  <input hidden id="message" value="{{message}}"/>
+                  <input hidden id="code" value="{{code}}"/>
 
-              <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Login">
-            </form>
-            <!-- <a href="#!" class="forgot-password-link">Forgot password?</a> -->
-            <p class="login-wrapper-footer-text" style="color: #fff;">Belum punya akun? <a href="#!" id ="goto-register" class="text-reset"><i>Register</i></a></p>
-          </div>
-          <div class="login-wrapper my-auto" id="register-form" style="display:none;">
-            <h1 class="login-title" style="color: #fff;">Register user baru</h1>
-            <form method="post" action="{{ base_url }}register/">
-              <div class="form-group">
-                <label for="email">Nama Lengkap</label>
-                <input type="text" name="name_regis" id="name_regis" class="form-control" placeholder="Nama Lengkap">
+                  <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Login">
+                </form>
+                <!-- <a href="#!" class="forgot-password-link">Forgot password?</a> -->
+                <p class="login-wrapper-footer-text" style="color: #fff;">Belum punya akun? <a href="#!" id ="goto-register" class="text-reset"><i>Register</i></a></p>
               </div>
-              <div class="form-group">
-                <label for="email">Username</label>
-                <input type="text" name="username_regis" id="username_regis" class="form-control" placeholder="Username minimal 4 karakter">
-                <span id="warning" style="display:none"><i>username sudah ada !!</i></span>
-              </div>
-              <div class="form-group">
-                <label for="email">Password</label>
-                <div class="input-group">
-                  <input id="password_regis" name="password_regis" type="password" class="form-control" placeholder="Masukan Password">
-                  <div class="input-group-append" style="margin-right: -45px;">
-                    <div class="btn btn-warning" id="btn-view-pass" style="width: 50%;">
-                      <img src="http://simpleicon.com/wp-content/uploads/eye2-64x64.png" style="width: 100%;"></i>
+              <div class="login-wrapper my-auto" id="register-form" style="display:none;">
+                <h1 class="login-title" style="color: #fff;">Register user baru</h1>
+                <form method="post" action="{{ base_url }}register/">
+                  <div class="form-group">
+                    <label for="email">Nama Lengkap</label>
+                    <input type="text" name="name_regis" id="name_regis" class="form-control" placeholder="Nama Lengkap">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Username</label>
+                    <input type="text" name="username_regis" id="username_regis" class="form-control" placeholder="Username minimal 4 karakter">
+                    <span id="warning" style="display:none"><i>username sudah ada !!</i></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Password</label>
+                    <div class="input-group">
+                      <input id="password_regis" name="password_regis" type="password" class="form-control" placeholder="Masukan Password">
+                      <div class="input-group-append" style="margin-right: -45px;">
+                        <div class="btn btn-warning" id="btn-view-pass" style="width: 50%;">
+                          <img src="http://simpleicon.com/wp-content/uploads/eye2-64x64.png" style="width: 100%;"></i>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                  <div class="form-group mb-4">
+                    <label>Kota/ Kabupaten</label>
+                    <select id="kota_kab" name="kota_kab_regis" class="form-control select2" style="width: 100%;">
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">No. Telepon</label>
+                    <input type="text" name="telp_regis" id="telp_regis" class="form-control" placeholder="masukan nomor telepon">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email_regis" id="email_regis" class="form-control" placeholder="masukan email">
+                  </div>
+                  <input name="login" id="register" class="btn btn-block login-btn" type="submit" value="Register">
+                </form>
+                <!-- <a href="#!" class="forgot-password-link">Forgot password?</a> -->
+                <p class="login-wrapper-footer-text" style="color: #fff;">Sudah punya akun? <a href="#!" id="goto-login" class="text-reset"><i>Log in</i></a></p>
               </div>
-              <div class="form-group mb-4">
-                  <label>Kota/ Kabupaten</label>
-                  <select id="kota_kab" name="kota_kab_regis" class="form-control select2" style="width: 100%;">
-                  </select>
-              </div>
-              <div class="form-group">
-                <label for="email">No. Telepon</label>
-                <input type="text" name="telp_regis" id="telp_regis" class="form-control" placeholder="masukan nomor telepon">
-              </div>
-              <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" name="email_regis" id="email_regis" class="form-control" placeholder="masukan email">
-              </div>
-              <input name="login" id="register" class="btn btn-block login-btn" type="submit" value="Register">
-            </form>
-            <!-- <a href="#!" class="forgot-password-link">Forgot password?</a> -->
-            <p class="login-wrapper-footer-text" style="color: #fff;">Sudah punya akun? <a href="#!" id="goto-login" class="text-reset"><i>Log in</i></a></p>
-          </div>
-          </div>
+            </div>
           </div>
         </div>
 
@@ -308,6 +337,18 @@
             }
           });
         };
+
+        function myFunction(x) {
+          if (x.matches) { // If media query matches
+            $('.login-section-wrapper-1').hide();
+          } else {
+           $('.login-section-wrapper-1').show();
+          }
+        }
+
+        var x = window.matchMedia("(max-width: 600px)")
+        myFunction(x) // Call listener function at run time
+        x.addListener(myFunction) // Attach listener function on state changes
 
 
   </script>

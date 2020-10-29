@@ -5,112 +5,56 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>SIPP KPID JAWARA</title>
+  <title>SIM PANTAS - v1.0</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{base_url}}assets/img/logo/favicon.ico" rel="icon">
-  <link href="{{base_url}}assets/mamba/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{base_url}}assets/valera/assets/img/favicon.png" rel="icon">
+  <link href="{{base_url}}assets/valera/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{{base_url}}assets/mamba/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="{{base_url}}assets/mamba/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="{{base_url}}assets/mamba/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="{{base_url}}assets/mamba/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="{{base_url}}assets/mamba/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="{{base_url}}assets/mamba/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="{{base_url}}assets/mamba/vendor/aos/aos.css" rel="stylesheet">
-  <link href="{{base_url}}assets/lte/plugins/fontawesome-free/css/all.min.css" rel="stylesheet">
-
+  <link href="{{base_url}}assets/valera/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{base_url}}assets/valera/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="{{base_url}}assets/valera/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="{{base_url}}assets/valera/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="{{base_url}}assets/valera/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+  <link href="{{base_url}}assets/valera/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="{{base_url}}assets/valera/vendor/venobox/venobox.css" rel="stylesheet">
+  <!-- css 3 -->
+  <link rel="stylesheet" type="text/css" href="{{base_url}}assets/css3/css/demo.css" />
+  <link rel="stylesheet" type="text/css" href="{{base_url}}assets/css3/css/style1.css" />
 
   <!-- Template Main CSS File -->
-  <link href="{{base_url}}assets/mamba/css/style.css" rel="stylesheet">
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{base_url}}assets/lte/plugins/fontawesome-free/css/all.min.css">
-  <!-- SweetAlert2 -->
-  <link rel="stylesheet" href="{{base_url}}assets/lte/plugins/sweetalert2/sweetalert2.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{base_url}}assets/lte/dist/css/adminlte.min.css">
-
-  <link rel="stylesheet" href="{{base_url}}assets/custom/blog.css">
-
-  <link rel="stylesheet" href="{{base_url}}assets/lte/plugins/select2/css/select2.min.css">
-  <link rel="stylesheet" href="{{base_url}}assets/lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <link href="{{base_url}}assets/valera/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
-  * Template Name: Mamba - v2.4.0
-  * Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
+  * Template Name: Valera - v2.1.0
+  * Template URL: https://bootstrapmade.com/valera-free-bootstrap-theme/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <style>
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-      }
 
-      .table-bordered td, .table-bordered th {
-        border-style: none;
-      }
+    /* .kotak {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
 
-      .table-bordered > tbody > tr {
-        border-bottom: 1px solid #dee2e6;
-      }
+    .kotak img {
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+  width: 700px;
+}
 
-      .status-mark {
-          width: 8px;
-          height: 8px;
-          display: inline-block;
-          border-radius: 50%;
-          border: 2px solid;
-              border-top-color: currentcolor;
-              border-right-color: currentcolor;
-              border-bottom-color: currentcolor;
-              border-left-color: currentcolor;
-      }
-
-      .border-blue {
-          border-color: #03A9F4;
-      }
-
-      .card-primary.card-outline {
-          border-top: 3px solid #007bff;
-      }
-
-      .img-circle {
-          border-radius: 50%;
-      }
-
-      .img-xs {
-          width: 50px !important;
-          height: 50px !important;
-      }
-
-      .sosmed {
-          position: absolute;
-          top: 11px;
-          width: 20px;
-      }
-
-      .sosmed-foot {
-        position: relative;
-        top: -8px;
-        width: 37px
-      }
-
-      .select2-container .select2-selection--single {
-          height: 100%!important;
-      }
-      .select2-container--default .select2-selection--single .select2-selection__arrow {
-        height: 100%!important;
-      }
-
+#footer:hover .kotak img {
+  -webkit-transform: scale(1.08);
+  transform: scale(1.08);
+} */
   </style>
 </head>
 
@@ -123,125 +67,22 @@
 
     {% include "users/footer.html" %}
 
-      <!-- Vendor JS Files -->
-      <script src="{{base_url}}assets/mamba/vendor/jquery/jquery.min.js"></script>
-      <script src="{{base_url}}assets/mamba/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <script src="{{base_url}}assets/mamba/vendor/jquery.easing/jquery.easing.min.js"></script>
-      <script src="{{base_url}}assets/mamba/vendor/php-email-form/validate.js"></script>
-      <script src="{{base_url}}assets/mamba/vendor/jquery-sticky/jquery.sticky.js"></script>
-      <script src="{{base_url}}assets/mamba/vendor/venobox/venobox.min.js"></script>
-      <script src="{{base_url}}assets/mamba/vendor/waypoints/jquery.waypoints.min.js"></script>
-      <script src="{{base_url}}assets/mamba/vendor/counterup/counterup.min.js"></script>
-      <script src="{{base_url}}assets/mamba/vendor/owl.carousel/owl.carousel.min.js"></script>
-      <script src="{{base_url}}assets/mamba/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-      <script src="{{base_url}}assets/mamba/vendor/aos/aos.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="{{base_url}}assets/valera/vendor/jquery/jquery.min.js"></script>
+    <script src="{{base_url}}assets/valera/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{base_url}}assets/valera/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="{{base_url}}assets/valera/vendor/php-email-form/validate.js"></script>
+    <script src="{{base_url}}assets/valera/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="{{base_url}}assets/valera/vendor/counterup/counterup.min.js"></script>
+    <script src="{{base_url}}assets/valera/vendor/jquery-sticky/jquery.sticky.js"></script>
+    <script src="{{base_url}}assets/valera/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="{{base_url}}assets/valera/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="{{base_url}}assets/valera/vendor/venobox/venobox.min.js"></script>
 
-      <!-- Template Main JS File -->
-      <script src="{{base_url}}assets/mamba/js/main.js"></script>
+    <script type="text/javascript" src="{{base_url}}assets/css3/js/modernizr.custom.86080.js"></script>
 
-      <!-- jQuery -->
-      <script src="{{base_url}}assets/lte/plugins/jquery/jquery.min.js"></script>
-      <!-- Bootstrap 4 -->
-      <script src="{{base_url}}assets/lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <!-- DataTables  & Plugins -->
-      <script src="{{base_url}}assets/lte/plugins/datatables/jquery.dataTables.min.js"></script>
-      <script src="{{base_url}}assets/lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-      <script src="{{base_url}}assets/lte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-      <script src="{{base_url}}assets/lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-      <script src="{{base_url}}assets/lte/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-      <script src="{{base_url}}assets/lte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-      <script src="{{base_url}}assets/lte/plugins/jszip/jszip.min.js"></script>
-      <script src="{{base_url}}assets/lte/plugins/pdfmake/pdfmake.min.js"></script>
-      <script src="{{base_url}}assets/lte/plugins/pdfmake/vfs_fonts.js"></script>
-      <script src="{{base_url}}assets/lte/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-      <script src="{{base_url}}assets/lte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-      <script src="{{base_url}}assets/lte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-      <!-- AdminLTE App -->
-      <script src="{{base_url}}assets/lte/dist/js/adminlte.min.js"></script>
-      <!-- AdminLTE for demo purposes -->
-      <script src="{{base_url}}assets/lte/dist/js/demo.js"></script>
-
-      <script src="{{base_url}}assets/lte/plugins/select2/js/select2.full.min.js"></script>
-
-      <script src="{{base_url}}assets/lte/swal/swal.js"></script>
-
-      <!-- Page specific script -->
-
-      <script>
-        $(function () {
-          counttotal();
-          function counttotal(){
-
-              $.ajax({
-                  type: 'post',
-                  dataType: 'json',
-                  url: 'hitungAll',
-                  data : {
-                          param      : '',
-                   },
-                  success: function(result){
-
-                    $('#total-tv').text(result.tv[0].total);
-                    $('#total-radio').text(result.radio[0].total);
-                    $('#total-aduan').text(result.aduan[0].total);
-                    $('#total-video').text(result.video[0].total);
-                  }
-                });
-              }
-
-          $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": false,
-            "autoWidth": false,
-            "responsive": true,
-            "pageLength": 5,
-            "dom": '<"top"i>rt<"bottom"flp><"clear">',
-            "autoWidth": true,
-            "aoColumnDefs": [
-                  {
-                      "mRender": function ( data, type, row ) {
-                        var el =
-                        `<div class="media-left media-middle">
-														<a href="#"><img src="{{base_url}}assets/distro/images/brands/`+row[0].toUpperCase()+`.png" class="img-circle img-xs" alt="" ></a>
-													</div>`;
-                          return el;
-                      },
-                      "aTargets": [ 0 ]
-                  },
-                  {
-                      "mRender": function ( data, type, row ) {
-                        var el =
-                        `<div class="media-left">
-														<div class=""><a href="#" class="text-default text-semibold">`+row[0]+`</a></div>
-														<div class="text-muted text-size-small">
-															<span class="status-mark border-blue position-left"></span>
-															02:00 - 03:00
-														</div>
-													</div>`;
-                          return el;
-                      },
-                      "aTargets": [ 1 ]
-                  }
-              ]
-          });
-
-          $('#example22').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": false,
-            "autoWidth": false,
-            "responsive": true,
-            "pageLength": 8,
-            "dom": '<"top"i>rt<"bottom"flp><"clear">',
-            "autoWidth": true,
-          });
-        });
-      </script>
+    <!-- Template Main JS File -->
+    <script src="{{base_url}}assets/valera/js/main.js"></script>
     {% block js %} {% endblock %}
 </body>
 </html>

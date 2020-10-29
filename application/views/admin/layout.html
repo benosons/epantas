@@ -3,15 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="{{base_url}}assets/img/logo/favicon.ico">
-  <title>SIPP KPID JAWARA</title>
+	<link rel="shortcut icon" href="{{base_url}}assets/img/logo/favico.ico">
+  <title>E-PANTAS</title>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> -->
+  <link rel="stylesheet" href="{{base_url}}assets/lte/dist/css/fonts.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{base_url}}assets/lte/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+  <link rel="stylesheet" href="{{base_url}}assets/lte/dist/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="{{base_url}}assets/lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
@@ -47,15 +49,32 @@
 		}
 
     .select2-container .select2-selection--single {
-        height: 100%!important;
+        height: 38px!important;
     }
-    .select2-container--default .select2-selection--single .select2-selection__arrow {
-      height: 100%!important;
-    }
+    /* .select2-container--default .select2-selection--single .select2-selection__arrow {
+      height: 24px!important;
+    } */
 
     .swal2-actions > button {
       margin: 3%!important;
       width: 20%!important;
+    }
+
+    .navbar-navy {
+        background-color: #01652F !important;
+    }
+
+    .sidebar-dark-danger .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-danger .nav-sidebar > .nav-item > .nav-link.active {
+        background-color: #FC0 !important;
+    }
+
+    blockquote {
+        border-left: .2rem solid #007bff !important;
+    }
+
+    .callout {
+
+        border-left: 3px solid #117a8b !important;
     }
 
 	</style>
@@ -152,7 +171,7 @@
     });
 
 
-  cekStatus(0);
+  // cekStatus(0);
   function cekStatus(param){
 
       $.ajax({

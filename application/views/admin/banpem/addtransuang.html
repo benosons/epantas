@@ -1,0 +1,616 @@
+{% extends "admin/layout.html" %} {% block content %}
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Tambah Data Transfer Uang</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Realisasi Banpem</a></li>
+            <li class="breadcrumb-item">Data Transfer Uang</li>
+            <li class="breadcrumb-item active">Tambah Data Transfer Uang</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+
+    <!-- Default box -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-warning card-outline">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="callout callout-info">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="kabupaten">Kabupaten :</label>
+                          <input type="text" class="form-control" id="kabupaten" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="kecamatan">Kecamatan :</label>
+                          <input type="text" class="form-control" id="kecamatan" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="desa">Desa :</label>
+                          <input type="text" class="form-control" id="desa" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="kelompok_tani">Kelompok Tani :</label>
+                          <input type="text" class="form-control" id="kelompok_tani" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                      <div class="row">
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <br/>
+                            <center><h6><i class="fas fa-check-circle"></i><i> Dana yang Diterima</i></h6></center>
+                            <hr/>
+                          </div>
+                        </div>
+                        <div class="col-md-7">
+                          <div class="form-group">
+                            <br/>
+                            <center><h6><i class="fas fa-check-circle"></i><i> Dana yang Digunakan</i></h6></center>
+                            <hr/>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="callout callout-info">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="dinas_pertanian_provinsi">Rupiah :</label>
+                                <input type="text" class="form-control" id="diterima_rupiah" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="kecamatan">Tanggal masuk :</label>
+                                <input type="text" class="form-control" id="tanggal_diterima" placeholder="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-7">
+                        <div class="callout callout-info">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="digunakan_rupiah">Rupiah :</label>
+                                <input type="text" class="form-control" id="digunakan_rupiah" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="tanggal_digunakan">Tanggal masuk :</label>
+                                <input type="text" class="form-control" id="tanggal_digunakan" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="saldo_digunakan">Saldo Rekening :</label>
+                                <input type="text" class="form-control" id="saldo_digunakan" placeholder="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <br/>
+                                <center><h6><i class="fas fa-check-circle"></i><i> Dana yang Dikembalikan</i></h6></center>
+                                <hr/>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <br/>
+                                <center><h6><i class="fas fa-check-circle"></i><i> BAST Pekerjaan</i></h6></center>
+                                <hr/>
+                              </div>
+                            </div>
+                          </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="callout callout-info">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="dikembalikan_rupiah">Rupiah :</label>
+                                    <input type="text" class="form-control" id="dikembalikan_rupiah" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="tanggal_setoran">Tanggal Setoran :</label>
+                                    <input type="text" class="form-control" id="tanggal_setoran" placeholder="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="callout callout-info">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="no_bast">Nomor :</label>
+                                    <input type="text" class="form-control" id="no_bast" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="tanggal_bast">Tanggal :</label>
+                                    <input type="text" class="form-control" id="tanggal_bast" placeholder="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <br/>
+                              <center><h6><i class="fas fa-exclamation-circle"></i><i> Alokasi / RUK</i></h6></center>
+                              <hr/>
+                            </div>
+                          </div>
+                        </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="callout callout-info">
+
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <center><h6><i class="fas fa-check-circle"></i><i> Benih</i></h6></center>
+                                <hr/>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <center><h6><i class="fas fa-check-circle"></i><i> Pupuk</i></h6></center>
+                                <hr/>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <center><h6><i class="fas fa-check-circle"></i><i> ALSINTAN / Bangunan</i></h6></center>
+                                <hr/>
+                              </div>
+                            </div>
+                          </div>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="callout callout-info">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="alokasi_benih_vol">Vol :</label>
+                                    <input type="text" class="form-control" id="alokasi_benih_vol" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="alokasi_benih_rp">Rp :</label>
+                                    <input type="text" class="form-control" id="alokasi_benih_rp" placeholder="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="callout callout-info">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="alokasi_pupuk_vol">Vol :</label>
+                                    <input type="text" class="form-control" id="alokasi_pupuk_vol" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="alokasi_pupuk_rp">Rp :</label>
+                                    <input type="text" class="form-control" id="alokasi_pupuk_rp" placeholder="">
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="callout callout-info">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="alokasi_bangunan_vol">Vol :</label>
+                                    <input type="text" class="form-control" id="alokasi_bangunan_vol" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="alokasi_bangunan_rp">RP :</label>
+                                    <input type="text" class="form-control" id="alokasi_bangunan_rp" placeholder="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <br/>
+                          <center><h6><i class="fas fa-exclamation-circle"></i><i> Realisasi</i></h6></center>
+                          <hr/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="callout callout-info">
+
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <center><h6><i class="fas fa-check-circle"></i><i> Benih</i></h6></center>
+                                <hr/>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <center><h6><i class="fas fa-check-circle"></i><i> Pupuk</i></h6></center>
+                                <hr/>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <center><h6><i class="fas fa-check-circle"></i><i> ALSINTAN / Bangunan</i></h6></center>
+                                <hr/>
+                              </div>
+                            </div>
+                          </div>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="callout callout-info">
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label for="realisasi_benih_vol">Vol :</label>
+                                    <input type="text" class="form-control" id="realisasi_benih_vol" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-8">
+                                  <div class="form-group">
+                                    <label for="realisasi_benih_sertifikasi">No. LOT dan Sertifikasi :</label>
+                                    <input type="text" class="form-control" id="realisasi_benih_sertifikasi" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="realisasi_benih_rp">Rp :</label>
+                                    <input type="text" class="form-control" id="realisasi_benih_rp" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="realisasi_benih_penyedia">Penyedia :</label>
+                                    <input type="text" class="form-control" id="realisasi_benih_penyedia" placeholder="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="callout callout-info">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="realisasi_pupuk_vol">Vol :</label>
+                                    <input type="text" class="form-control" id="realisasi_pupuk_vol" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="realisasi_pupuk_rp">Rp :</label>
+                                    <input type="text" class="form-control" id="realisasi_pupuk_rp" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label for="realisasi_pupuk_penyedia">Penyedia :</label>
+                                    <input type="text" class="form-control" id="realisasi_pupuk_penyedia" placeholder="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="callout callout-info">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label for="realisasi_bangunan_vol">Vol :</label>
+                                    <input type="text" class="form-control" id="realisasi_bangunan_vol" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label for="realisasi_bangunan_rp">RP :</label>
+                                    <input type="text" class="form-control" id="realisasi_bangunan_rp" placeholder="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <br/>
+                          <center><h6><i class="fas fa-exclamation-circle"></i><i> Sisa</i></h6></center>
+                          <hr/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="callout callout-info">
+
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <center><h6><i class="fas fa-check-circle"></i><i> Benih</i></h6></center>
+                                <hr/>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <center><h6><i class="fas fa-check-circle"></i><i> Pupuk</i></h6></center>
+                                <hr/>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <center><h6><i class="fas fa-check-circle"></i><i> ALSINTAN / Bangunan</i></h6></center>
+                                <hr/>
+                              </div>
+                            </div>
+                          </div>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="callout callout-info">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="sisa_benih_vol">Vol :</label>
+                                    <input type="text" class="form-control" id="sisa_benih_vol" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="sisa_benih_rp">Rp :</label>
+                                    <input type="text" class="form-control" id="sisa_benih_rp" placeholder="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="callout callout-info">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="sisa_pupuk_vol">Vol :</label>
+                                    <input type="text" class="form-control" id="sisa_pupuk_vol" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="sisa_pupuk_rp">Rp :</label>
+                                    <input type="text" class="form-control" id="sisa_pupuk_rp" placeholder="">
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="callout callout-info">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="sisa_bangunan_vol">Vol :</label>
+                                    <input type="text" class="form-control" id="sisa_bangunan_vol" placeholder="">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="sisa_bangunan_rp">RP :</label>
+                                    <input type="text" class="form-control" id="sisa_bangunan_rp" placeholder="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <br/>
+                          <center><h6><i class="fas fa-exclamation-circle"></i><i> Realisasi Fisik</i></h6></center>
+                          <hr/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="callout callout-info">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="fisik_tanam">Tanam <code>(HA)</code> :</label>
+                                <input type="text" class="form-control" id="fisik_tanam" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="fisik_panen">Panen <code>(HA)</code> :</label>
+                                <input type="text" class="form-control" id="fisik_panen" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="fisik_prov">Prov <code>(KU/HA)</code> :</label>
+                                <input type="text" class="form-control" id="fisik_prov" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="fisik_produksi">Produksi <code>(TON)</code> :</label>
+                                <input type="text" class="form-control" id="fisik_produksi" placeholder="">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="fisik_bangunan">ALSINTAN / Bangunan <code>(Unit / Paket)</code> :</label>
+                                <input type="text" class="form-control" id="fisik_bangunan" placeholder="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="keterangan">Keterangan :</label>
+                          <input type="text" class="form-control" id="keterangan" placeholder="">
+                        </div>
+                      </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button type="submit" id="btnSave" class="btn btn-success float-right"><i class="fas fa-check"></i> simpan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog modal-lg card card-danger card-outline">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Detail</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Penanggung Jawab</label>
+                <input id="pimpinan" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>E-mail</label>
+                <input id="email" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Frekuensi</label>
+                <input id="frekuensi" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Koordinat Lokasi</label>
+                <input id="koor" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Alamat</label>
+                <textarea id="alamat" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Kontak</label>
+                <textarea id="kontak" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12" id="maps">
+              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d116862.54554679655!2d90.40409584970706!3d23.749000170125925!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1550040341458" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+          <button type="button" class="btn btn-info" data-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.card -->
+
+</section>
+<!-- /.content -->
+
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{base_url}}assets/js/action/banpem/transuang.js"></script>
+{% endblock %}
