@@ -38,54 +38,48 @@ $( document ).ready(function() {
     savedatakabupaten(data);
   });
 
-  // loadsiaran();
-  function loadsiaran(){
-
+  loadkabupaten();
+  function loadkabupaten(){
       $.ajax({
           type: 'post',
           dataType: 'json',
-          url: 'listDataSiaran',
+          url: 'loadkabupaten',
           data : {
-                  param      : param,
+                  param      : '',
            },
           success: function(result){
-                  var dt = $('#listsiaran').DataTable({
+            console.log(result)
+                  var dt = $('#list-kabupaten').DataTable({
                       responsive: true,
                       bDestroy: true,
                       processing: true,
-                      autoWidth : true,
+                      // autoWidth : true,
                       pageLength: 10,
                       lengthChange: true,
                       aaData: result,
                       aoColumns: [
                           { 'mDataProp': 'id'},
-                          { 'mDataProp': 'namaBadanHukum'},
-                          { 'mDataProp': 'sebutanDiUdara'},
-                          { 'mDataProp': 'wilayahLayanan'},
-                          { 'mDataProp': 'alamat'},
-                          { 'mDataProp': 'pimpinan'},
-                          { 'mDataProp': 'email'},
-                          { 'mDataProp': 'frekuensi'},
-                          { 'mDataProp': 'noIPP'},
-                          { 'mDataProp': 'kontak'},
-                          { 'mDataProp': 'koor'},
+                          { 'mDataProp': 'dinas_pertanian_kabupaten'},
+                          { 'mDataProp': 'kecamatan'},
+                          { 'mDataProp': 'desa_kelurahan'},
+                          { 'mDataProp': 'nama_pejabat'},
+                          { 'mDataProp': 'nip_pejabat'},
+                          { 'mDataProp': 'nik_pejabat'},
+                          { 'mDataProp': 'jabatan'},
+                          { 'mDataProp': 'id'},
                       ],
-                      order: [[0, 'ASC']],
+                      // order: [[0, 'ASC']],
                       aoColumnDefs:[
-                          {
-                              "targets": [ 5,6,7,8,9,10 ],
-                              "visible": false
-                          },
                           {
                               mRender: function (data, type, row){
                                   var $rowData = '';
                                       $rowData += `
                                                 <div class="row">
                                                   <div class="col-md-4">
-                                                    <button onclick="modaldetail('`+row.namaBadanHukum+`','`+row.pimpinan+`','`+row.alamat+`','`+row.email+`','`+row.frekuensi+`','`+row.wilayahLayanan+`','`+row.kontak+`','`+row.koor+`')" type="button" class="btn btn-block btn-success btn-sm"><i class="far fa-eye"></i></button>
+                                                    <button type="button" class="btn btn-block btn-success btn-sm"><i class="far fa-eye"></i></button>
                                                   </div>
                                                   <div class="col-md-4">
-                                                    <button onclick="editlembaga(`+row.id+`,'`+param+`')" type="button" class="btn btn-block btn-warning btn-sm"><i class="far fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-block btn-warning btn-sm"><i class="far fa-edit"></i></button>
                                                   </div>
                                                   <div class="col-md-4">
                                                     <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
@@ -95,7 +89,7 @@ $( document ).ready(function() {
 
                                   return $rowData;
                               },
-                              aTargets: [4]
+                              aTargets: [8]
                           },
                       ],
 
@@ -105,30 +99,11 @@ $( document ).ready(function() {
                           return  ;
                       },
 
-                      fnInitComplete: function () {
-                          var that = this;
-                          var td ;
-                          var tr ;
-
-                          this.$('td').click( function () {
-                              td = this;
-                          });
-                          this.$('tr').click( function () {
-                              tr = this;
-                          });
-
-
-                          $('#listproj_filter input').bind('keyup', function (e) {
-                              return this.value;
-                          });
-
-                      }
                   });
 
               }
       });
   }
-
 
 });
 

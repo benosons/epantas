@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Data Gabungan Kelompok Tani / Kelompok Tani</h1>
+          <h1>Data Gabungan Kelompok Tani</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -25,221 +25,272 @@
         <div class="col-12">
           <div class="card card-danger card-outline">
             <div class="card-header">
-              <div class="card-tools">
+              <ul class="nav nav-pills ml-auto p-2">
+                  <li class="nav-item"><a class="nav-link active" href="#tab-data" data-toggle="tab">List Data</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#tab-kelompok" data-toggle="tab">Data Kelompok</a></li>
+                  <li class="nav-item">
+                    <div class="dropdown float-right" style="padding-left: 15px;">
+                      <button type="button" class="btn btn-primary"><i class="fas fa-bars"></i></button>
+                      <div class="dropdown-content">
+                        <a href="#" id="add-gapoktan">Tambah Data</a>
+                        <a href="#" onclick="openNav()">Tambah Kelompok</a>
+                      </div>
+                    </div>
+                  </li>
+              </ul>
+
+              <!-- <div class="card-tools">
                 <div class="input-group input-group-sm">
                     <div class="btn btn-info" id="add-gapoktan">
                       <i class="fas fa-plus"></i><span> Tambah Data</span>
                     </div>
                 </div>
-              </div>
+              </div> -->
             </div>
               <div class="card-body">
-        <input id="param" value="Televisi" hidden>
-        <table class="table table-bordered table-hover" id="listsiaran">
-            <thead>
-                <tr>
-                    <th>
-                        No
-                    </th>
-                    <th>
-                        Nama Badan Hukum
-                    </th>
-                    <th>
-                        Nama di Udara
-                    </th>
-                    <th style="width:20%;">
-                        Wilayah
-                    </th>
-                    <th>
-                        action
-                    </th>
-                    <!-- <th>
-                        alamat
-                    </th> -->
-                    <!-- th>
-                        email
-                    </th>
-                    <th>
-                        Frekuensi
-                    </th>
-                    <th>
-                        Wilayah Layanan
-                    </th>
-                    <th>
-                        Kontak
-                    </th>
-                    <th>
-                        Kontak
-                    </th> -->
-                </tr>
-            </thead>
-            <!-- <tbody>
-                <tr>
-                    <td>
-                        #
-                    </td>
-                    <td>
-                      <ul class="list-inline">
-                          <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="https://cdn2.tstatic.net/tribunnews/foto/bank/images/logo-net-tv.jpg">
-                          </li>
-                      </ul>
+              <input id="param" value="Televisi" hidden>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab-data">
+                    <table class="table table-bordered table-hover" id="list-poktan">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">
+                                    No
+                                </th>
+                                <th rowspan="2">
+                                    Nama Kelompok
+                                </th>
+                                <th colspan="3">
+                                    Luas
+                                </th>
+                                <th rowspan="2">
+                                    Indeks Pertanaman <code>(IP)</code>
+                                </th>
+                                <th rowspan="2">
+                                    Hasil per Hektar <code>(Ku/Ha)</code>
+                                </th>
+                                <th rowspan="2">
+                                    Produksi <code>(ton)</code>
+                                </th>
+                                <th rowspan="2">
+                                    Pola Tanam
+                                </th>
+                                <th rowspan="2">
+                                    Status Kepemilikan
+                                </th>
+                                <th rowspan="2">
+                                    action
+                                </th>
+                              </tr>
+                              <tr>
+                                <th>
+                                    Lahan Sawah <code>(ha)</code>
+                                </th>
+                                <th>
+                                    Lahan Ladang <code>(ha)</code>
+                                </th>
+                                <th>
+                                    Sawah Ladang
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                  </div>
+                  <div class="tab-pane" id="tab-kelompok">
+                    <table class="table table-bordered table-hover" id="list-kelompok">
+                        <thead>
+                            <tr>
+                                <th>
+                                    No
+                                </th>
+                                <th>
+                                    Nama Kelompok
+                                </th>
+                                <th>
+                                    Tahun Pembentukan
+                                </th>
+                                <th>
+                                    Alamat Sekretariat
+                                </th>
+                                <th>
+                                    Kelas dalam simluhtan
+                                </th>
+                                <th>
+                                    Skor
+                                </th>
+                                <th>
+                                    Tahun Penetapan
+                                </th>
+                                <th>
+                                    Jumlah Anggota
+                                </th>
+                                <th>
+                                    action
+                                </th>
 
-                    </td>
-                    <td>
-                      <a>
-                          NET TV
-                      </a>
-                      <br/>
-                      <small>
-                          Created 01.01.2019
-                      </small>
-                    </td>
-                    <td class="project_progress">
-                        <div class="progress progress-sm">
-                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                            </div>
-                        </div>
-                        <small>
-                            57% Complete
-                        </small>
-                    </td>
-                    <td class="project-state">
-                        <span class="badge badge-success">Success</span>
-                    </td>
-                    <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="#">
-                            <i class="fas fa-folder">
-                            </i>
-                            View
-                        </a>
-                        <a class="btn btn-info btn-sm" href="#">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Edit
-                        </a>
-                        <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        #
-                    </td>
-                    <td>
-                      <ul class="list-inline">
-                          <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/INDOSIAR_Logo.png/1125px-INDOSIAR_Logo.png">
-                          </li>
-                      </ul>
-
-                    </td>
-                    <td>
-                      <a>
-                          INDOSIAR
-                      </a>
-                      <br/>
-                      <small>
-                          Created 01.01.2019
-                      </small>
-                    </td>
-                    <td class="project_progress">
-                        <div class="progress progress-sm">
-                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                            </div>
-                        </div>
-                        <small>
-                            20% Complete
-                        </small>
-                    </td>
-                    <td class="project-state">
-                        <span class="badge badge-success">Success</span>
-                    </td>
-                    <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="#">
-                            <i class="fas fa-folder">
-                            </i>
-                            View
-                        </a>
-                        <a class="btn btn-info btn-sm" href="#">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Edit
-                        </a>
-                        <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        #
-                    </td>
-                    <td>
-                      <ul class="list-inline">
-                          <li class="list-inline-item">
-                              <img alt="Avatar" class="table-avatar" src="https://dl.kaskus.id/upload.wikimedia.org/wikipedia/id/thumb/0/0c/RCTI_tegak.png/799px-RCTI_tegak.png">
-                          </li>
-                      </ul>
-
-                    </td>
-                    <td>
-                      <a>
-                          RCTI
-                      </a>
-                      <br/>
-                      <small>
-                          Created 01.01.2019
-                      </small>
-                    </td>
-                    <td class="project_progress">
-                        <div class="progress progress-sm">
-                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
-                            </div>
-                        </div>
-                        <small>
-                            30% Complete
-                        </small>
-                    </td>
-                    <td class="project-state">
-                        <span class="badge badge-success">Success</span>
-                    </td>
-                    <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="#">
-                            <i class="fas fa-folder">
-                            </i>
-                            View
-                        </a>
-                        <a class="btn btn-info btn-sm" href="#">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Edit
-                        </a>
-                        <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a>
-                    </td>
-                </tr>
-            </tbody> -->
-        </table>
+                            </tr>
+                        </thead>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="modal fade" id="modal-kelompok">
+        <div class="modal-dialog modal-lg card card-danger card-outline">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Default Modal</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-5 col-sm-2">
+                  <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="vert-tabs-anggota-tab" data-toggle="pill" href="#vert-tabs-anggota" role="tab" aria-controls="vert-tabs-anggota" aria-selected="true">Anggota</a>
+                    <a class="nav-link" id="vert-tabs-tambah-tab" data-toggle="pill" href="#vert-tabs-tambah" role="tab" aria-controls="vert-tabs-tambah" aria-selected="false">Tambah</a>
+                  </div>
+                </div>
+                <div class="col-7 col-sm-10">
+                  <div class="tab-content" id="vert-tabs-tabContent">
+                    <div class="tab-pane text-left fade active show" id="vert-tabs-anggota" role="tabpanel" aria-labelledby="vert-tabs-anggota-tab">
+                      <table class="table table-bordered table-hover" id="list-anggota-kelompok">
+                          <thead>
+                              <tr>
+                                  <th>
+                                      No
+                                  </th>
+                                  <th>
+                                      Nama Anggota
+                                  </th>
+                                  <th>
+                                      NIK Anggota
+                                  </th>
+                                  <th>
+                                      Status Anggota
+                                  </th>
+                                  <th>
+                                      action
+                                  </th>
+
+                              </tr>
+                          </thead>
+                      </table>
+                    </div>
+                    <div class="tab-pane fade" id="vert-tabs-tambah" role="tabpanel" aria-labelledby="vert-tabs-tambah-tab">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="nama_kelompok">Nama Anggota:</label>
+                            <input type="text" class="form-control" id="nama_anggota" placeholder="">
+                            <input type="text" id="id_kelompok" hidden>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="tahun_pembentukan_kelompok">NIK Anggota:</label>
+                            <input type="text" class="form-control" id="nik_anggota" placeholder="">
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="status_anggota" class="col-sm-12">Status dalam kelompok:</label>
+                            <div class="col-sm-12">
+                              <select id="status_anggota" class="form-control select2">
+                                <option value="0">-Pilih status-</option>
+                                <option value="1">Ketua</option>
+                                <option value="2">Sekretaris</option>
+                                <option value="3">Bendahara</option>
+                                <option value="4">Anggota</option>
+                                <option value="5">Lainnya</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+              <button type="button" class="btn btn-primary" id="simpan-anggota">simpan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  <div id="mySidenav" class="sidenav card card-danger card-outline">
+    <div class="card-header" style="padding: 0 10% 0 0;">
+      <div class="card-tools">
+        <a href="javascript:void(0)" class="" onclick="closeNav()">&times;</a>
       </div>
     </div>
-  </div>
-</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="nama_kelompok">Nama Kelompok Tani:</label>
+            <input type="text" class="form-control" id="nama_kelompok" placeholder="">
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="tahun_pembentukan_kelompok">Tahun Pembentukan:</label>
+            <input type="text" class="form-control" id="tahun_pembentukan_kelompok" placeholder="">
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="alamat_kelompok">Alamat Sekretariat:</label>
+            <textarea type="text" class="form-control" id="alamat_kelompok" placeholder=""></textarea>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="kelas_simluhtan_kelompok">Kelas dalam simluhtan:</label>
+            <input type="text" class="form-control" id="kelas_simluhtan_kelompok" placeholder="">
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="skor_kelompok">Skor:</label>
+            <input type="text" class="form-control" id="skor_kelompok" placeholder="">
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="tahun_penetapan_kelompok">Tahun Penetapan:</label>
+            <input type="text" class="form-control" id="tahun_penetapan_kelompok" placeholder="">
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="jumlah_anggota_kelompok">Jumlah Anggota:</label>
+            <input type="text" class="form-control" id="jumlah_anggota_kelompok" placeholder="">
+          </div>
+        </div>
+        <div class="col-md-12">
+            <button type="button" class="col-md-12 btn btn-success" id="simpan_kelompok">simpan</button>
+        </div>
+      </div>
+      <br/>
+    </div>
 
-  <div class="modal fade" id="modal-default">
+  </div>
+
+  <div class="modal fade" id="modal-detail">
     <div class="modal-dialog modal-lg card card-danger card-outline">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Detail</h4>
+          <h4 class="modal-title">Detail Data</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -248,65 +299,122 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label>Penanggung Jawab</label>
-                <input id="pimpinan" type="text" class="form-control" placeholder="Enter ..." disabled>
+                <label for="status_lahan" class="col-sm-12">Status Kepemilikan Lahan :</label>
+                <div class="col-sm-12">
+                  <select id="status_lahan" class="form-control select2">
+                    <option value="0">-Pilih status-</option>
+                    <option value="1">Pemilik Penggarap</option>
+                    <option value="2">Penggarap</option>
+                    <option value="3">Buruh Tani</option>
+                  </select>
+                </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label>E-mail</label>
-                <input id="email" type="text" class="form-control" placeholder="Enter ..." disabled>
+                <label for="komoditas" class="col-sm-12">Komoditas :</label>
+                <div class="col-sm-12">
+                  <select id="komoditas" class="form-control select2">
+                    <option value="0">-Pilih komoditas-</option>
+                    <option value="1">Padi</option>
+                    <option value="2">Jagung</option>
+                    <option value="3">Kedelai</option>
+                    <option value="4">Kacang Tanah</option>
+                    <option value="5">Kacang Hijau</option>
+                    <option value="6">Umbi-Umbian</option>
+                    <option value="7">Ubi Jalar</option>
+                    <option value="8">Ubi Kayu</option>
+                    <option value="9">sorgum</option>
+                    <option value="10">Ubi Cilembu</option>
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label>Frekuensi</label>
-                <input id="frekuensi" type="text" class="form-control" placeholder="Enter ..." disabled>
+                <label for="varietas" class="col-sm-12">Varietas :</label>
+                <div class="col-sm-12">
+                  <select id="varietas" class="form-control select2">
+                    <option value="0">-Pilih varietas-</option>
+                    <option value="1">Hibrida</option>
+                    <option value="2">Inbrida</option>
+                    <option value="3">Ciherang</option>
+                    <option value="4">Sintanur</option>
+                  </select>
+                </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label>Koordinat Lokasi</label>
-                <input id="koor" type="text" class="form-control" placeholder="Enter ..." disabled>
+                <label for="bantuan_pemerintah" class="col-sm-12">Bantuan Pemerintah</label>
+                <div class="col-sm-12">
+                  <select id="bantuan_pemerintah" class="form-control select2">
+                    <option value="0">-Pilih-</option>
+                    <option value="1">Benih</option>
+                    <option value="2">Alsintan</option>
+                    <option value="3">Seritifkasi</option>
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
+            <div class="col-md-6">
               <div class="form-group">
-                <label>Alamat</label>
-                <textarea id="alamat" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+                <label for="pemilik_aset" class="col-sm-12">Kepemilikan Aset :</label>
+                <div class="col-sm-12">
+                  <select id="pemilik_aset" class="form-control select2">
+                    <option value="0">-Pilih aset-</option>
+                    <option value="1">Kelompok</option>
+                    <option value="2">Brigade</option>
+                    <option value="3">Kabupaten</option>
+                  </select>
+                </div>
               </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-md-6">
               <div class="form-group">
-                <label>Kontak</label>
-                <textarea id="kontak" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+                <label for="jml_aset">jml_aset:</label>
+                <input type="text" class="form-control" id="jml_aset" placeholder="">
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12" id="maps">
-              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d116862.54554679655!2d90.40409584970706!3d23.749000170125925!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1550040341458" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-
-
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="tahun_perolehan">tahun_perolehan:</label>
+                <input type="text" class="form-control" id="tahun_perolehan" placeholder="">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="sumber_aset" class="col-sm-12">Sumber Perolehan Aset :</label>
+                <div class="col-sm-12">
+                  <select id="sumber_aset" class="form-control select2">
+                    <option value="0">-Pilih Bantuan-</option>
+                    <option value="1">Bantuan APBN Pusat</option>
+                    <option value="2">Bantuan APBN TP Provinsi</option>
+                    <option value="3">Bantuan APBD Provinsi</option>
+                    <option value="4">Bantuan APBD Kabupaten</option>
+                    <option value="5">Swadaya</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="kordinat">kordinat:</label>
+                <input type="text" class="form-control" id="kordinat" placeholder="">
+              </div>
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
-          <button type="button" class="btn btn-info" data-dismiss="modal">Tutup</button>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
       <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
   </div>
-  <!-- /.card -->
-
 </section>
+
 <!-- /.content -->
 
 {% endblock %}

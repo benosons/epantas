@@ -164,6 +164,39 @@ class Model_profile extends CI_Model {
 
     }
 
+    public function savekelompoktani($params = NULL)
+    {
+            $valid = true;
+
+            $this->db->set($params);
+            // $this->db->set("tgl", $params->tgl);
+            // $this->db->set("jenisPangan", $params->jenisPangan);
+            // $this->db->set("created_by", $this->session->userdata('username'));
+            // $this->db->set("create_date", date("Y-m-d H:i:s"));
+            // $this->db->set("update_date", date("Y-m-d H:i:s"));
+            $valid = $this->db->insert('kelompok_tani');
+
+        return $valid;
+
+    }
+
+    public function saveanggota($params = NULL)
+    {
+            $valid = true;
+
+            $this->db->set($params);
+
+            // $this->db->set("tgl", $params->tgl);
+            // $this->db->set("jenisPangan", $params->jenisPangan);
+            // $this->db->set("created_by", $this->session->userdata('username'));
+            // $this->db->set("create_date", date("Y-m-d H:i:s"));
+            // $this->db->set("update_date", date("Y-m-d H:i:s"));
+            $valid = $this->db->insert('anggota_kelompok');
+
+        return $valid;
+
+    }
+
     public function loadprovinsi()
     {
         $query = $this->db->query("select * from data_provinsi order by id desc")->result();
@@ -184,7 +217,21 @@ class Model_profile extends CI_Model {
 
     public function loadpoktan()
     {
-        $query = $this->db->query("select * from data_poktan order by id desc")->result();
+        $query = $this->db->query("select dpok.*, ktan.*, (select status_milik_lahan.nama from status_milik_lahan where id = dpok.status_lahan) as deskripsi_status_lahan from data_poktan dpok
+        join kelompok_tani ktan on dpok.id_kelompok = ktan.id order by dpok.id desc")->result();
+        return $query;
+    }
+
+    public function loadkelompok()
+    {
+        $query = $this->db->query("select *, (select count(*) from anggota_kelompok where id_kelompok = kelompok_tani.id) as total from kelompok_tani order by id desc")->result();
+        return $query;
+    }
+
+    public function loadanggota($id = null)
+    {
+
+        $query = $this->db->query("select * from anggota_kelompok where id_kelompok = $id order by id desc")->result();
         return $query;
     }
 

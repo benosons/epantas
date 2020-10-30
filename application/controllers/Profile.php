@@ -251,6 +251,38 @@ class Profile extends CI_Controller {
 		}
 	}
 
+	public function savekelompoktani()
+	{
+		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		{
+					$params = (object)$this->input->post();
+
+					$data = $this->Model_profile->savekelompoktani($params);
+					header('Content-Type: application/json');
+					echo json_encode(array("status" => TRUE));
+		}
+		else
+		{
+			redirect("dashboard");
+		}
+	}
+
+	public function saveanggota()
+	{
+		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		{
+					$params = (object)$this->input->post();
+
+					$data = $this->Model_profile->saveanggota($params);
+					header('Content-Type: application/json');
+					echo json_encode(array("status" => TRUE));
+		}
+		else
+		{
+			redirect("dashboard");
+		}
+	}
+
 
 	public function updatePangan()
 	{
@@ -404,6 +436,60 @@ class Profile extends CI_Controller {
 			// $postData = $this->input->post('param');
 
 			$query = $this->Model_profile->loadpoktan();
+			// foreach ($query as $key => $value) {
+			// 	print_r($value);die;
+			// }
+			// foreach ($query as $proses) {
+			// 	$x++;
+			// 	$row = array();
+			// 	$row['id'] = (!empty($proses->id) ? $proses->id : "NULL");
+			// 	$row['name'] = (!empty($proses->name) ? $proses->name : "NULL");
+			// 	$row['id_user'] = (!empty($proses->id_user) ? $proses->id_user : "NULL");
+			// 	$row['judul'] = (!empty($proses->judul) ? $proses->judul : "NULL");
+			// 	$row['isi'] = (!empty($proses->isi) ? $proses->isi : "NULL");
+			// 	$row['create_date'] = (!empty($proses->create_date) ? $proses->create_date : "NULL");
+			//
+			//
+			// }
+
+	header('Content-Type: application/json');
+	echo json_encode($query);
+}
+
+	public function loadkelompok()	{
+
+			// $params = $columns = $totalRecords = $data = array();
+			// $params = $_REQUEST;
+			// $postData = $this->input->post('param');
+
+			$query = $this->Model_profile->loadkelompok();
+			// foreach ($query as $key => $value) {
+			// 	print_r($value);die;
+			// }
+			// foreach ($query as $proses) {
+			// 	$x++;
+			// 	$row = array();
+			// 	$row['id'] = (!empty($proses->id) ? $proses->id : "NULL");
+			// 	$row['name'] = (!empty($proses->name) ? $proses->name : "NULL");
+			// 	$row['id_user'] = (!empty($proses->id_user) ? $proses->id_user : "NULL");
+			// 	$row['judul'] = (!empty($proses->judul) ? $proses->judul : "NULL");
+			// 	$row['isi'] = (!empty($proses->isi) ? $proses->isi : "NULL");
+			// 	$row['create_date'] = (!empty($proses->create_date) ? $proses->create_date : "NULL");
+			//
+			//
+			// }
+
+	header('Content-Type: application/json');
+	echo json_encode($query);
+}
+
+	public function loadanggota()	{
+
+			$params = $columns = $totalRecords = $data = array();
+			$params = $_REQUEST;
+			$postData = $this->input->post('id');
+			
+			$query = $this->Model_profile->loadanggota($postData);
 			// foreach ($query as $key => $value) {
 			// 	print_r($value);die;
 			// }
