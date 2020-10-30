@@ -197,21 +197,58 @@ class Model_profile extends CI_Model {
 
     }
 
+    public function savepejabat($params = NULL)
+    {
+            $valid = true;
+
+            $this->db->set($params);
+
+            // $this->db->set("tgl", $params->tgl);
+            // $this->db->set("jenisPangan", $params->jenisPangan);
+            // $this->db->set("created_by", $this->session->userdata('username'));
+            // $this->db->set("create_date", date("Y-m-d H:i:s"));
+            // $this->db->set("update_date", date("Y-m-d H:i:s"));
+            $valid = $this->db->insert('pejabat_pengelola');
+
+        return $valid;
+
+    }
+
+    public function savepenyuluh($params = NULL)
+    {
+            $valid = true;
+
+            $this->db->set($params);
+
+            // $this->db->set("tgl", $params->tgl);
+            // $this->db->set("jenisPangan", $params->jenisPangan);
+            // $this->db->set("created_by", $this->session->userdata('username'));
+            // $this->db->set("create_date", date("Y-m-d H:i:s"));
+            // $this->db->set("update_date", date("Y-m-d H:i:s"));
+            $valid = $this->db->insert('penyuluh_pendamping');
+
+        return $valid;
+
+    }
+
     public function loadprovinsi()
     {
-        $query = $this->db->query("select * from data_provinsi order by id desc")->result();
+        $query = $this->db->query("select *, (select jabatan.deskripsi from jabatan where id = pep.jabatan) as deskripsi_jabatan from data_provinsi dprov
+        join pejabat_pengelola pep on pep.id = dprov.nama_pejabat order by dprov.id desc")->result();
         return $query;
     }
 
     public function loadkabupaten()
     {
-        $query = $this->db->query("select * from data_kabupaten order by id desc")->result();
+        $query = $this->db->query("select *, (select jabatan.deskripsi from jabatan where id = pep.jabatan) as deskripsi_jabatan from data_kabupaten dkab
+        join pejabat_pengelola pep on pep.id = dkab.nama_pejabat order by dkab.id desc")->result();
         return $query;
     }
 
     public function loadkecamatan()
     {
-        $query = $this->db->query("select * from data_kecamatan order by id desc")->result();
+        $query = $this->db->query("select *, (select nama from status_penyuluh where id = pen.status_penyuluh) as deskripsi_status_penyuluh from data_kecamatan dkec
+        join penyuluh_pendamping pen on pen.id = dkec.penyuluh order by dkec.id desc")->result();
         return $query;
     }
 
@@ -232,6 +269,20 @@ class Model_profile extends CI_Model {
     {
 
         $query = $this->db->query("select * from anggota_kelompok where id_kelompok = $id order by id desc")->result();
+        return $query;
+    }
+
+    public function loadpejabat($id = null)
+    {
+
+        $query = $this->db->query("select *, (select nama from jabatan where id = pejabat_pengelola.jabatan) as deskripsi_jabatan from pejabat_pengelola order by id desc")->result();
+        return $query;
+    }
+
+    public function loadpenyuluh($id = null)
+    {
+
+        $query = $this->db->query("select *, (select nama from status_penyuluh where id = penyuluh_pendamping.status_penyuluh) as deskripsi_status_penyuluh from penyuluh_pendamping order by id desc")->result();
         return $query;
     }
 

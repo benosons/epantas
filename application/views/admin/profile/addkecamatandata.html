@@ -32,11 +32,11 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="bpp">BPP :</label>
+                          <label for="bpp">Balai Penyuluhan Pertanian :</label>
                           <input type="text" class="form-control" id="bpp" placeholder="">
                         </div>
                       </div>
-                      <div class="col-md-6">
+                      <!-- <div class="col-md-6">
                         <div class="form-group">
                           <label for="penyuluh">Penyuluh Pendamping :</label>
                           <input type="text" class="form-control" id="penyuluh" placeholder="">
@@ -53,17 +53,25 @@
                           <label for="nik_penyuluh">NIK Penyuluh :</label>
                           <input type="text" class="form-control" id="nik_penyuluh" placeholder="">
                         </div>
+                      </div> -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="penyuluh" class="col-sm-12">Penyuluh Pendamping :</label>
+                          <div class="col-sm-12">
+                            <select id="penyuluh" class="form-control select2">
+                            </select>
+                          </div>
+                        </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="status_penyuluh" class="col-sm-12">Status Penyuluh :</label>
                           <div class="col-sm-12">
                             <select id="status_penyuluh" class="form-control select2">
-                              <option value="0">-Pilih jabatan-</option>
-                              <option value="1">Kabid</option>
-                              <option value="2">Kasie Serealia</option>
-                              <option value="3">Kasie AKABI</option>
-                              <option value="4">Kasie Pascapanen</option>
+                              <option value="0">-Pilih Status-</option>
+                              <option value="1">PNS</option>
+                              <option value="2">THL TBPP</option>
+                              <option value="3">THL TBPPD</option>
                             </select>
                           </div>
                         </div>

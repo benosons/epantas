@@ -25,6 +25,7 @@
         <div class="col-12">
           <div class="card card-danger card-outline">
             <div class="card-header">
+              <div class="card-tools">
               <ul class="nav nav-pills ml-auto p-2">
                   <li class="nav-item"><a class="nav-link active" href="#tab-data" data-toggle="tab">List Data</a></li>
                   <li class="nav-item"><a class="nav-link" href="#tab-kelompok" data-toggle="tab">Data Kelompok</a></li>
@@ -46,6 +47,7 @@
                     </div>
                 </div>
               </div> -->
+            </div>
             </div>
               <div class="card-body">
               <input id="param" value="Televisi" hidden>
@@ -97,7 +99,7 @@
                     </table>
                   </div>
                   <div class="tab-pane" id="tab-kelompok">
-                    <table class="table table-bordered table-hover" id="list-kelompok">
+                    <table class="table table-bordered table-hover" id="list-kelompok" style="width:100%;">
                         <thead>
                             <tr>
                                 <th>
@@ -159,7 +161,7 @@
                 <div class="col-7 col-sm-10">
                   <div class="tab-content" id="vert-tabs-tabContent">
                     <div class="tab-pane text-left fade active show" id="vert-tabs-anggota" role="tabpanel" aria-labelledby="vert-tabs-anggota-tab">
-                      <table class="table table-bordered table-hover" id="list-anggota-kelompok">
+                      <table class="table table-bordered table-hover" id="list-anggota-kelompok" style="width:100%;">
                           <thead>
                               <tr>
                                   <th>
@@ -271,14 +273,14 @@
             <input type="text" class="form-control" id="tahun_penetapan_kelompok" placeholder="">
           </div>
         </div>
-        <div class="col-md-12">
+        <!-- <div class="col-md-12">
           <div class="form-group">
             <label for="jumlah_anggota_kelompok">Jumlah Anggota:</label>
             <input type="text" class="form-control" id="jumlah_anggota_kelompok" placeholder="">
           </div>
-        </div>
+        </div> -->
         <div class="col-md-12">
-            <button type="button" class="col-md-12 btn btn-success" id="simpan_kelompok">simpan</button>
+            <button type="button" class="col-md-12 btn btn-success" id="simpan_kelompok"><i class="fas fa-check"></i> simpan</button>
         </div>
       </div>
       <br/>

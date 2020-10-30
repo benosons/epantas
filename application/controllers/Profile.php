@@ -283,6 +283,38 @@ class Profile extends CI_Controller {
 		}
 	}
 
+	public function savepejabat()
+	{
+		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		{
+					$params = (object)$this->input->post();
+
+					$data = $this->Model_profile->savepejabat($params);
+					header('Content-Type: application/json');
+					echo json_encode(array("status" => TRUE));
+		}
+		else
+		{
+			redirect("dashboard");
+		}
+	}
+
+	public function savepenyuluh()
+	{
+		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		{
+					$params = (object)$this->input->post();
+
+					$data = $this->Model_profile->savepenyuluh($params);
+					header('Content-Type: application/json');
+					echo json_encode(array("status" => TRUE));
+		}
+		else
+		{
+			redirect("dashboard");
+		}
+	}
+
 
 	public function updatePangan()
 	{
@@ -488,8 +520,62 @@ class Profile extends CI_Controller {
 			$params = $columns = $totalRecords = $data = array();
 			$params = $_REQUEST;
 			$postData = $this->input->post('id');
-			
+
 			$query = $this->Model_profile->loadanggota($postData);
+			// foreach ($query as $key => $value) {
+			// 	print_r($value);die;
+			// }
+			// foreach ($query as $proses) {
+			// 	$x++;
+			// 	$row = array();
+			// 	$row['id'] = (!empty($proses->id) ? $proses->id : "NULL");
+			// 	$row['name'] = (!empty($proses->name) ? $proses->name : "NULL");
+			// 	$row['id_user'] = (!empty($proses->id_user) ? $proses->id_user : "NULL");
+			// 	$row['judul'] = (!empty($proses->judul) ? $proses->judul : "NULL");
+			// 	$row['isi'] = (!empty($proses->isi) ? $proses->isi : "NULL");
+			// 	$row['create_date'] = (!empty($proses->create_date) ? $proses->create_date : "NULL");
+			//
+			//
+			// }
+
+	header('Content-Type: application/json');
+	echo json_encode($query);
+}
+
+	public function loadpejabat()	{
+
+			$params = $columns = $totalRecords = $data = array();
+			$params = $_REQUEST;
+			$postData = $this->input->post('id');
+
+			$query = $this->Model_profile->loadpejabat($postData);
+			// foreach ($query as $key => $value) {
+			// 	print_r($value);die;
+			// }
+			// foreach ($query as $proses) {
+			// 	$x++;
+			// 	$row = array();
+			// 	$row['id'] = (!empty($proses->id) ? $proses->id : "NULL");
+			// 	$row['name'] = (!empty($proses->name) ? $proses->name : "NULL");
+			// 	$row['id_user'] = (!empty($proses->id_user) ? $proses->id_user : "NULL");
+			// 	$row['judul'] = (!empty($proses->judul) ? $proses->judul : "NULL");
+			// 	$row['isi'] = (!empty($proses->isi) ? $proses->isi : "NULL");
+			// 	$row['create_date'] = (!empty($proses->create_date) ? $proses->create_date : "NULL");
+			//
+			//
+			// }
+
+	header('Content-Type: application/json');
+	echo json_encode($query);
+}
+
+	public function loadpenyuluh()	{
+
+			$params = $columns = $totalRecords = $data = array();
+			$params = $_REQUEST;
+			$postData = $this->input->post('id');
+
+			$query = $this->Model_profile->loadpenyuluh($postData);
 			// foreach ($query as $key => $value) {
 			// 	print_r($value);die;
 			// }
