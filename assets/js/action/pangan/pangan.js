@@ -337,7 +337,7 @@ function savepangan(data){
                 confirmButtonText: '<i class="fas fa-check"></i>'
               }).then((result) => {
               if (result.isConfirmed) {
-                window.location.href='kecamatan';
+                window.location.href='listpangan';
                 }
               });
             }
