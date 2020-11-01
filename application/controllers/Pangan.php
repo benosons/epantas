@@ -85,7 +85,7 @@ class Pangan extends CI_Controller {
 		}
 	}
 
-	public function savePangan()
+	public function savepangan()
 	{
 		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
@@ -207,6 +207,21 @@ class Pangan extends CI_Controller {
 
 	header('Content-Type: application/json');
 	echo json_encode($query);
+}
+
+public function verifikasi()
+{
+	if ( $this->logged && $this->role == '10' || $this->role == '20')
+	{
+				$params = (object)$this->input->post();
+				
+				$data = $this->Model_pangan->verifikasi($params);
+				echo json_encode(array("status" => TRUE));
+	}
+	else
+	{
+		redirect("dashboard");
+	}
 }
 
 }

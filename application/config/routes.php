@@ -60,4 +60,4 @@ $route['^(dashboard|saveUser|listuser|updateUser|formUser|listDataUser|deleteUse
 $route['^(provinsi|kabupaten|kecamatan|gapoktan|addprov|addkab|addkec|addpoktan|savedataprovinsi|savedatakabupaten|savedatakecamatan|savedatapoktan|loadprovinsi|loadkabupaten|loadkecamatan|loadpoktan|loadkelompok|savekelompoktani|loadanggota|saveanggota|loadpejabat|savepejabat|loadpenyuluh|savepenyuluh)(/:any)?$'] = "Profile/$0";
 $route['^(apbntp|apbd|addapbntp|addapbd|saveapbntp|saveapbd)(/:any)?$'] = "Kegiatan/$0";
 $route['^(transuang|transbarang|addtransuang|addtransbarang|savetransuang|savetransbarang)(/:any)?$'] = "Banpem/$0";
-$route['^(listpangan|addpangan|deletePangan|savepangan|loadpangan|updatePangan|formPangan|dataDetailPangan|loadparam)(/:any)?$'] = "Pangan/$0";
+$route['^(listpangan|addpangan|deletePangan|savepangan|loadpangan|updatePangan|formPangan|dataDetailPangan|loadparam|verifikasi)(/:any)?$'] = "Pangan/$0";

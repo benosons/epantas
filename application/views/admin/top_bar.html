@@ -157,7 +157,6 @@
 						</p>
 					</a>
 				</li>
-				{% if role == 10 or role == 20 %}
 				<li class="nav-item" id="pangan">
 					<a href="{{base_url}}listpangan" class="nav-link">
 						<i class="nav-icon fas fa-award"></i>
@@ -167,6 +166,7 @@
 						</p>
 					</a>
 				</li>
+				{% if role == 10 %}
 				<li class="nav-item" id="pengelola">
 					<a href="#" class="nav-link">
 						<i class="nav-icon fas fa-server"></i>
@@ -202,7 +202,7 @@
 						</li>
 					</ul>
 				</li>
-				{% endif %}
+
 				<li class="nav-item" id="kegiatan">
 					<a href="#" class="nav-link">
 						<i class="nav-icon far fa-list-alt"></i>
@@ -251,6 +251,7 @@
 						</li>
 					</ul>
 				</li>
+				{% endif %}
 				{% if role == 10 %}
 				<li class="nav-item" id="users">
 					<a href="{{base_url}}listuser" class="nav-link">

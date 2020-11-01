@@ -219,5 +219,18 @@ class Model_pangan extends CI_Model {
       return $query;
     }
 
+    public function verifikasi($params = NULL)
+    {
+        $valid = false;
+            
+            $this->db->set("status",'1');
+            $this->db->set("updated_by", $this->session->userdata('id'));
+            $this->db->set("update_date", date("Y-m-d H:i:s"));
+            $this->db->where('id', $params->id);
+            $valid = $this->db->update('pangan');
+
+        return $valid;
+
+    }
 
 }

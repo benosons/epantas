@@ -113,6 +113,7 @@ $( document ).ready(function() {
                           { 'mDataProp': 'nama_verifikasi'},
                           { 'mDataProp': 'instansi_verifikasi'},
                           { 'mDataProp': 'stok_pangan'},
+                          { 'mDataProp': 'status'},
                           { 'mDataProp': 'foto'},
                           { 'mDataProp': 'id'},
                       ],
@@ -121,16 +122,35 @@ $( document ).ready(function() {
                           {
                               mRender: function (data, type, row){
                                   var $rowData = '';
+                                  var rol = '';
+
+                                  if($('#role').val() == 10){
+                                    if(!row.status){
+                                      rol = `<a href="#" onclick="verifikasi(`+row.id+`)"><i class="fas fa-check"></i> Verifikasi</a>`;
+                                      }
+                                    }
+
                                   $rowData +=
                                   `<div class="dropdown">
                                       <button type="button" class="btn btn-warning"><i class="fas fa-bars"></i></button>
-                                      <div class="dropdown-content" style="min-width: 111px;">
+                                      <div class="dropdown-content" style="min-width: 120px;">
                                         <a href="#"><i class="far fa-eye"></i> Detail</a>
                                         <a href="#"><i class="far fa-edit"></i> Edit</a>
+                                        `+rol+`
                                         <a href="#"><i class="fas fa-trash-alt"></i> Hapus</a>
                                         <a href="#"><i class="fas fa-print"></i> Cetak</a>
                                       </div>
                                     </div>`;
+
+                                  return $rowData;
+                              },
+                              aTargets: [13]
+                          },
+                          {
+                              mRender: function (data, type, row){
+                                  var $rowData = '';
+                                  $rowData +=
+                                  `<img src="`+row.foto+`" style="width:30%;">`;
 
                                   return $rowData;
                               },
@@ -139,8 +159,11 @@ $( document ).ready(function() {
                           {
                               mRender: function (data, type, row){
                                   var $rowData = '';
-                                  $rowData +=
-                                  `<img src="`+row.foto+`">`;
+                                  if(row.status == 1){
+                                        $rowData +=`<span class="badge badge-success right">Sudah Verifikasi</span>`;
+                                      }else{
+                                        $rowData +=`<span class="badge badge-default right">Belum Verifikasi</span>`;
+                                      }
 
                                   return $rowData;
                               },
@@ -342,4 +365,29 @@ function savepangan(data){
               });
             }
           })
+        }
+
+        function verifikasi(id) {
+
+          $.ajax({
+              type: 'post',
+              dataType: 'json',
+              url: 'verifikasi',
+              data : {id: id},
+              success: function(result){
+                Swal.fire({
+                  title: 'Sukses!',
+                  text: "Berhasil Verifikasi",
+                  icon: 'success',
+                  showConfirmButton: true,
+                  confirmButtonText: '<i class="fas fa-check"></i>'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.href='listpangan';
+                  }
+                });
+              }
+            })
+
+
         }
