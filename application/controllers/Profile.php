@@ -44,7 +44,7 @@ class Profile extends CI_Controller {
 
 	public function provinsi()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$this->twig->display('admin/profile/dataProvinsi.html', $this->content);
 		}else{
@@ -54,7 +54,7 @@ class Profile extends CI_Controller {
 
 	public function kabupaten()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$this->twig->display('admin/profile/dataKabupaten.html', $this->content);
 		}else{
@@ -64,7 +64,7 @@ class Profile extends CI_Controller {
 
 	public function kecamatan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$this->twig->display('admin/profile/dataKecamatan.html', $this->content);
 		}else{
@@ -74,7 +74,7 @@ class Profile extends CI_Controller {
 
 	public function gapoktan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$this->twig->display('admin/profile/dataGapoktan.html', $this->content);
 		}else{
@@ -84,7 +84,7 @@ class Profile extends CI_Controller {
 
 	public function addprov()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 
 			$data = NULL;
@@ -105,7 +105,7 @@ class Profile extends CI_Controller {
 
 	public function addkab()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 
 			$data = NULL;
@@ -126,7 +126,7 @@ class Profile extends CI_Controller {
 
 	public function addkec()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 
 			$data = NULL;
@@ -147,7 +147,7 @@ class Profile extends CI_Controller {
 
 	public function addpoktan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 
 			$data = NULL;
@@ -168,7 +168,7 @@ class Profile extends CI_Controller {
 
 	public function formPangan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 
 			$data = NULL;
@@ -189,7 +189,7 @@ class Profile extends CI_Controller {
 
 	public function savedataprovinsi()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 					$params = (object)$this->input->post();
 
@@ -205,7 +205,7 @@ class Profile extends CI_Controller {
 
 	public function savedatakabupaten()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 					$params = (object)$this->input->post();
 
@@ -221,7 +221,7 @@ class Profile extends CI_Controller {
 
 	public function savedatakecamatan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 					$params = (object)$this->input->post();
 
@@ -237,7 +237,7 @@ class Profile extends CI_Controller {
 
 	public function savedatapoktan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 					$params = (object)$this->input->post();
 
@@ -253,7 +253,7 @@ class Profile extends CI_Controller {
 
 	public function savekelompoktani()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 					$params = (object)$this->input->post();
 
@@ -269,7 +269,7 @@ class Profile extends CI_Controller {
 
 	public function saveanggota()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 					$params = (object)$this->input->post();
 
@@ -285,7 +285,7 @@ class Profile extends CI_Controller {
 
 	public function savepejabat()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 					$params = (object)$this->input->post();
 
@@ -301,7 +301,7 @@ class Profile extends CI_Controller {
 
 	public function savepenyuluh()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 					$params = (object)$this->input->post();
 
