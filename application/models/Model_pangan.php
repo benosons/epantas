@@ -178,7 +178,7 @@ class Model_pangan extends CI_Model {
             $dates =date_create($year."-".$month."-".$date);
 
             $params->tanggal_panen = date_format($dates,"Y-m-d");
-            
+
             $this->db->set($params);
             // $this->db->set("tgl", $params->tgl);
             // $this->db->set("jenisPangan", $params->jenisPangan);
@@ -207,7 +207,13 @@ class Model_pangan extends CI_Model {
         from pangan order by id desc")->result();
 
       }else if($role == 20){
-        $query = $this->db->query("select * from pangan where kabupaten_kota = '$kotakab' order by id desc")->result();
+        $query = $this->db->query("select *,
+        (select nama_penyuluh from penyuluh_pendamping where id= pangan.penyuluh) as nama_penyuluh,
+        (SELECT nama from kabupaten_kota WHERE id= pangan.kabupaten_kota) as nama_kabupaten,
+        (SELECT nama from kecamatan WHERE id=pangan.kecamatan) as nama_kecamatan,
+        (SELECT nama from kelurahan WHERE id=pangan.kelurahan) as nama_kelurahan,
+        (SELECT nama from varietas WHERE id= pangan.varietas) as nama_varietas
+        from pangan where kabupaten_kota = '$kotakab' order by id desc")->result();
 
       }
       return $query;

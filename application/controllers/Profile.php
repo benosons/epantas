@@ -99,7 +99,7 @@ class Profile extends CI_Controller {
             $this->content['data'] = $data;
 			$this->twig->display('admin/profile/addprovinsidata.html', $this->content);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -120,7 +120,7 @@ class Profile extends CI_Controller {
             $this->content['data'] = $data;
 			$this->twig->display('admin/profile/addkabupatendata.html', $this->content);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -141,7 +141,7 @@ class Profile extends CI_Controller {
             $this->content['data'] = $data;
 			$this->twig->display('admin/profile/addkecamatandata.html', $this->content);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -162,7 +162,7 @@ class Profile extends CI_Controller {
             $this->content['data'] = $data;
 			$this->twig->display('admin/profile/addpoktandata.html', $this->content);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -183,7 +183,7 @@ class Profile extends CI_Controller {
             $this->content['data'] = $data;
 			$this->twig->display('admin/pangan.html', $this->content);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -326,7 +326,7 @@ class Profile extends CI_Controller {
 		}
 		else
 		{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -374,7 +374,7 @@ class Profile extends CI_Controller {
 			//output to json format
 			echo json_encode($output);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 
 

@@ -45,17 +45,17 @@ class Pangan extends CI_Controller {
 
 	public function listPangan()
 	{
-		if ( $this->logged && $this->kategori == '10' || $this->kategori == '20')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$this->twig->display('admin/pangan/listpangan.html', $this->content);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
 	public function addpangan()
 	{
-		if ( $this->logged && $this->kategori == '10' || $this->kategori == '20')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 
 			$this->twig->display('admin/pangan/addpangan.html', $this->content);
@@ -66,7 +66,7 @@ class Pangan extends CI_Controller {
 
 	public function formPangan()
 	{
-		if ( $this->logged && $this->kategori == '10' || $this->kategori == '20')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 
 			$data = NULL;
@@ -81,7 +81,7 @@ class Pangan extends CI_Controller {
             $this->content['data'] = $data;
 			$this->twig->display('admin/pangan.html', $this->content);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -102,7 +102,7 @@ class Pangan extends CI_Controller {
 		}
 		else
 		{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -117,7 +117,7 @@ class Pangan extends CI_Controller {
 		}
 		else
 		{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -165,7 +165,7 @@ class Pangan extends CI_Controller {
 			//output to json format
 			echo json_encode($output);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 
 
@@ -181,7 +181,7 @@ class Pangan extends CI_Controller {
 		}
 		else
 		{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 

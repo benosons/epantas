@@ -57,7 +57,7 @@ class Aduan extends CI_Controller {
 				$this->twig->display('admin/listaduan.html', $this->content);
 			}
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -74,7 +74,7 @@ class Aduan extends CI_Controller {
 				$this->twig->display('admin/aduan.html', $this->content);
 			}
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -87,7 +87,7 @@ class Aduan extends CI_Controller {
 				$this->twig->display('admin/aduanreply.html', $this->content);
 			}
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -100,7 +100,7 @@ class Aduan extends CI_Controller {
 				$this->twig->display('admin/aduanclose.html', $this->content);
 			}
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 

@@ -100,7 +100,7 @@ class Banpem extends CI_Controller {
             $this->content['data'] = $data;
 			$this->twig->display('admin/banpem/addtransbarang.html', $this->content);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -121,7 +121,7 @@ class Banpem extends CI_Controller {
             $this->content['data'] = $data;
 			$this->twig->display('admin/profile/addkecamatandata.html', $this->content);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -142,7 +142,7 @@ class Banpem extends CI_Controller {
             $this->content['data'] = $data;
 			$this->twig->display('admin/profile/addpoktandata.html', $this->content);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -163,7 +163,7 @@ class Banpem extends CI_Controller {
             $this->content['data'] = $data;
 			$this->twig->display('admin/pangan.html', $this->content);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -177,7 +177,7 @@ class Banpem extends CI_Controller {
 		}
 		else
 		{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -192,7 +192,7 @@ class Banpem extends CI_Controller {
 		}
 		else
 		{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 
@@ -240,7 +240,7 @@ class Banpem extends CI_Controller {
 			//output to json format
 			echo json_encode($output);
 		}else{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 
 
@@ -256,7 +256,7 @@ class Banpem extends CI_Controller {
 		}
 		else
 		{
-			redirect("Dashboard");
+			redirect("dashboard");
 		}
 	}
 

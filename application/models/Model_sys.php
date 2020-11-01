@@ -115,7 +115,7 @@ class Model_sys extends CI_Model {
         $this->db->set("kategori", 'user');
         $this->db->set("created_by", '');
         $this->db->set("created_at", date("Y-m-d H:i:s"));
-        $this->db->set("role", '30');
+        $this->db->set("role", '20');
         $this->db->set("islogin", 0);
         $this->db->set("status", '1');
         $this->db->set("name", $params->name_regis);

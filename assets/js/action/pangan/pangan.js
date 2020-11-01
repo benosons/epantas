@@ -59,6 +59,16 @@ $( document ).ready(function() {
       savepangan(datapangan);
   });
 
+  $('#simpan_penyuluh').on('click', function(){
+    var datapenyuluh = {
+      nama_penyuluh : $('#nama_penyuluh').val(),
+      nip_penyuluh : $('#nip_penyuluh').val(),
+      nik_penyuluh : $('#nik_penyuluh').val(),
+      status_penyuluh : $('#status_penyuluh').val(),
+    };
+    savepenyuluh(datapenyuluh);
+  });
+
   $('#kabupaten_kota').on('change', function(){
     loadparam('kec', $('option:selected', this).val());
   });
@@ -164,6 +174,49 @@ $( document ).ready(function() {
             }
 
             $('#penyuluh').html(opt);
+
+            var dt = $('#list-penyuluh').DataTable({
+                responsive: true,
+                bDestroy: true,
+                processing: true,
+                // autoWidth : true,
+                pageLength: 10,
+                lengthChange: true,
+                aaData: result,
+                aoColumns: [
+                    { 'mDataProp': 'id'},
+                    { 'mDataProp': 'nama_penyuluh'},
+                    { 'mDataProp': 'nip_penyuluh'},
+                    { 'mDataProp': 'nik_penyuluh'},
+                    { 'mDataProp': 'deskripsi_status_penyuluh'},
+                    { 'mDataProp': 'id'},
+                ],
+                // order: [[0, 'ASC']],
+                aoColumnDefs:[
+                    {
+                        mRender: function (data, type, row){
+                            var $rowData = '';
+                            $rowData +=
+                            `<div class="dropdown">
+                                <button type="button" class="btn btn-warning"><i class="fas fa-bars"></i></button>
+                                <div class="dropdown-content" style="min-width: 111px;">
+                                  <a href="#"><i class="far fa-edit"></i> Edit</a>
+                                  <a href="#"><i class="fas fa-trash-alt"></i> Hapus</a>
+                                </div>
+                              </div>`;
+                            return $rowData;
+                        },
+                        aTargets: [5]
+                    },
+                ],
+
+                fnRowCallback: function(nRow, aData, iDisplayIndex, iDisplayIndexFull){
+                    var index = iDisplayIndexFull + 1;
+                    $('td:eq(0)', nRow).html(' '+index);
+                    return  ;
+                },
+
+            });
           }
       });
   }
@@ -254,3 +307,39 @@ function savepangan(data){
         }
       })
     }
+
+    var sidenav = document.getElementById("mySidenav");
+    if(sidenav){
+      sidenav.style.width = "0";
+    }
+
+    function openNav() {
+      $('#mySidenav').show();
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+
+    function savepenyuluh(data){
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: 'savepenyuluh',
+            data : data,
+            success: function(result){
+              Swal.fire({
+                title: 'Sukses!',
+                text: "Berhasil Tambah Penyuluh",
+                icon: 'success',
+                showConfirmButton: true,
+                confirmButtonText: '<i class="fas fa-check"></i>'
+              }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href='kecamatan';
+                }
+              });
+            }
+          })
+        }
