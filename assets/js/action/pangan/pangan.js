@@ -77,9 +77,9 @@ $( document ).ready(function() {
     loadparam('kel', $('option:selected', this).val());
   });
 
-  if(window.location.pathname == '/listpangan'){
+  // if(window.location.pathname == '/listpangan'){
     loadpangan();
-  }
+  // }
 
   loadpenyuluh();
   loadparam('kab',0);
