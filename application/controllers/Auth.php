@@ -52,6 +52,7 @@ class Auth extends CI_Controller {
 			}
 		} else {
 			if($_POST){
+				clearstatcache();
 				$params = (object)$this->input->post();
 				$valid = $this->Model_auth->loginAuth($params->username, $params->password);
 

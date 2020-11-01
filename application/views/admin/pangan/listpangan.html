@@ -1,0 +1,145 @@
+{% extends "admin/layout.html" %} {% block content %}
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Data Pangan Berkualitas</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Pangan Berkualitas</a></li>
+            <li class="breadcrumb-item active">Data Pangan Berkualitas</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+
+    <!-- Default box -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-danger card-outline">
+            <div class="card-header">
+              <div class="card-tools">
+                <ul class="nav nav-pills ml-auto p-2">
+                    <li class="nav-item">
+                      <div class="dropdown float-right" style="padding-left: 15px;">
+                        <button type="button" class="btn btn-primary"><i class="fas fa-bars"></i></button>
+                        <div class="dropdown-content">
+                          <a href="#" id="add-pangan">Tambah Data</a>
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+              </div>
+            </div>
+              <div class="card-body">
+        <input id="param" value="Televisi" hidden>
+        <table class="table table-bordered table-hover" id="list-pangan">
+            <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Penyuluh</th>
+                  <th>Kabupaten</th>
+                  <th>Kecamatan</th>
+                  <th>Kelurahan</th>
+                  <th>Petani</th>
+                  <th>Varietas</th>
+                  <th>Tgl Panen</th>
+                  <th>Nama Veridikasi</th>
+                  <th>Instansi</th>
+                  <th>Stok</th>
+                  <th>Foto</th>
+                  <th>Action</th>
+                </tr>
+            </thead>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog modal-lg card card-danger card-outline">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Detail</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Penanggung Jawab</label>
+                <input id="pimpinan" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>E-mail</label>
+                <input id="email" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Frekuensi</label>
+                <input id="frekuensi" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Koordinat Lokasi</label>
+                <input id="koor" type="text" class="form-control" placeholder="Enter ..." disabled>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Alamat</label>
+                <textarea id="alamat" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Kontak</label>
+                <textarea id="kontak" class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12" id="maps">
+              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d116862.54554679655!2d90.40409584970706!3d23.749000170125925!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1550040341458" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-primary">Tutup</button> -->
+          <button type="button" class="btn btn-info" data-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.card -->
+
+</section>
+<!-- /.content -->
+
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{base_url}}assets/js/action/pangan/pangan.js"></script>
+{% endblock %}

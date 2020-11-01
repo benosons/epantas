@@ -1,0 +1,164 @@
+{% extends "admin/layout.html" %} {% block content %}
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Tambah Data Pangan</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Pangan Berkualitas</a></li>
+            <li class="breadcrumb-item">Data Pangan Berkualitas</li>
+            <li class="breadcrumb-item active">Tambah Data Pangan</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+
+    <!-- Default box -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-warning card-outline">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="callout callout-info">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="penyuluh" class="col-sm-12">Nama Penyuluh :</label>
+                          <div class="col-sm-12">
+                            <select id="penyuluh" class="form-control select2">
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="kabupaten_kota" class="col-sm-12">Kabupaten Kota :</label>
+                          <div class="col-sm-12">
+                            <input id="kotakab" type="hidden" value="{{kotakab}}">
+                            <select id="kabupaten_kota" class="form-control select2" hidden>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="kecamatan" class="col-sm-12">Kecamatan :</label>
+                          <div class="col-sm-12">
+                            <select id="kecamatan" class="form-control select2">
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="kelurahan" class="col-sm-12">Desa/ Kelurahan :</label>
+                          <div class="col-sm-12">
+                            <select id="kelurahan" class="form-control select2">
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="nama_petani">Nama Petani :</label>
+                          <input type="text" class="form-control" id="nama_petani" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="varietas" class="col-sm-12">Varietas :</label>
+                          <div class="col-sm-12">
+                            <select id="varietas" class="form-control select2">
+                              <option value="0">-Pilih varietas-</option>
+                              <option value="1">Hibrida</option>
+                              <option value="2">Inbrida</option>
+                              <option value="3">Ciherang</option>
+                              <option value="4">Sintanur</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>Tanggal Panen:</label>
+                          <div class="input-group date" id="tanggal_panen" data-target-input="nearest" data-date-format="DD/M/yyyy">
+                              <input type="text" class="form-control datetimepicker-input" data-target="#tanggal_panen"/>
+                              <div class="input-group-append" data-target="#tanggal_panen" data-toggle="datetimepicker" >
+                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="stok_pangan">stok pangan :</label>
+                        <input type="text" class="form-control" id="stok_pangan" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="nama_verifikasi">Nama Verifikasi :</label>
+                        <input type="text" class="form-control" id="nama_verifikasi" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="instansi_verifikasi">Instansi Verifikasi :</label>
+                        <input type="text" class="form-control" id="instansi_verifikasi" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="">Foto Pangan :</label>
+                        <div class="custom-file" style="margin-bottom: 10px;">
+                          <input type="file" class="custom-file-input" id="foto_pangan" name="user-input">
+                          <label class="custom-file-label" for="foto_pangan">Pilih foto</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <div class="text-center">
+                          <img id="blah" class="profile-user-img img-fluid img-circle"
+                              src=""
+                              alt="Pangan picture">
+                              <canvas hidden id="myCanvas1"/>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+            </div>
+            <div class="card-footer">
+              <button type="submit" id="btnSave" class="btn btn-success float-right"><i class="fas fa-check"></i> simpan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- /.content -->
+
+{% endblock %}
+{% block js %}
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+<script type="text/javascript" src="{{base_url}}assets/js/action/pangan/pangan.js"></script>
+<script type="text/javascript" src="{{base_url}}assets/lte/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+{% endblock %}
