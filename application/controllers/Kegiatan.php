@@ -44,7 +44,7 @@ class Kegiatan extends CI_Controller {
 
 	public function apbntp()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$this->twig->display('admin/kegiatan/dataapbntp.html', $this->content);
 		}else{
@@ -54,7 +54,7 @@ class Kegiatan extends CI_Controller {
 
 	public function apbd()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$this->twig->display('admin/kegiatan/dataapbd.html', $this->content);
 		}else{
@@ -64,7 +64,7 @@ class Kegiatan extends CI_Controller {
 
 	public function addapbntp()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 
 			$data = NULL;
@@ -85,7 +85,7 @@ class Kegiatan extends CI_Controller {
 
 	public function addapbd()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 
 			$data = NULL;
@@ -106,7 +106,7 @@ class Kegiatan extends CI_Controller {
 
 	public function addkec()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 
 			$data = NULL;
@@ -127,7 +127,7 @@ class Kegiatan extends CI_Controller {
 
 	public function addpoktan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 
 			$data = NULL;
@@ -148,7 +148,7 @@ class Kegiatan extends CI_Controller {
 
 	public function formPangan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 
 			$data = NULL;
@@ -169,7 +169,7 @@ class Kegiatan extends CI_Controller {
 
 	public function savePangan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$params = (object)$this->input->post();
  	        $data = $this->Model_pangan->save($params);
@@ -184,7 +184,7 @@ class Kegiatan extends CI_Controller {
 
 	public function updatePangan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$params = (object)$this->input->post();
 		 	$data = $this->Model_pangan->update($params);
@@ -204,7 +204,7 @@ class Kegiatan extends CI_Controller {
 
 	public function listDataPangan()
 	{
-		if ($this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ($this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$params = $columns = $totalRecords = $data = array();
 			$params = $_REQUEST;
@@ -248,7 +248,7 @@ class Kegiatan extends CI_Controller {
 
 	public function dataDetailPangan()
 	{
-		if ($this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ($this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$no = $_POST['no'];
 			$data = $this->Model_pangan->dataDetail($no);
@@ -262,7 +262,7 @@ class Kegiatan extends CI_Controller {
 
 	public function saveapbntp()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 					$params = (object)$this->input->post();
 
@@ -278,7 +278,7 @@ class Kegiatan extends CI_Controller {
 
 	public function saveapbd()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 					$params = (object)$this->input->post();
 

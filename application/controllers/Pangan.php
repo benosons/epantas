@@ -45,9 +45,9 @@ class Pangan extends CI_Controller {
 
 	public function listPangan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->kategori == '10' || $this->kategori == '20')
 		{
-			$this->twig->display('admin/pangan/listPangan.html', $this->content);
+			$this->twig->display('admin/pangan/listpangan.html', $this->content);
 		}else{
 			redirect("Dashboard");
 		}
@@ -55,7 +55,7 @@ class Pangan extends CI_Controller {
 
 	public function addpangan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->kategori == '10' || $this->kategori == '20')
 		{
 
 			$this->twig->display('admin/pangan/addpangan.html', $this->content);
@@ -66,7 +66,7 @@ class Pangan extends CI_Controller {
 
 	public function formPangan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->kategori == '10' || $this->kategori == '20')
 		{
 
 			$data = NULL;
@@ -87,7 +87,7 @@ class Pangan extends CI_Controller {
 
 	public function savePangan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$params = (object)$this->input->post();
 			$data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $params->img));
@@ -109,7 +109,7 @@ class Pangan extends CI_Controller {
 
 	public function updatePangan()
 	{
-		if ( $this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$params = (object)$this->input->post();
 		 	$data = $this->Model_pangan->update($params);
@@ -129,7 +129,7 @@ class Pangan extends CI_Controller {
 
 	public function listDataPangan()
 	{
-		if ($this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ($this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$params = $columns = $totalRecords = $data = array();
 			$params = $_REQUEST;
@@ -173,7 +173,7 @@ class Pangan extends CI_Controller {
 
 	public function dataDetailPangan()
 	{
-		if ($this->logged && $this->kategori == 'admin' || $this->kategori == 'superAdmin')
+		if ($this->logged && $this->role == '10' || $this->role == '20')
 		{
 			$no = $_POST['no'];
 			$data = $this->Model_pangan->dataDetail($no);
