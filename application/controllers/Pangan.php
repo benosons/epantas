@@ -43,7 +43,7 @@ class Pangan extends CI_Controller {
 
 	}
 
-	public function listPangan()
+	public function listpangan()
 	{
 		if ( $this->logged && $this->role == '10' || $this->role == '20')
 		{
