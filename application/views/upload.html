@@ -1,0 +1,246 @@
+{% extends "admin/layout.html" %} {% block content %}
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Upload Excel</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Upload</a></li>
+            <li class="breadcrumb-item active">Upload Excel</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+
+    <!-- Default box -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-danger card-outline">
+            <div class="card-header">
+              <div class="card-tools">
+                <ul class="nav nav-pills ml-auto p-2">
+                    <li class="nav-item"><a class="nav-link active" href="#tab-data" data-toggle="tab">List Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tab-upload" data-toggle="tab">Upload Excell</a></li>
+                    <li class="nav-item">
+                      <div class="dropdown float-right" style="padding-left: 15px;">
+                        <button type="button" class="btn btn-primary"><i class="fas fa-bars"></i></button>
+                        <div class="dropdown-content">
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+              </div>
+            </div>
+              <div class="card-body">
+                <input id="param" value="" hidden>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab-data">
+                    <table class="table table-bordered table-hover" id="list-pangan">
+                        <thead>
+                            <tr>
+                              <th rowspan=2>NO</th>
+                              <th rowspan=2>KELOMPOKTANI</th>
+                              <th rowspan=2>KECAMATAN</th>
+                              <th rowspan=2>DESA</th>
+                              <th colspan=3>KETUA</th>
+                              <th rowspan=2>JUMLAH ANGGOTA (ORANG)</th>
+                              <th rowspan=2>LUAS (HA)</th>
+                              <th rowspan=2>JENIS LAHAN (Ha)</th>
+                              <th rowspan=2>BENIH (KG)</th>
+                              <th rowspan=2>VARIETAS</th>
+                              <th rowspan=2>PUPUK HAYATI CAIR (liter)</th>
+                              <th rowspan=2>PUPUK HAYATI CAIR (liter)</th>
+                              <th rowspan=2>RHIZOBIUM (gr)</th>
+                              <th rowspan=2>HERBISIDA/PESTISIDA (liter)</th>
+                              <th rowspan=2>JADWAL TANAM</th>
+                              <th rowspan=2>PROVITAS EXISTING (Kw/ha)</th>
+                              <th rowspan=2>TARGET PROVITAS (Kw/ha)</th>
+                            </tr>
+                            <tr>
+                              <th>NAMA</th>
+                              <th>NIK</th>
+                              <th>NO HP</th>
+                            </tr>
+                        </thead>
+                    </table>
+                  </div>
+                  <div class="tab-pane" id="tab-upload">
+                      <div class="card">
+                          <div class="card-header">
+                              <h5>Excell Upload</h5>
+                              <div class="card-header-right">
+                                  <i class="icofont icofont-rounded-down"></i>
+                                  <i class="icofont icofont-refresh"></i>
+                                  <i class="icofont icofont-close-circled"></i>
+                              </div>
+                          </div>
+                          <div class="card-block" style="padding: 20px;">
+                            <form method="post" action="form" enctype="multipart/form-data">
+                              <div class="sub-title">Penerima Bantuan Pemerintah Akabi 2020</div>
+                              <input type="file" name="files[]" id="filer_input" multiple="multiple">
+                              <button type="submit" class="btn btn-success btn-md" name="preview" value="1">upload</button>
+                            </form>
+                          </div>
+                      </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="modal-detail">
+          <div class="modal-dialog modal-lg card card-danger card-outline">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Detail Data</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="varietas" class="col-sm-12">Varietas :</label>
+                      <div class="col-sm-12">
+                        <select id="varietas" class="form-control select2">
+                          <option value="0">-Pilih varietas-</option>
+                          <option value="1">Hibrida</option>
+                          <option value="2">Inbrida</option>
+                          <option value="3">Ciherang</option>
+                          <option value="4">Sintanur</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="bantuan_pemerintah" class="col-sm-12">Bantuan Pemerintah</label>
+                      <div class="col-sm-12">
+                        <select id="bantuan_pemerintah" class="form-control select2">
+                          <option value="0">-Pilih-</option>
+                          <option value="1">Benih</option>
+                          <option value="2">Alsintan</option>
+                          <option value="3">Seritifkasi</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="milik_aset" class="col-sm-12">Kepemilikan Aset :</label>
+                      <div class="col-sm-12">
+                        <select id="milik_aset" class="form-control select2">
+                          <option value="0">-Pilih aset-</option>
+                          <option value="1">Kelompok</option>
+                          <option value="2">Brigade</option>
+                          <option value="3">Kabupaten</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="jml_aset">Jumlah Aset:</label>
+                      <input type="text" class="form-control" id="jml_aset" placeholder="">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="tahun_perolehan">Tahun Perolehan:</label>
+                      <input type="text" class="form-control" id="tahun_perolehan" placeholder="">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="sumber_aset" class="col-sm-12">Sumber Perolehan Aset :</label>
+                      <div class="col-sm-12">
+                        <select id="sumber_aset" class="form-control select2">
+                          <option value="0">-Pilih Bantuan-</option>
+                          <option value="1">Bantuan APBN Pusat</option>
+                          <option value="2">Bantuan APBN TP Provinsi</option>
+                          <option value="3">Bantuan APBD Provinsi</option>
+                          <option value="4">Bantuan APBD Kabupaten</option>
+                          <option value="5">Swadaya</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+
+        <div id="mySidenav" class="sidenav card card-danger card-outline" style="width:250px;display:none;">
+          <div class="card-header" style="padding: 0 10% 0 0;">
+            <div class="card-tools">
+              <a href="javascript:void(0)" class="" onclick="closeNav()">&times;</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="nama_pejabat">Nama Pejabat:</label>
+                  <input type="text" class="form-control" id="nama_pejabat" placeholder="">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="nip_pejabat">NIP Pejabat:</label>
+                  <input type="text" class="form-control" id="nip_pejabat" placeholder="">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="nik_pejabat">NIK Pejabat:</label>
+                  <input type="text" class="form-control" id="nik_pejabat" placeholder="">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="jabatan" class="col-sm-12">Jabatan :</label>
+                  <div class="col-sm-12">
+                    <select id="jabatan" class="form-control select2">
+                      <option value="0">-Pilih jabatan-</option>
+                      <option value="1">Kabid</option>
+                      <option value="2">Kasie Serealia</option>
+                      <option value="3">Kasie AKABI</option>
+                      <option value="4">Kasie Pascapanen</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                  <button type="button" class="col-md-12 btn btn-success" id="simpan_pejabat"><i class="fas fa-check"></i> simpan</button>
+              </div>
+            </div>
+            <br/>
+          </div>
+
+        </div>
+
+</section>
+<!-- /.content -->
+
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{base_url}}assets/js/action/upload.js"></script>
+<script src="{{base_url}}assets/distro/js/pages/uploader_bootstrap.js"></script>
+
+{% endblock %}
