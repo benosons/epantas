@@ -6,7 +6,7 @@ class Upload extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 
-		$this->load->model('SiswaModel');
+		$this->load->model('Model_bantuan');
 		$this->logs = $this->session->all_userdata();
 		$this->logged = $this->session->userdata('userLogged');
 		$this->kategori = $this->session->userdata('kategori');
@@ -34,7 +34,7 @@ class Upload extends CI_Controller {
 
 	public function upload(){
 
-		$data['siswa'] = $this->SiswaModel->view();
+		// $data['siswa'] = $this->SiswaModel->view();
 		// $this->load->view('upload', $data);
 		$this->twig->display("upload.html", $this->content);
 	}
@@ -45,6 +45,12 @@ class Upload extends CI_Controller {
 
 		$this->load->view('upload', $data);
 		// $this->twig->display("upload.html", $this->content);
+	}
+
+	public function listBantuan()
+	{
+		$bantuan = $this->Model_bantuan->getBantuan();
+		echo json_encode($bantuan);
 	}
 
 	public function form(){

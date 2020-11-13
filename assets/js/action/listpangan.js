@@ -2,7 +2,7 @@ $( document ).ready(function() {
   console.log('You are running jQuery version: ' + $.fn.jquery);
     
 	    var tabel;        
-          tabel = $('#dataTables').DataTable({
+          tabel = $('#list-pangan').DataTable({
             "processing": true, //Feature control the processing indicator.
             "serverSide": true, //Feature control DataTables' server-side processing mode.
             "order": [], //Initial no order.

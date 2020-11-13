@@ -43,26 +43,26 @@
                 <input id="param" value="" hidden>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tab-data">
-                    <table class="table table-bordered table-hover" id="list-pangan">
+                    <table class="table table-responsive table-bordered table-striped nowrap" id="list-pangan" aria-describedby="example1_info">
                         <thead>
                             <tr>
-                              <th rowspan=2>NO</th>
-                              <th rowspan=2>KELOMPOKTANI</th>
-                              <th rowspan=2>KECAMATAN</th>
-                              <th rowspan=2>DESA</th>
-                              <th colspan=3>KETUA</th>
-                              <th rowspan=2>JUMLAH ANGGOTA (ORANG)</th>
-                              <th rowspan=2>LUAS (HA)</th>
-                              <th rowspan=2>JENIS LAHAN (Ha)</th>
-                              <th rowspan=2>BENIH (KG)</th>
-                              <th rowspan=2>VARIETAS</th>
-                              <th rowspan=2>PUPUK HAYATI CAIR (liter)</th>
-                              <th rowspan=2>PUPUK HAYATI CAIR (liter)</th>
-                              <th rowspan=2>RHIZOBIUM (gr)</th>
-                              <th rowspan=2>HERBISIDA/PESTISIDA (liter)</th>
-                              <th rowspan=2>JADWAL TANAM</th>
-                              <th rowspan=2>PROVITAS EXISTING (Kw/ha)</th>
-                              <th rowspan=2>TARGET PROVITAS (Kw/ha)</th>
+                              <th rowspan=2 class="align-middle">NO</th>
+                              <th rowspan=2 class="align-middle">KELOMPOK TANI</th>
+                              <th rowspan=2 class="align-middle">KECAMATAN</th>
+                              <th rowspan=2 class="align-middle">DESA</th>
+                              <th colspan=3 class="align-middle text-center">KETUA</th>
+                              <th rowspan=2 class="align-middle text-center">JUMLAH ANGGOTA (ORANG)</th>
+                              <th rowspan=2 class="align-middle text-center">LUAS (HA)</th>
+                              <th rowspan=2 class="align-middle text-center">JENIS LAHAN (Ha)</th>
+                              <th rowspan=2 class="align-middle text-center">BENIH (KG)</th>
+                              <th rowspan=2 class="align-middle text-center">VARIETAS</th>
+                              <th rowspan=2 class="align-middle text-center">PUPUK HAYATI CAIR (liter)</th>
+                              <th rowspan=2 class="align-middle text-center">PUPUK HAYATI CAIR (liter)</th>
+                              <th rowspan=2 class="align-middle text-center">RHIZOBIUM (gr)</th>
+                              <th rowspan=2 class="align-middle text-center">HERBISIDA/PESTISIDA (liter)</th>
+                              <th rowspan=2 class="align-middle text-center">JADWAL TANAM</th>
+                              <th rowspan=2 class="align-middle text-center">PROVITAS EXISTING (Kw/ha)</th>
+                              <th rowspan=2 class="align-middle text-center">TARGET PROVITAS (Kw/ha)</th>
                             </tr>
                             <tr>
                               <th>NAMA</th>
@@ -70,6 +70,8 @@
                               <th>NO HP</th>
                             </tr>
                         </thead>
+                        <tbody>
+                        </tbody>
                     </table>
                   </div>
                   <div class="tab-pane" id="tab-upload">
@@ -242,5 +244,25 @@
 {% block js %}
 <script type="text/javascript" src="{{base_url}}assets/js/action/upload.js"></script>
 <script src="{{base_url}}assets/distro/js/pages/uploader_bootstrap.js"></script>
-
+<script src="{{base_url}}assets/lte/plugins/jquery/jquery.min.js"></script>
+<script src="{{base_url}}assets/lte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{base_url}}assets/lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{base_url}}assets/lte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{base_url}}assets/lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script>
+$(document).ready(function(){
+  $.ajax({
+    method:'GET',
+    dataType:'JSON',
+    url:'listBantuan',
+    success:function(result){
+      console.log(result);
+    }
+  })
+})
+    // $('#list-pangan').DataTable({
+    //     responsive: true
+    // });
+    // new $.fn.dataTable.FixedHeader( table );
+</script>
 {% endblock %}
