@@ -57,7 +57,6 @@
                               <th rowspan=2 class="align-middle text-center">BENIH (KG)</th>
                               <th rowspan=2 class="align-middle text-center">VARIETAS</th>
                               <th rowspan=2 class="align-middle text-center">PUPUK HAYATI CAIR (liter)</th>
-                              <th rowspan=2 class="align-middle text-center">PUPUK HAYATI CAIR (liter)</th>
                               <th rowspan=2 class="align-middle text-center">RHIZOBIUM (gr)</th>
                               <th rowspan=2 class="align-middle text-center">HERBISIDA/PESTISIDA (liter)</th>
                               <th rowspan=2 class="align-middle text-center">JADWAL TANAM</th>
@@ -251,14 +250,51 @@
 <script src="{{base_url}}assets/lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script>
 $(document).ready(function(){
-  $.ajax({
-    method:'GET',
-    dataType:'JSON',
-    url:'listBantuan',
-    success:function(result){
-      console.log(result);
-    }
-  })
+  $('#list-pangan').DataTable({
+    "ajax" : {
+      "url" : "getData",
+      'dataSrc' : ""
+    },
+    "columns":[
+      {"data":"no"},
+      {"data":"kelompok_tani"},
+      {"data":"kecamatan"},
+      {"data":"desa"},
+      {"data":"nama"},
+      {"data":"nik"},
+      {"data":"no_hp"},
+      {"data":"jml_anggota"},
+      {"data":"luas"},
+      {"data":"jenis_lahan"},
+      {"data":"benih"},
+      {"data":"varietas"},
+      {"data":"pupuk"},
+      {"data":"rhizobium"},
+      {"data":"herbisida"},
+      {"data":"jadwal"},
+      {"data":"provitas_existing"},
+      {"data":"provitas_target"}
+    ],
+    responsive: true,
+    bDestroy: true,
+    autoWidth : true,
+  });
+  // $.ajax({
+  //   method:'GET',
+  //   dataType:'JSON',
+  //   url:'getData',
+  //   success:function(result){
+  //     $('#list-pangan').DataTable({
+  //         responsive: true,
+  //         data:result,
+  //         "colums":[
+  //           {data:"kelompok_tani"}
+  //         ],
+  //         "order":[[1,'asc']]
+  //     });
+  //     new $.fn.dataTable.FixedHeader( table );
+  //   }
+  // })
 })
     // $('#list-pangan').DataTable({
     //     responsive: true
