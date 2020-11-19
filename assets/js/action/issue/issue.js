@@ -32,4 +32,34 @@ $(document).ready(function(){
     .catch( error => {
         console.error( error );
     } );
+
+    $('#formIssue').submit(function(e){
+        e.preventDefault(); 
+        if ($('file').val()) {
+            alert('Masukan file');
+        }else{
+            $.ajax({
+                url:'createIssue',
+                type:"post",
+                data:new FormData(this),
+                processData:false,
+                contentType:false,
+                cache:false,
+                async:false,
+                success: function(data){
+                    Swal.fire({
+                        title: 'Sukses!',
+                        text: data.pesan,
+                        icon: 'success',
+                        showConfirmButton: true,
+                        confirmButtonText: '<i class="fas fa-check"></i>'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload();
+                        }
+                    });
+                }
+            });
+        }
+    });
 })

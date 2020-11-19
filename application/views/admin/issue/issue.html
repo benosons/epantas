@@ -35,20 +35,20 @@
             </div>
               <div class="card-body">
         <input id="param" value="Televisi" hidden>
-        <table class="table table-bordered table-hover" id="listsiaran">
+        <table class="table table-bordered table-hover" id="listIssue">
             <thead>
                 <tr>
-                    <th>
-                        No
-                    </th>
                     <th>
                         Judul
                     </th>
                     <th>
                         Deskripsi
                     </th>
-                    <th style="width:20%;">
-                        Foto
+                    <th>
+                        Created At
+                    </th>
+                    <th>
+                        Created By
                     </th>
                     <th>
                         action
@@ -312,4 +312,33 @@
 {% endblock %}
 {% block js %}
 <script type="text/javascript" src="{{base_url}}assets/js/action/issue/issue.js"></script>
+<script src="{{base_url}}assets/lte/plugins/jquery/jquery.min.js"></script>
+<script src="{{base_url}}assets/lte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{base_url}}assets/lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{base_url}}assets/lte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{base_url}}assets/lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script>
+$(document).ready(function(){
+  $('#listIssue').DataTable({
+    "ajax" : {
+      "url" : "loadIssue",
+      'dataSrc' : ""
+    },
+    "columns":[
+      {"data":"judul"},
+      {"data":"deskripsi"},
+      {"data":"created_at"},
+      {"data":"created_by"},
+      {"data":"created_by"}
+    ],
+    responsive: true,
+    bDestroy: true,
+    autoWidth : true,
+  });
+  $('#add-issue').click(function(){
+        window.location.href="addIssue";
+    });
+
+})
+</script>
 {% endblock %}

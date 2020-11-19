@@ -22,7 +22,7 @@ class Issue extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// $this->load->model('Model_kegiatan');
+		$this->load->model('Model_issue');
 		$this->logs = $this->session->all_userdata();
 		$this->logged = $this->session->userdata('userLogged');
 		$this->kategori = $this->session->userdata('kategori');
@@ -58,6 +58,34 @@ class Issue extends CI_Controller {
 			$this->twig->display('admin/issue/addIssue.html', $this->content);
 		}else{
 			redirect("dashboard");
+		}
+	}
+
+	public function loadIssue()
+	{
+		$issue = $this->Model_issue->loadIssue();
+		echo json_encode($issue);
+	}
+
+	public function createIssue()
+	{
+		if (isset($_FILES['file']['name'])) {
+			$config['upload_path']="./assets/img/issue/";
+			$config['allowed_types']='gif|jpg|png|jpeg';
+			$config['encrypt_name'] = TRUE;
+			
+			$this->load->library('upload',$config);
+			if($this->upload->do_upload("file")){
+				$judul = $this->input->post('judul');
+				$deskripsi = $this->input->post('deskripsi');
+				$data = $this->upload->data();
+				$file = "assets/img/issue/".$data['file_name'];
+
+				$query = $this->Model_issue->insertIssue($judul,$file,$deskripsi);
+				echo json_encode($query);
+			}else{
+				echo $this->upload->display_errors();
+			}
 		}
 	}
 }
