@@ -27,8 +27,6 @@
             <div class="card-header">
               <div class="card-tools">
                 <ul class="nav nav-pills ml-auto p-2">
-                    <li class="nav-item"><a class="nav-link active" href="#tab-data" data-toggle="tab">List Data</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tab-upload" data-toggle="tab">Upload Excell</a></li>
                     <li class="nav-item">
                       <div class="dropdown float-right" style="padding-left: 15px;">
                         <button type="button" class="btn btn-primary"><i class="fas fa-bars"></i></button>
@@ -41,39 +39,7 @@
             </div>
               <div class="card-body">
                 <input id="param" value="" hidden>
-                <div class="tab-content">
-                  <div class="tab-pane active" id="tab-data">
-                    <table class="table table-responsive table-bordered table-striped nowrap" id="list-pangan" aria-describedby="example1_info">
-                        <thead>
-                            <tr>
-                              <th rowspan=2 class="align-middle">NO</th>
-                              <th rowspan=2 class="align-middle">KELOMPOK TANI</th>
-                              <th rowspan=2 class="align-middle">KECAMATAN</th>
-                              <th rowspan=2 class="align-middle">DESA</th>
-                              <th colspan=3 class="align-middle text-center">KETUA</th>
-                              <th rowspan=2 class="align-middle text-center">JUMLAH ANGGOTA (ORANG)</th>
-                              <th rowspan=2 class="align-middle text-center">LUAS (HA)</th>
-                              <th rowspan=2 class="align-middle text-center">JENIS LAHAN (Ha)</th>
-                              <th rowspan=2 class="align-middle text-center">BENIH (KG)</th>
-                              <th rowspan=2 class="align-middle text-center">VARIETAS</th>
-                              <th rowspan=2 class="align-middle text-center">PUPUK HAYATI CAIR (liter)</th>
-                              <th rowspan=2 class="align-middle text-center">RHIZOBIUM (gr)</th>
-                              <th rowspan=2 class="align-middle text-center">HERBISIDA/PESTISIDA (liter)</th>
-                              <th rowspan=2 class="align-middle text-center">JADWAL TANAM</th>
-                              <th rowspan=2 class="align-middle text-center">PROVITAS EXISTING (Kw/ha)</th>
-                              <th rowspan=2 class="align-middle text-center">TARGET PROVITAS (Kw/ha)</th>
-                            </tr>
-                            <tr>
-                              <th>NAMA</th>
-                              <th>NIK</th>
-                              <th>NO HP</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                  </div>
-                  <div class="tab-pane" id="tab-upload">
+
                       <div class="card">
                           <div class="card-header">
                               <h5>Excell Upload</h5>
@@ -84,15 +50,13 @@
                               </div>
                           </div>
                           <div class="card-block" style="padding: 20px;">
-                            <form method="post" action="form" enctype="multipart/form-data">
-                              <div class="sub-title">Penerima Bantuan Pemerintah Akabi 2020</div>
-                              <input type="file" name="files[]" id="filer_input" multiple="multiple">
-                              <button type="submit" class="btn btn-success btn-md" name="preview" value="1">upload</button>
+                            <form enctype="multipart/form-data">
+                              <div class="file-loading">
+                                  <input id="file-4" type="file" class="file" data-upload-url="form" data-theme="fas" multiple>
+                              </div>
                             </form>
                           </div>
                       </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -242,7 +206,6 @@
 {% endblock %}
 {% block js %}
 <script type="text/javascript" src="{{base_url}}assets/js/action/upload.js"></script>
-<script src="{{base_url}}assets/distro/js/pages/uploader_bootstrap.js"></script>
 <script src="{{base_url}}assets/lte/plugins/jquery/jquery.min.js"></script>
 <script src="{{base_url}}assets/lte/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="{{base_url}}assets/lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -301,4 +264,5 @@ $(document).ready(function(){
     // });
     // new $.fn.dataTable.FixedHeader( table );
 </script>
+
 {% endblock %}

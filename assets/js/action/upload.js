@@ -1,8 +1,11 @@
 $(document).ready(function(){
+
+  $('#upload > a').attr('class','nav-link active');
+
     getData();
     function getData(){
         $.ajax({
-            method:'GET',
+            method:'POT',
             dataType:'JSON',
             url:'getData',
             success:function(result){

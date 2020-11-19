@@ -32,6 +32,36 @@ class Upload extends CI_Controller {
 		);
 	}
 
+	public function bantuan()
+	{
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
+		{
+			$this->twig->display('admin/upload/bantuan.html', $this->content);
+		}else{
+			redirect("dashboard");
+		}
+	}
+
+	public function laporan()
+	{
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
+		{
+			$this->twig->display('admin/upload/laporan-kegiatan.html', $this->content);
+		}else{
+			redirect("dashboard");
+		}
+	}
+
+	public function rekap()
+	{
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
+		{
+			$this->twig->display('admin/upload/rekap.html', $this->content);
+		}else{
+			redirect("dashboard");
+		}
+	}
+
 	public function upload(){
 
 		// $data['siswa'] = $this->SiswaModel->view();
@@ -49,24 +79,27 @@ class Upload extends CI_Controller {
 
 	public function getData()
 	{
-		$bantuan = $this->model_bantuan->getBantuan();
-		
+		$postData = $this->input->post('param');
+		$bantuan = $this->model_bantuan->getBantuan($postData);
+
 		echo json_encode($bantuan);
 	}
 
 	public function form(){
+
 		$data = array(); // Buat variabel $data sebagai array
 		$nama_file_baru = 'data.xlsx';
-		if(is_file('assets/dokumen/excel/'.$nama_file_baru)) // Jika file tersebut ada
-			unlink('assets/dokumen/excel/'.$nama_file_baru);
-			$ext = pathinfo($_FILES['files']['name'][0], PATHINFO_EXTENSION); // Ambil ekstensi filenya apa
-			$tmp_file = $_FILES['files']['tmp_name'][0];
+		$name = strtolower(str_replace(' ', '_', $_FILES['file_data']['name']));
+
+		if(is_file('assets/dokumen/excel/'.$name)) // Jika file tersebut ada
+			unlink('assets/dokumen/excel/'.$name);
+			$ext = pathinfo($_FILES['file_data']['name'], PATHINFO_EXTENSION); // Ambil ekstensi filenya apa
+			$tmp_file = $_FILES['file_data']['tmp_name'];
 
 		if($ext == "xlsx"){
-			move_uploaded_file($tmp_file, 'assets/dokumen/excel/'.$nama_file_baru);
+			move_uploaded_file($tmp_file, 'assets/dokumen/excel/'.$name);
 		}
 
-		if(isset($_POST['preview'])){ // Jika user menekan tombol Preview pada form
 			// lakukan upload file dengan memanggil function upload yang ada di SiswaModel.php
 
 			// $upload = $this->SiswaModel->upload_file($this->filename);
@@ -76,66 +109,147 @@ class Upload extends CI_Controller {
 				include APPPATH.'third_party/PHPExcel/PHPExcel.php';
 
 				$excelreader = new PHPExcel_Reader_Excel2007();
-				$loadexcel = $excelreader->load('assets/dokumen/excel/'.$nama_file_baru); // Load file yang tadi diupload ke folder excel
-				echo '<pre>';
-				// $sheet = $loadexcel->getSheetNames(); //ambil nama sheet
-				// $sheet = $loadexcel->getActiveSheet()->toArray(null, true, true ,true);
-				// $sheet_1 = $loadexcel->getSheet(0)->toArray(null, true, true ,true); //ambil dengan index
 
-				foreach ($loadexcel->getSheetNames() as $key1 => $value1) {
+				// $loadexcel = $excelreader->load('assets/dokumen/excel/'.$name); // Load file yang tadi diupload ke folder excel
+				$loadexcel = $excelreader->load('assets/dokumen/excel/'.$name); // Load file yang tadi diupload ke folder excel
+				if($name == 'rekap_per_kab_bantuan_pemerintah_akabi.xlsx'){
+					foreach ($loadexcel->getSheetNames() as $key1 => $value1) {
 						$data[$value1] = $loadexcel->getSheet($key1)->toArray(null, true, true ,true);
 						foreach ($data[$value1] as $key2 => $value2) {
-							// code...
-							if($key2 >= 7){
+							if($key2 >= 6){
 								if($value2['A']){
-									$ids;
-									if(!is_numeric($value2['A'])){
-										$explode = explode(". ",$value2['A']);
+									$datakab = [
+												'id' => $value2['A'],
+												'kabupaten' => $value2['B'],
+												'kedelai_full_paket' => $value2['C'],
+												'kedelai_non_phc' => $value2['D'],
+												'kedelai_jumlah' => $value2['E'],
+												'kacang_tanah_full_paket' => $value2['F'],
+												'kacang_tanah_non_phc' => $value2['G'],
+												'kacang_tanah_jumlah' => $value2['H'],
+												'kacang_hijau_full_paket' => $value2['I'],
+												'kacang_hijau_non_phc' => $value2['J'],
+												'kacang_hijau_jumlah' => $value2['K'],
+												'ubi_jalar' => $value2['L'],
+												'jumlah_akabi' => $value2['M'],
+											];
+									$inst = $this->model_bantuan->insert_data('rekap_perkab',$datakab);
+								}
 
-										$id = $explode[0];
-										$name = $explode[1];
+
+							}
+						}
+					}
+
+				}else if($name == 'laporan_bulanan_kegiatan_akabi.xlsx'){
+
+					foreach ($loadexcel->getSheetNames() as $key1 => $value1) {
+
+						if($value1 != 'Sheet5'){
+							$data[$value1] = $loadexcel->getSheet($key1)->toArray(null, true, true ,true);
+
+							foreach ($data[$value1] as $key2 => $value2) {
+
+								if($key2 >= 9){
+
+									if($value2['A']){
 										$datakab = [
-													'jenis_bantuan' => $value1,
-													'id_kabupaten' => $id,
-													'nama_kabupaten' => $name
+													'no' => $value2['A'],
+													'jenis' => explode('. ', $value1)[1],
+													'kabupaten' => $value2['B'],
+													'jumlah_kec' => $value2['C'],
+													'jumlah_desa' => $value2['D'],
+													'jumlah_poktan' => $value2['E'],
+													'sasaran_areal' => $value2['F'],
+													'sk_penetapan' => $value2['G'],
+													'realisasi_kontrak' => $value2['H'],
+													'realisasi_distribusi' => $value2['I'],
+													'apr' => $value2['J'],
+													'mei' => $value2['K'],
+													'juni' => $value2['L'],
+													'juli' => $value2['M'],
+													'ags' => $value2['N'],
+													'sep' => $value2['O'],
+													'okt' => $value2['P'],
+													'nop' => $value2['Q'],
+													'des' => $value2['R'],
+													'jumlah' => $value2['S'],
+													'realisasi_panen_luas' => $value2['T'],
+													'realisasi_panen_produktivitas' => $value2['U'],
+													'realisasi_panen_produksi' => $value2['V'],
+													'tidak_dilaksanakan' => $value2['W'],
+													'provitas_sebelum' => $value2['X'],
+													'ket' => $value2['Y'],
 												];
-
-										$insert = $this->SiswaModel->insert_data('bantuan_kabupaten', $datakab);
-										if($insert){
-											$ids = $id;
-										}
-									}else{
-										$data = [
-														'jenis_bantuan' => $value1,
-														'id_kabupaten' => $ids,
-														'no' => $value2['A'],
-														'kelompok_tani' => $value['B'],
-														'kecamatan' => $value2['C'],
-														'desa' => $value2['D'],
-														'nama' => $value2['E'],
-														'nik' => $value2['F'],
-														'no_hp' => $value2['G'],
-														'jml_anggota' => $value2['H'],
-														'luas' => $value2['I'],
-														'jenis_lahan' => $value2['J'],
-														'benih' => $value2['K'],
-														'varietas' => $value2['L'],
-														'pupuk' => $value2['M'],
-														'rhizobium' => $value2['N'],
-														'herbisida' => $value2['O'],
-														'jadwal' => $value2['P'],
-														'provitas_existing' => $value2['Q'],
-														'provitas_target' => $value2['R'],
-														'create_date' => date("Y-m-d H:i:s"),
-														'update_date' => date("Y-m-d H:i:s"),
-														'create_by' => ''
-										];
-										$insert = $this->SiswaModel->insert_data('bantuan', $data);
+										$inst = $this->model_bantuan->insert_data('laporan_bulanan_kegiatan',$datakab);
+										// print_r($inst);die;
 									}
+
+
 								}
 							}
 						}
-				}
+					}
+				}else{
+						// $sheet = $loadexcel->getSheetNames(); //ambil nama sheet
+						// $sheet = $loadexcel->getActiveSheet()->toArray(null, true, true ,true);
+						// $sheet_1 = $loadexcel->getSheet(0)->toArray(null, true, true ,true); //ambil dengan index
+						foreach ($loadexcel->getSheetNames() as $key1 => $value1) {
+								$data[$value1] = $loadexcel->getSheet($key1)->toArray(null, true, true ,true);
+
+								foreach ($data[$value1] as $key2 => $value2) {
+									// code...
+									if($key2 >= 7){
+										if($value2['A']){
+											$ids;
+											if(!is_numeric($value2['A'])){
+												$explode = explode(". ",$value2['A']);
+
+												$id = $explode[0];
+												$name = $explode[1];
+												$datakab = [
+															'jenis_bantuan' => $value1,
+															'id_kabupaten' => $id,
+															'nama_kabupaten' => $name
+														];
+
+												$insert = $this->SiswaModel->insert_data('bantuan_kabupaten', $datakab);
+												if($insert){
+													$ids = $id;
+												}
+											}else{
+												$data = [
+																'jenis_bantuan' => $value1,
+																'id_kabupaten' => $ids,
+																'no' => $value2['A'],
+																'kelompok_tani' => $value['B'],
+																'kecamatan' => $value2['C'],
+																'desa' => $value2['D'],
+																'nama' => $value2['E'],
+																'nik' => $value2['F'],
+																'no_hp' => $value2['G'],
+																'jml_anggota' => $value2['H'],
+																'luas' => $value2['I'],
+																'jenis_lahan' => $value2['J'],
+																'benih' => $value2['K'],
+																'varietas' => $value2['L'],
+																'pupuk' => $value2['M'],
+																'rhizobium' => $value2['N'],
+																'herbisida' => $value2['O'],
+																'jadwal' => $value2['P'],
+																'provitas_existing' => $value2['Q'],
+																'provitas_target' => $value2['R'],
+																'create_date' => date("Y-m-d H:i:s"),
+																'update_date' => date("Y-m-d H:i:s"),
+																'create_by' => ''
+												];
+												$insert = $this->SiswaModel->insert_data('bantuan', $data);
+											}
+										}
+									}
+								}
+						}
+					}
 
 				// Masukan variabel $sheet ke dalam array data yang nantinya akan di kirim ke file form.php
 				// Variabel $sheet tersebut berisi data-data yang sudah diinput di dalam excel yang sudha di upload sebelumnya
@@ -144,9 +258,9 @@ class Upload extends CI_Controller {
 			// }else{ // Jika proses upload gagal
 			// 	$data['upload_error'] = $upload['error']; // Ambil pesan error uploadnya untuk dikirim ke file form dan ditampilkan
 			// }
-		}
 
-		redirect("upload");
+		// redirect("upload");
+		echo json_encode(array("status" => TRUE));
 	}
 
 	public function import(){
