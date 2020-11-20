@@ -2,7 +2,6 @@ $(document).ready(function(){
 
   $('#upload > a').attr('class','nav-link active');
 
-    getData();
     function getData(){
         $.ajax({
             method:'POT',
@@ -19,9 +18,6 @@ $(document).ready(function(){
             }
         })
     }
-    $('#list-pangan').DataTable({
-        responsive: true
-    });
-    new $.fn.dataTable.FixedHeader( table );
+
     console.log('You are running jQuery version: ' + $.fn.jquery);
 })

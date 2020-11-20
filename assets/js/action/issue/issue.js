@@ -34,7 +34,7 @@ $(document).ready(function(){
     } );
 
     $('#formIssue').submit(function(e){
-        e.preventDefault(); 
+        e.preventDefault();
         if ($('file').val()) {
             alert('Masukan file');
         }else{
