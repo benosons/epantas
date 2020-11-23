@@ -24,6 +24,8 @@ $(document).ready(function(){
                   aaData: result,
                   aoColumns: [
                     {"mDataProp":"id"},
+                    {"mDataProp":"bulan"},
+                    {"mDataProp":"tahun"},
                     {"mDataProp":"kabupaten"},
                     {"mDataProp":"kedelai_full_paket"},
                     {"mDataProp":"kedelai_non_phc"},
@@ -37,7 +39,7 @@ $(document).ready(function(){
                     {"mDataProp":"ubi_jalar"},
                     {"mDataProp":"jumlah_akabi"},
                   ],
-                  order: [[0, 'ASC']],
+                  order: [[1, 'ASC']],
                   // rowGroup: {
                   //     dataSrc: 'jenis'
                   // },
@@ -50,27 +52,19 @@ $(document).ready(function(){
                   //         "targets": [ 5,6,7,8,9,10 ],
                   //         "visible": false
                   //     },
-                  //     {
-                  //         mRender: function (data, type, row){
-                  //             var $rowData = '';
-                  //                 $rowData += `
-                  //                           <div class="row">
-                  //                             <div class="col-md-4">
-                  //                               <button onclick="modaldetail('`+row.namaBadanHukum+`','`+row.pimpinan+`','`+row.alamat+`','`+row.email+`','`+row.frekuensi+`','`+row.wilayahLayanan+`','`+row.kontak+`','`+row.koor+`')" type="button" class="btn btn-block btn-success btn-sm"><i class="far fa-eye"></i></button>
-                  //                             </div>
-                  //                             <div class="col-md-4">
-                  //                               <button onclick="editlembaga(`+row.id+`,'`+param+`')" type="button" class="btn btn-block btn-warning btn-sm"><i class="far fa-edit"></i></button>
-                  //                             </div>
-                  //                             <div class="col-md-4">
-                  //                               <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
-                  //                             </div>
-                  //                           </div>
-                  //                             `;
-                  //
-                  //             return $rowData;
-                  //         },
-                  //         aTargets: [4]
-                  //     },
+                      {
+                          mRender: function (data, type, row){
+
+                            const monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                              "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+                            ];
+
+                              var $rowData = monthNames[row.bulan - 1];
+                              
+                              return $rowData;
+                          },
+                          aTargets: [1]
+                      },
                   ],
 
 
@@ -84,4 +78,56 @@ $(document).ready(function(){
         })
     }
     console.log('You are running jQuery version: ' + $.fn.jquery);
-})
+
+    $('#ok-delete').on('click', function(){
+          const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: 'btn btn-success',
+              cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+          });
+
+          swalWithBootstrapButtons.fire({
+            title: 'Anda Yakin, hapus Data ini?',
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: '<i class="fas fa-check"></i> Ya',
+            cancelButtonText: '<i class="fas fa-times"></i> Tidak',
+            reverseButtons: true
+          }).then((result) => {
+          if (result.isConfirmed) {
+            $.ajax({
+              type: 'post',
+              dataType: 'json',
+              url: 'deletedata',
+              data : {
+                      table    : 'rekap_perkab',
+                      bulan    : $('#bulan').val(),
+                      tahun    : $('#tahun').val(),
+                    },
+              success: function(data)
+              {
+                Swal.fire({
+                  title: 'Sukses!',
+                  text: 'Hapus Data',
+                  icon: 'success',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+                getData();
+              }
+            });
+          }
+        })
+
+      });
+});
+
+function modalhapus(){
+  $('#modal-delete').modal({
+    show: true
+  });
+
+}

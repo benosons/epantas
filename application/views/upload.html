@@ -26,15 +26,7 @@
           <div class="card card-danger card-outline">
             <div class="card-header">
               <div class="card-tools">
-                <ul class="nav nav-pills ml-auto p-2">
-                    <li class="nav-item">
-                      <div class="dropdown float-right" style="padding-left: 15px;">
-                        <button type="button" class="btn btn-primary"><i class="fas fa-bars"></i></button>
-                        <div class="dropdown-content">
-                        </div>
-                      </div>
-                    </li>
-                </ul>
+                
               </div>
             </div>
               <div class="card-body">
@@ -42,7 +34,49 @@
 
                       <div class="card">
                           <div class="card-header">
-                              <h5>Excell Upload</h5>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label for="nama_file" class="col-sm-12">Nama File :</label>
+                                    <div class="col-sm-12">
+                                      <select id="nama_file" name="nama_file" class="form-control select2">
+                                        <option value="0">-Pilih File-</option>
+                                        <option value="laporan_bulanan_kegiatan_akabi.xlsx">laporan_bulanan_kegiatan_akabi.xlsx</option>
+                                        <option value="penerima_bantuan_pemerintah_akabi.xlsx">penerima_bantuan_pemerintah_akabi.xlsx</option>
+                                        <option value="rekap_per_kab_bantuan_pemerintah_akabi.xlsx">rekap_per_kab_bantuan_pemerintah_akabi.xlsx</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label for="bulan" class="col-sm-12">Bulan :</label>
+                                    <div class="col-sm-12">
+                                      <select id="bulan" name="bulan" class="form-control select2">
+                                        <option value="0">-Pilih Bulan-</option>
+                                        <option value="1">Januari</option>
+                                        <option value="2">Februari</option>
+                                        <option value="3">Maret</option>
+                                        <option value="4">April</option>
+                                        <option value="5">Mei</option>
+                                        <option value="6">Juni</option>
+                                        <option value="7">Juli</option>
+                                        <option value="8">Agustus</option>
+                                        <option value="9">September</option>
+                                        <option value="10">Oktober</option>
+                                        <option value="11">November</option>
+                                        <option value="12">Desember</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label for="tahun">Tahun :</label>
+                                    <input type="text" name="tahun" class="form-control" id="tahun" placeholder="">
+                                  </div>
+                                </div>
+                              </div>
                               <div class="card-header-right">
                                   <i class="icofont icofont-rounded-down"></i>
                                   <i class="icofont icofont-refresh"></i>
@@ -50,154 +84,13 @@
                               </div>
                           </div>
                           <div class="card-block" style="padding: 20px;">
-                            <form enctype="multipart/form-data">
                               <div class="file-loading">
-                                  <input id="file-4" type="file" class="file" data-upload-url="form" data-theme="fas" multiple>
+                                  <input id="file-4" name="file_upload" type="file" class="file" data-theme="fas" multiple>
                               </div>
-                            </form>
                           </div>
                       </div>
             </div>
           </div>
-        </div>
-
-        <div class="modal fade" id="modal-detail">
-          <div class="modal-dialog modal-lg card card-danger card-outline">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title">Detail Data</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="varietas" class="col-sm-12">Varietas :</label>
-                      <div class="col-sm-12">
-                        <select id="varietas" class="form-control select2">
-                          <option value="0">-Pilih varietas-</option>
-                          <option value="1">Hibrida</option>
-                          <option value="2">Inbrida</option>
-                          <option value="3">Ciherang</option>
-                          <option value="4">Sintanur</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="bantuan_pemerintah" class="col-sm-12">Bantuan Pemerintah</label>
-                      <div class="col-sm-12">
-                        <select id="bantuan_pemerintah" class="form-control select2">
-                          <option value="0">-Pilih-</option>
-                          <option value="1">Benih</option>
-                          <option value="2">Alsintan</option>
-                          <option value="3">Seritifkasi</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="milik_aset" class="col-sm-12">Kepemilikan Aset :</label>
-                      <div class="col-sm-12">
-                        <select id="milik_aset" class="form-control select2">
-                          <option value="0">-Pilih aset-</option>
-                          <option value="1">Kelompok</option>
-                          <option value="2">Brigade</option>
-                          <option value="3">Kabupaten</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="jml_aset">Jumlah Aset:</label>
-                      <input type="text" class="form-control" id="jml_aset" placeholder="">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="tahun_perolehan">Tahun Perolehan:</label>
-                      <input type="text" class="form-control" id="tahun_perolehan" placeholder="">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="sumber_aset" class="col-sm-12">Sumber Perolehan Aset :</label>
-                      <div class="col-sm-12">
-                        <select id="sumber_aset" class="form-control select2">
-                          <option value="0">-Pilih Bantuan-</option>
-                          <option value="1">Bantuan APBN Pusat</option>
-                          <option value="2">Bantuan APBN TP Provinsi</option>
-                          <option value="3">Bantuan APBD Provinsi</option>
-                          <option value="4">Bantuan APBD Kabupaten</option>
-                          <option value="5">Swadaya</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-
-        <div id="mySidenav" class="sidenav card card-danger card-outline" style="width:250px;display:none;">
-          <div class="card-header" style="padding: 0 10% 0 0;">
-            <div class="card-tools">
-              <a href="javascript:void(0)" class="" onclick="closeNav()">&times;</a>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="nama_pejabat">Nama Pejabat:</label>
-                  <input type="text" class="form-control" id="nama_pejabat" placeholder="">
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="nip_pejabat">NIP Pejabat:</label>
-                  <input type="text" class="form-control" id="nip_pejabat" placeholder="">
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="nik_pejabat">NIK Pejabat:</label>
-                  <input type="text" class="form-control" id="nik_pejabat" placeholder="">
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="jabatan" class="col-sm-12">Jabatan :</label>
-                  <div class="col-sm-12">
-                    <select id="jabatan" class="form-control select2">
-                      <option value="0">-Pilih jabatan-</option>
-                      <option value="1">Kabid</option>
-                      <option value="2">Kasie Serealia</option>
-                      <option value="3">Kasie AKABI</option>
-                      <option value="4">Kasie Pascapanen</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-12">
-                  <button type="button" class="col-md-12 btn btn-success" id="simpan_pejabat"><i class="fas fa-check"></i> simpan</button>
-              </div>
-            </div>
-            <br/>
-          </div>
-
         </div>
 
 </section>

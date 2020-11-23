@@ -15,7 +15,6 @@ class Model_bantuan extends CI_Model {
         }else{
           $this->db->select("*");
           $this->db->from("bantuan");
-          $this->db->join("bantuan_kabupaten",'bantuan_kabupaten.id_kabupaten = bantuan.id_kabupaten', 'left');
         }
         return $this->db->get()->result();
     }
@@ -27,5 +26,13 @@ class Model_bantuan extends CI_Model {
 		$val = true;
 		return $val;
 	}
+
+  public function deletedata($params)
+  {
+      // $idx = $this->db->escape_str($id);
+      $this->db->where('bulan', $params->bulan);
+      $this->db->where('tahun', $params->tahun);
+      $this->db->delete($params->table);
+  }
 
 }

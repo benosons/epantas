@@ -90,6 +90,9 @@ class Upload extends CI_Controller {
 		$data = array(); // Buat variabel $data sebagai array
 		$nama_file_baru = 'data.xlsx';
 		$name = strtolower(str_replace(' ', '_', $_FILES['file_data']['name']));
+		$nama_file = $_POST['nama_file'];
+		$bulan = $_POST['bulan'];
+		$tahun = $_POST['tahun'];
 
 		if(is_file('assets/dokumen/excel/'.$name)) // Jika file tersebut ada
 			unlink('assets/dokumen/excel/'.$name);
@@ -117,7 +120,7 @@ class Upload extends CI_Controller {
 						$data[$value1] = $loadexcel->getSheet($key1)->toArray(null, true, true ,true);
 						foreach ($data[$value1] as $key2 => $value2) {
 							if($key2 >= 6){
-								if($value2['A']){
+								if(is_float($value2['A'])){
 									$datakab = [
 												'id' => $value2['A'],
 												'kabupaten' => $value2['B'],
@@ -132,6 +135,8 @@ class Upload extends CI_Controller {
 												'kacang_hijau_jumlah' => $value2['K'],
 												'ubi_jalar' => $value2['L'],
 												'jumlah_akabi' => $value2['M'],
+												'bulan' => $bulan,
+												'tahun' => $tahun,
 											];
 									$inst = $this->model_bantuan->insert_data('rekap_perkab',$datakab);
 								}
@@ -180,6 +185,8 @@ class Upload extends CI_Controller {
 													'tidak_dilaksanakan' => $value2['W'],
 													'provitas_sebelum' => $value2['X'],
 													'ket' => $value2['Y'],
+													'bulan' => $bulan,
+													'tahun' => $tahun,
 												];
 										$inst = $this->model_bantuan->insert_data('laporan_bulanan_kegiatan',$datakab);
 										// print_r($inst);die;
@@ -190,18 +197,18 @@ class Upload extends CI_Controller {
 							}
 						}
 					}
-				}else{
+				}else if($name == 'penerima_bantuan_pemerintah_akabi.xlsx'){
 						// $sheet = $loadexcel->getSheetNames(); //ambil nama sheet
 						// $sheet = $loadexcel->getActiveSheet()->toArray(null, true, true ,true);
 						// $sheet_1 = $loadexcel->getSheet(0)->toArray(null, true, true ,true); //ambil dengan index
 						foreach ($loadexcel->getSheetNames() as $key1 => $value1) {
 								$data[$value1] = $loadexcel->getSheet($key1)->toArray(null, true, true ,true);
-
 								foreach ($data[$value1] as $key2 => $value2) {
 									// code...
+
 									if($key2 >= 7){
+										$names;
 										if($value2['A']){
-											$ids;
 											if(!is_numeric($value2['A'])){
 												$explode = explode(". ",$value2['A']);
 
@@ -212,15 +219,16 @@ class Upload extends CI_Controller {
 															'id_kabupaten' => $id,
 															'nama_kabupaten' => $name
 														];
-
-												$insert = $this->SiswaModel->insert_data('bantuan_kabupaten', $datakab);
-												if($insert){
-													$ids = $id;
-												}
+												$names = $name;
+												// $insert = $this->SiswaModel->insert_data('bantuan_kabupaten', $datakab);
+												// if($insert){
+												// 	$ids = $id;
+												// }
 											}else{
+
 												$data = [
 																'jenis_bantuan' => $value1,
-																'id_kabupaten' => $ids,
+																'nama_kabupaten' => $names,
 																'no' => $value2['A'],
 																'kelompok_tani' => $value['B'],
 																'kecamatan' => $value2['C'],
@@ -241,9 +249,12 @@ class Upload extends CI_Controller {
 																'provitas_target' => $value2['R'],
 																'create_date' => date("Y-m-d H:i:s"),
 																'update_date' => date("Y-m-d H:i:s"),
-																'create_by' => ''
+																'create_by' => '',
+																'bulan' => $bulan,
+																'tahun' => $tahun,
 												];
-												$insert = $this->SiswaModel->insert_data('bantuan', $data);
+												
+												$insert = $this->model_bantuan->insert_data('bantuan', $data);
 											}
 										}
 									}
@@ -297,4 +308,14 @@ class Upload extends CI_Controller {
 
 		redirect("Siswa"); // Redirect ke halaman awal (ke controller siswa fungsi index)
 	}
+
+	public function deletedata()
+	{
+
+		$params = (object)$this->input->post();
+		$this->model_bantuan->deletedata($params);
+		header('Content-Type: application/json');
+		echo json_encode(array("status" => TRUE));
+	}
+
 }
