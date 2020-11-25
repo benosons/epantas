@@ -1,0 +1,63 @@
+{% extends "users/layout.html" %} {% block content %}
+    <!-- Home Page
+
+        <!-- ======= Detail Section ======= -->
+        <section id="issue" class="about">
+          <div class="container">
+
+            <div class="section-title">
+              <h2>{{judul}}</h2>
+            </div>
+
+            <div class="row content">
+              <div class="col-lg-6">
+                  <img src="{{base_url}}{{file}}" width="600px" alt="">
+              </div>
+              <div class="col-lg-6">
+                  {{deskripsi}}
+              </div>
+            </div>
+
+          </div>
+        </section><!-- End About Section -->
+        <!-- ======= Detail Section ====== -->
+    {% endblock %}
+    {% block js %}
+    <script>
+    // $.ajax({
+    //   method:'GET',
+    //   dataType:'JSON',
+    //   url:'loadIssue',
+    //   success:function(result){
+    //     var i = 0;
+    //     var html = "";
+    //     for(i; i<result.length; i++)
+    //     {
+    //       html += "<div class='col-md-6 d-flex align-items-stretch'>";
+    //       html += "<div class='card' style='width: 25rem; padding-top:0px !important; text-align:left;'>";
+    //       html += "<img src='{{base_url}}"+result[i].file+"' alt='issue.png' class='card-img-top'>";
+    //       html += "<div class='card-body'>";
+    //       html += "<h5 class='card-title'>"+result[i].judul+"</h5>";
+    //       html += "<p class='card-text-mb-2'>"+result[i].deskripsi+"</p>";
+    //     //   const newUrl = result[i].judul.replace(/\s/g, "-")
+    //       html += "<div class='read-more text-right'><a href='#' id='detailIssue' data-id='"+result[i].id+"'><i class='icofont-arrow-right'></i> Read More</a></div>";
+    //       html += "</div>";
+    //       html += "</div>";
+    //       html += "</div>";
+    //     }
+    //     $('#list-issue').html(html);
+    //   }
+    // })
+    // $(document).on('click','#detailIssue',function(){
+    //     var id = $(this).attr('data-id');
+    //     $.ajax({
+    //         method:'POST',
+    //         data:{id:id},
+    //         url:'detailIssue',
+    //         success:function(){
+
+    //         }
+    //     })
+    // })
+    // </script>
+    {% endblock %}

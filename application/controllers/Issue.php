@@ -89,14 +89,15 @@ class Issue extends CI_Controller {
 		}
 	}
 
-	public function detailissue()
+	public function detailIssue()
 	{
-				$this->content['ids'] = $this->input->get('ids');
-				$this->content['param'] = $this->input->get('par');
-				$this->twig->display('users/detailissue.html', $this->content);
-
-
+		$id = $this->input->post('id');
+		$issue = $this->Model_issue->detailIssue($id);
+		$output = array();
+		$output['judul'] = strtoupper($issue->judul);
+		$output['file'] = $issue->file;
+		$output['date'] = date('d F Y',strtotime($issue->created_at));
+		$output['deskripsi'] = $issue->deskripsi;
+		echo json_encode($output);
 	}
-
-
 }
