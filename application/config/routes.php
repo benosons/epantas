@@ -62,9 +62,4 @@ $route['^(provinsi|kabupaten|kecamatan|gapoktan|addprov|addkab|addkec|addpoktan|
 $route['^(apbntp|apbd|addapbntp|addapbd|saveapbntp|saveapbd)(/:any)?$'] = "Kegiatan/$0";
 $route['^(transuang|transbarang|addtransuang|addtransbarang|savetransuang|savetransbarang)(/:any)?$'] = "Banpem/$0";
 $route['^(listpangan|addpangan|deletePangan|savepangan|loadpangan|updatePangan|formPangan|dataDetailPangan|loadparam|verifikasi)(/:any)?$'] = "Pangan/$0";
-<<<<<<< HEAD
 $route['^(listIssue|addIssue|createIssue|loadIssue|detailIssue)(/:any)?$'] = "Issue/$0";
-=======
-$route['^(listIssue|addIssue|createIssue|loadIssue|detailissue)(/:any)?$'] = "Issue/$0";
-$route['detailissue'] = "Issue/detailissue";
->>>>>>> 26789aeb86934d228136299140d7ae273903940e
