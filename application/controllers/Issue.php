@@ -88,4 +88,16 @@ class Issue extends CI_Controller {
 			}
 		}
 	}
+
+	public function detailIssue()
+	{
+		$id = $this->input->post('id');
+		$issue = $this->Model_issue->detailIssue($id);
+		$output = array();
+		$output['judul'] = strtoupper($issue->judul);
+		$output['file'] = $issue->file;
+		$output['date'] = date('d F Y',strtotime($issue->created_at));
+		$output['deskripsi'] = $issue->deskripsi;
+		echo json_encode($output);
+	}
 }

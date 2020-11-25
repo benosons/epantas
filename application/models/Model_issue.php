@@ -20,4 +20,12 @@ class Model_issue extends CI_Model {
         $data = $this->db->get('issue')->result();
         return $data;
     }
+
+    public function detailIssue($id)
+    {
+        // $newJudul = str_replace('-',' ',$judul);
+        $this->db->where('id',$id);
+        $data = $this->db->get('issue')->row();
+        return $data;
+    }
 }
