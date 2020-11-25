@@ -73,7 +73,7 @@ class Issue extends CI_Controller {
 			$config['upload_path']="./assets/img/issue/";
 			$config['allowed_types']='gif|jpg|png|jpeg';
 			$config['encrypt_name'] = TRUE;
-			
+
 			$this->load->library('upload',$config);
 			if($this->upload->do_upload("file")){
 				$judul = $this->input->post('judul');
@@ -88,4 +88,15 @@ class Issue extends CI_Controller {
 			}
 		}
 	}
+
+	public function detailissue()
+	{
+				$this->content['ids'] = $this->input->get('ids');
+				$this->content['param'] = $this->input->get('par');
+				$this->twig->display('users/detailissue.html', $this->content);
+
+
+	}
+
+
 }
