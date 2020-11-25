@@ -215,6 +215,15 @@ class Model_pangan extends CI_Model {
         (SELECT nama from varietas WHERE id= pangan.varietas) as nama_varietas
         from pangan where kabupaten_kota = '$kotakab' order by id desc")->result();
 
+      }else{
+        $query = $this->db->query("select *,
+        (select nama_penyuluh from penyuluh_pendamping where id= pangan.penyuluh) as nama_penyuluh,
+        (SELECT nama from kabupaten_kota WHERE id= pangan.kabupaten_kota) as nama_kabupaten,
+        (SELECT nama from kecamatan WHERE id=pangan.kecamatan) as nama_kecamatan,
+        (SELECT nama from kelurahan WHERE id=pangan.kelurahan) as nama_kelurahan,
+        (SELECT nama from varietas WHERE id= pangan.varietas) as nama_varietas
+        from pangan order by id desc")->result();
+
       }
       return $query;
     }
@@ -222,7 +231,7 @@ class Model_pangan extends CI_Model {
     public function verifikasi($params = NULL)
     {
         $valid = false;
-            
+
             $this->db->set("status",'1');
             $this->db->set("updated_by", $this->session->userdata('id'));
             $this->db->set("update_date", date("Y-m-d H:i:s"));

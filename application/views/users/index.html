@@ -340,16 +340,16 @@
               <p>Berisi tentang data-data komoditas pangan berkualitas yang ada di provinsi Jawa barat.</p>
             </div>
 
-            <ul class="portfolio-flters d-flex justify-content-center">
-              <li data-filter="*" class="filter-active">All</li>
+            <ul class="portfolio-flters d-flex justify-content-center" id="pilih-filter">
+              <!-- <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-app">App</li>
               <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter=".filter-web">Web</li> -->
             </ul>
 
-            <div class="row portfolio-container">
+            <div class="row portfolio-container" id="content-filter">
 
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+              <!-- <div class="col-lg-4 col-md-6 portfolio-item filterDiv Ciherang" hidden>
                 <div class="portfolio-img"><img src="{{base_url}}assets/dokumen/gambar/portfolio/bawang-merah.jpg" class="img-fluid" alt=""></div>
                 <div class="portfolio-info">
                   <h4>App 1</h4>
@@ -359,7 +359,7 @@
                 </div>
               </div>
 
-              <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+              <div class="col-lg-4 col-md-6 portfolio-item filterDiv Inbrida" hidden>
                 <div class="portfolio-img"><img src="{{base_url}}assets/dokumen/gambar/portfolio/durian.jpg" class="img-fluid" alt=""></div>
                 <div class="portfolio-info">
                   <h4>Web 3</h4>
@@ -369,7 +369,7 @@
                 </div>
               </div>
 
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+              <div class="col-lg-4 col-md-6 portfolio-item filter-app filterDiv">
                 <div class="portfolio-img"><img src="{{base_url}}assets/dokumen/gambar/portfolio/jagung.jpg" class="img-fluid" alt=""></div>
                 <div class="portfolio-info">
                   <h4>App 2</h4>
@@ -427,9 +427,9 @@
                   <a href="{{base_url}}assets/dokumen/gambar/portfolio/pisang.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+              <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                 <div class="portfolio-img"><img src="{{base_url}}assets/dokumen/gambar/portfolio/portfolio-9.jpg" class="img-fluid" alt=""></div>
                 <div class="portfolio-info">
                   <h4>Web 3</h4>
@@ -437,11 +437,35 @@
                   <a href="{{base_url}}assets/dokumen/gambar/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
                   <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
-              </div>
+              </div> -->
 
             </div>
 
           </div>
+          <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Ciherang</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Stok Pangan : 120 Ton</p>
+        <p>Tanggal Panen : 24 Desember 2020</p>
+        <p>Nama Petani : Alabama</p>
+        <p>Nama Penyuluh : Breno</p>
+        <p>Kabupaten Kota : Sumedang</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
         </section><!-- End Portfolio Section -->
 
         <!-- ======= Team Section ======= ->
