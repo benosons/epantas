@@ -134,6 +134,10 @@ class Model_pangan extends CI_Model {
     public function delete($id)
     {
         $ids = $this->db->escape_str($id);
+        if(!$ids){
+          $ids = $id->id;
+        }
+
         $this->db->where('id', $ids);
         $this->db->delete('pangan');
     }

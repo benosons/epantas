@@ -73,8 +73,8 @@ function loadIssueu(){
     for (var i = (page-1) * records_per_page_isu; i < (page * records_per_page_isu) && i < data_isu.length; i++) {
 
         content +=
-          `<div class="col-md-6 d-flex align-items-stretch">
-            <div class="card" style='background-image: url("`+data_isu[i].file+`");'>
+          `<div class="col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card" style='background-image: url("`+data_isu[i].file+`");border:2px solid #00afef;'>
               <div class="card-body">
                 <h5 class="card-title"><a href="">`+data_isu[i].judul+`</a></h5>
                 <p class="card-text">`+data_isu[i].deskripsi.substr(0,150)+`</p>

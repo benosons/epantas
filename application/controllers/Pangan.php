@@ -91,11 +91,24 @@ class Pangan extends CI_Controller {
 		{
 			$params = (object)$this->input->post();
 			$data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $params->img));
+			$im = imagecreatefromstring($data);
+			$source_width = imagesx($im);
+			$source_height = imagesy($im);
+			$ratio =  $source_height / $source_width;
+			$new_width = 660; // assign new width to new resized image
+			$new_height = 660;
+			$thumb = imagecreatetruecolor($new_width, $new_height);
+			$transparency = imagecolorallocatealpha($thumb, 255, 255, 255, 127);
+			imagefilledrectangle($thumb, 0, 0, $new_width, $new_height, $transparency);
+			imagecopyresampled($thumb, $im, 0, 0, 0, 0, $new_width, $new_height, $source_width, $source_height);
 
 			$filepath = "assets/dokumen/gambar/pangan/".$params->nama_file; // or image.jpg
+			imagepng($thumb, $filepath, 9);
 			chmod($filepath,0777);
-			file_put_contents($filepath,$data);
+			file_put_contents($filepath,$thumb);
 			$params->foto = $filepath;
+			imagedestroy($im);
+			// print_r($ee);die;
 
  	        $data = $this->Model_pangan->savepangan($params);
  	        echo json_encode(array("status" => TRUE));
@@ -123,6 +136,15 @@ class Pangan extends CI_Controller {
 
 	public function deletePangan($id = NULL)
 	{
+		if(!$id){
+
+			$id = (object)$this->input->post();
+		}
+			$path = (object)$this->input->post();
+		if(file_exists($path->path)){
+			unlink($path->path);
+		}
+
 		$this->Model_pangan->delete($id);
 		echo json_encode(array("status" => TRUE));
 	}
@@ -214,7 +236,7 @@ public function verifikasi()
 	if ( $this->logged && $this->role == '10' || $this->role == '20')
 	{
 				$params = (object)$this->input->post();
-				
+
 				$data = $this->Model_pangan->verifikasi($params);
 				echo json_encode(array("status" => TRUE));
 	}

@@ -137,7 +137,7 @@ $( document ).ready(function() {
                                         <a href="#"><i class="far fa-eye"></i> Detail</a>
                                         <a href="#"><i class="far fa-edit"></i> Edit</a>
                                         `+rol+`
-                                        <a href="#"><i class="fas fa-trash-alt"></i> Hapus</a>
+                                        <a href="#" onclick="deletedong(`+row.id+`, '`+row.foto+`')"><i class="fas fa-trash-alt"></i> Hapus</a>
                                         <a href="#"><i class="fas fa-print"></i> Cetak</a>
                                       </div>
                                     </div>`;
@@ -379,6 +379,31 @@ function savepangan(data){
                 Swal.fire({
                   title: 'Sukses!',
                   text: "Berhasil Verifikasi",
+                  icon: 'success',
+                  showConfirmButton: true,
+                  confirmButtonText: '<i class="fas fa-check"></i>'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.href='listpangan';
+                  }
+                });
+              }
+            })
+
+
+        }
+
+        function deletedong(id, path) {
+
+          $.ajax({
+              type: 'post',
+              dataType: 'json',
+              url: 'deletePangan',
+              data : {id: id, path: path},
+              success: function(result){
+                Swal.fire({
+                  title: 'Sukses!',
+                  text: "Berhasil Hapus",
                   icon: 'success',
                   showConfirmButton: true,
                   confirmButtonText: '<i class="fas fa-check"></i>'
