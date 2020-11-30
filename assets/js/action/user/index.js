@@ -5,9 +5,9 @@ $( document ).ready(function() {
 
 
 function detailissue(id){
-  $('#modal-detail').modal({backdrop: 'static', keyboard: false})
+  $('#issueModal').modal({backdrop: 'static', keyboard: false})
 
-  $('#modal-detail').modal({
+  $('#issueModal').modal({
     show: true
   });
 }
@@ -78,7 +78,7 @@ function loadIssueu(){
               <div class="card-body">
                 <h5 class="card-title"><a href="">`+data_isu[i].judul+`</a></h5>
                 <p class="card-text">`+data_isu[i].deskripsi.substr(0,150)+`</p>
-                <div class="read-more"><a href="#"><i class="icofont-arrow-right"></i> Read More</a></div>
+                <div class="read-more"><a href="#!" id="`+data_isu[i].id+`" class="listIssue"><i class="icofont-arrow-right"></i> Read More</a></div>
               </div>
             </div>
           </div>`;
