@@ -12,6 +12,194 @@ function detailissue(id){
   });
 }
 
+var current_page_isu = 1;
+var current_page_pangan = 1;
+var records_per_page_isu = 4;
+var records_per_page_pangan = 4;
+var data_isu = {};
+var data_pangan = {};
+
+loadIssueu();
+function loadIssueu(){
+  $.ajax({
+    method:'GET',
+    dataType:'JSON',
+    url:'loadIssue',
+    success:function(result){
+      data_isu = result;
+
+      changePage_isu(1);
+      // var i = 0;
+      // var html = "";
+      // for(i; i<result.length; i++)
+      // {
+      //   html += "<div class='col-md-6 d-flex align-items-stretch'>";
+      //   html += "<div class='card' style='width: 42rem; padding-top:0px !important; text-align:left;'>";
+      //   html += "<img src='{{base_url}}"+result[i].file+"' alt='issue.png' class='card-img-top'>";
+      //   html += "<div class='card-body'>";
+      //   html += "<h5 class='card-title'>"+result[i].judul+"</h5>";
+      //   html += "<p class='card-text-mb-2'>"+result[i].deskripsi.substr(0,150)+"...</p>";
+      //   // const newUrl = result[i].judul.replace(/\s/g, "-")
+      //   html += "<div class='read-more text-right'><button id='"+result[i].id+"' class='btn btn-link btn-sm text-secondary listIssue'><i class='icofont-arrow-right'></i> Read More</button></div>";
+      //   html += "</div>";
+      //   html += "</div>";
+      //   html += "</div>";
+      // }
+      // $('#list-issue').html(html);
+    }
+  })
+};
+
+
+    function changePage_isu(page)
+    {
+
+    var btn_next = document.getElementById("btn_next_isu");
+    var btn_prev = document.getElementById("btn_prev_isu");
+    // var listing_table = document.getElementById("listingTable");
+    var page_span = document.getElementById("page_isu");
+
+    // Validate page
+    if (page < 1) page = 1;
+    if (page > numPages_isu()) page = numPages_isu();
+
+    // listing_table.innerHTML = "";
+
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun",
+      "Jul", "Agu", "Sep", "Okt", "Nov", "Des"
+    ];
+
+    var content = "";
+    for (var i = (page-1) * records_per_page_isu; i < (page * records_per_page_isu) && i < data_isu.length; i++) {
+
+        content +=
+          `<div class="col-md-6 d-flex align-items-stretch">
+            <div class="card" style='background-image: url("`+data_isu[i].file+`");'>
+              <div class="card-body">
+                <h5 class="card-title"><a href="">`+data_isu[i].judul+`</a></h5>
+                <p class="card-text">`+data_isu[i].deskripsi.substr(0,150)+`</p>
+                <div class="read-more"><a href="#"><i class="icofont-arrow-right"></i> Read More</a></div>
+              </div>
+            </div>
+          </div>`;
+    }
+    page_span.innerHTML = page;
+    $('#list-issue').html(content);
+
+    if (page == 1) {
+        btn_prev.style.visibility = "hidden";
+    } else {
+        btn_prev.style.visibility = "visible";
+    }
+
+    if (page == numPages_isu()) {
+        btn_next.style.visibility = "hidden";
+    } else {
+        btn_next.style.visibility = "visible";
+    }
+  }
+
+    function changePage_pangan(page)
+    {
+
+    var btn_next = document.getElementById("btn_next_pangan");
+    var btn_prev = document.getElementById("btn_prev_pangan");
+    // var listing_table = document.getElementById("listingTable");
+    var page_span = document.getElementById("page_pangan");
+
+    // Validate page
+    if (page < 1) page = 1;
+    if (page > numPages_pangan()) page = numPages_pangan();
+
+    // listing_table.innerHTML = "";
+
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun",
+      "Jul", "Agu", "Sep", "Okt", "Nov", "Des"
+    ];
+
+    var x = {};
+    var content = "";
+    for (var i = (page-1) * records_per_page_pangan; i < (page * records_per_page_pangan) && i < data_pangan.length; i++) {
+      var obj = data_pangan[i];
+
+      if (x[obj.nama_varietas] === undefined)
+          x[obj.nama_varietas] = [obj.nama_varietas];
+
+      x[obj.nama_varietas].push(obj.nama_varietas);
+      content +=
+      `<div class="col-lg-4 col-md-6 portfolio-item `+obj.nama_varietas+`">
+        <div class="portfolio-img"><img src="`+obj.foto+`" class="img-fluid" alt=""></div>
+        <div class="portfolio-info">
+          <h4>`+obj.nama_varietas+`</h4>
+          <p>App</p>
+          <a href="`+obj.foto+`" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+          <a href="#!" data-toggle="modal" data-target="#myModal" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+        </div>
+      </div>`;
+    }
+    page_span.innerHTML = page;
+    $('#content-filter').html(content);
+
+    if (page == 1) {
+        btn_prev.style.visibility = "hidden";
+    } else {
+        btn_prev.style.visibility = "visible";
+    }
+
+    if (page == numPages_pangan()) {
+        btn_next.style.visibility = "hidden";
+    } else {
+        btn_next.style.visibility = "visible";
+    }
+  }
+
+    function prevPage_isu()
+    {
+        if (current_page_isu > 1) {
+            current_page_isu--;
+            changePage_isu(current_page_isu);
+        }
+    }
+
+    function nextPage_isu()
+    {
+
+        if (current_page_isu < numPages_isu()) {
+
+            current_page_isu++;
+            changePage_isu(current_page_isu);
+        }
+    }
+
+    function prevPage_pangan()
+    {
+        if (current_page_pangan > 1) {
+            current_page_pangan--;
+            changePage_pangan(current_page_pangan);
+        }
+    }
+
+    function nextPage_pangan()
+    {
+
+        if (current_page_pangan < numPages_pangan()) {
+
+            current_page_pangan++;
+            changePage_pangan(current_page_pangan);
+        }
+    }
+
+    function numPages_isu()
+    {
+        return Math.ceil(data_isu.length / records_per_page_isu);
+    }
+
+    function numPages_pangan()
+    {
+        return Math.ceil(data_pangan.length / records_per_page_pangan);
+    }
+
+
 loadpangan();
 function loadpangan(){
     $.ajax({
@@ -22,7 +210,8 @@ function loadpangan(){
                 param      : '',
          },
         success: function(result){
-
+          data_pangan = result;
+          changePage_pangan(1);
         var x = {};
         var cont = '';
         for (var i = 0; i < result.length; ++i) {
@@ -60,7 +249,7 @@ function loadpangan(){
 
 
         $('#pilih-filter').append(ul);
-        $('#content-filter').append(cont);
+        // $('#content-filter').append(cont);
         filterSelection("all");
 
 

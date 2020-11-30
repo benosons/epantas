@@ -73,7 +73,7 @@
         </section><!-- End Counts Section -->
 
         <!-- ======= Our Values Section ======= -->
-        <section id="our-values" class="our-values">
+        <section id="our-values" class="our-values" hidden>
           <div class="container">
 
             <div class="row">
@@ -227,7 +227,7 @@
         <section id="issue" class="our-values">
           <div class="container">
             <div class="section-title">
-              <h2>Isu</h2>
+              <h2>Isu dan Tantangan</h2>
               <p>Berisi tentang artikel atau tulisan tentang ISU, TANTANGAN dan STRATEGI di bidang pangan.</p>
             </div>
 
@@ -242,6 +242,17 @@
                   </div>
                 </div>
               </div> -->
+            </div>
+            <div class="col-12">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="javascript:prevPage_isu()" id="btn_prev_isu"><i class="icofont-arrow-left"></i></a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#"><span id="page_isu">1</span></a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="javascript:nextPage_isu()" id="btn_next_isu" ><i class="icofont-arrow-right"></i></a>
+                    </li>
+                </ul>
             </div>
 
           </div>
@@ -440,32 +451,20 @@
               </div> -->
 
             </div>
+            <div class="col-12">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="javascript:prevPage_pangan()" id="btn_prev_pangan"><i class="icofont-arrow-left"></i></a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#"><span id="page_pangan">1</span></a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="javascript:nextPage_pangan()" id="btn_next_pangan" ><i class="icofont-arrow-right"></i></a>
+                    </li>
+                </ul>
+            </div>
 
           </div>
           <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Ciherang</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p>Stok Pangan : 120 Ton</p>
-        <p>Tanggal Panen : 24 Desember 2020</p>
-        <p>Nama Petani : Alabama</p>
-        <p>Nama Penyuluh : Breno</p>
-        <p>Kabupaten Kota : Sumedang</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
         </section><!-- End Portfolio Section -->
 
         <!-- ======= Team Section ======= ->
@@ -805,9 +804,33 @@
 
             </div>
 
-          </div>
         </section><!-- End Contact Section -->
         <!-- Modal -->
+
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Ciherang</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <p>Stok Pangan : 120 Ton</p>
+                <p>Tanggal Panen : 24 Desember 2020</p>
+                <p>Nama Petani : Alabama</p>
+                <p>Nama Penyuluh : Breno</p>
+                <p>Kabupaten Kota : Sumedang</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
         <div class="modal fade" id="issueModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
           <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
@@ -819,7 +842,7 @@
               <div class="modal-body" >
                 <div class="row">
                   <div class="col-lg-12" id="issueBody">
-                    
+
                   </div>
                 </div>
               </div>
@@ -830,30 +853,7 @@
     {% block js %}
     <script type="text/javascript" src="{{base_url}}assets/js/action/user/index.js"></script>
     <script>
-    $.ajax({
-      method:'GET',
-      dataType:'JSON',
-      url:'loadIssue',
-      success:function(result){
-        var i = 0;
-        var html = "";
-        for(i; i<result.length; i++)
-        {
-          html += "<div class='col-md-6 d-flex align-items-stretch'>";
-          html += "<div class='card' style='width: 42rem; padding-top:0px !important; text-align:left;'>";
-          html += "<img src='{{base_url}}"+result[i].file+"' alt='issue.png' class='card-img-top'>";
-          html += "<div class='card-body'>";
-          html += "<h5 class='card-title'>"+result[i].judul+"</h5>";
-          html += "<p class='card-text-mb-2'>"+result[i].deskripsi.substr(0,150)+"...</p>";
-          // const newUrl = result[i].judul.replace(/\s/g, "-")
-          html += "<div class='read-more text-right'><button id='"+result[i].id+"' class='btn btn-link btn-sm text-secondary listIssue'><i class='icofont-arrow-right'></i> Read More</button></div>";
-          html += "</div>";
-          html += "</div>";
-          html += "</div>";
-        }
-        $('#list-issue').html(html);
-      }
-    })
+
     $(document).on('click','.listIssue',function(){
       var id = $(this).attr('id');
       $('#issueModal').modal({backdrop: 'static', keyboard: false},'show');
