@@ -93,15 +93,25 @@ class Upload extends CI_Controller {
 		$nama_file = $_POST['nama_file'];
 		$bulan = $_POST['bulan'];
 		$tahun = $_POST['tahun'];
+		$kabupaten_kota = $_POST['kabupaten_kota'];
 
 		if(is_file('assets/dokumen/excel/'.$name)) // Jika file tersebut ada
 			unlink('assets/dokumen/excel/'.$name);
 			$ext = pathinfo($_FILES['file_data']['name'], PATHINFO_EXTENSION); // Ambil ekstensi filenya apa
 			$tmp_file = $_FILES['file_data']['tmp_name'];
 
-		if($ext == "xlsx"){
-			move_uploaded_file($tmp_file, 'assets/dokumen/excel/'.$name);
-		}
+			include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+
+			if($ext == "xlsx"){
+				move_uploaded_file($tmp_file, 'assets/dokumen/excel/'.$name);
+				$excelreader = new PHPExcel_Reader_Excel2007();
+				$loadexcel = $excelreader->load('assets/dokumen/excel/'.$name); // Load file yang tadi diupload ke folder excel
+			}
+
+			if($ext == "xls" ){
+				move_uploaded_file($tmp_file, 'assets/dokumen/excel/'.$name);
+				$loadexcel = PHPExcel_IOFactory::load('assets/dokumen/excel/'.$name);
+			}
 
 			// lakukan upload file dengan memanggil function upload yang ada di SiswaModel.php
 
@@ -109,12 +119,10 @@ class Upload extends CI_Controller {
 			// print_r($upload);die;
 			// if($upload['result'] == "success"){ // Jika proses upload sukses
 				// Load plugin PHPExcel nya
-				include APPPATH.'third_party/PHPExcel/PHPExcel.php';
 
-				$excelreader = new PHPExcel_Reader_Excel2007();
 
 				// $loadexcel = $excelreader->load('assets/dokumen/excel/'.$name); // Load file yang tadi diupload ke folder excel
-				$loadexcel = $excelreader->load('assets/dokumen/excel/'.$name); // Load file yang tadi diupload ke folder excel
+				// print_r($name);die;
 				if($name == 'rekap_per_kab_bantuan_pemerintah_akabi.xlsx'){
 					foreach ($loadexcel->getSheetNames() as $key1 => $value1) {
 						$data[$value1] = $loadexcel->getSheet($key1)->toArray(null, true, true ,true);
@@ -253,12 +261,224 @@ class Upload extends CI_Controller {
 																'bulan' => $bulan,
 																'tahun' => $tahun,
 												];
-												
+
 												$insert = $this->model_bantuan->insert_data('bantuan', $data);
 											}
 										}
 									}
 								}
+						}
+					}else if($name == 'database_uph.xls'){
+						foreach ($loadexcel->getSheetNames() as $key1 => $value1) {
+							$data[$value1] = $loadexcel->getSheet($key1)->toArray(null, true, true ,true);
+
+							foreach ($data[$value1] as $key2 => $value2) {
+								if($key2 >= 7){
+									$kota;
+
+									if(is_numeric($value2['A'])){
+
+										$datauph = [
+											'nomor' => $value2['A'],
+											'kabupaten_kota' => $value2['B'],
+											'no_kelompok' => $value2['C'],
+											'nama_kelompok' => $value2['D'],
+											'ketua' => $value2['E'],
+											'desa' => $value2['F'],
+											'kecamatan' => $value2['G'],
+											'jenis_olahan' => $value2['H'],
+											'tahun' => $value2['I'],
+										];
+										$kota = $value2['B'];
+
+										$insert = $this->model_bantuan->insert_data('uph', $datauph);
+										// print_R('$data[$value1]');die;
+									}else if($value2['A'] == NULL){
+										if($value2['C']){
+											$datauph = [
+												'nomor' => NULL,
+												'kabupaten_kota' => $kota,
+												'no_kelompok' => $value2['C'],
+												'nama_kelompok' => $value2['D'],
+												'ketua' => $value2['E'],
+												'desa' => $value2['F'],
+												'kecamatan' => $value2['G'],
+												'jenis_olahan' => $value2['H'],
+												'tahun' => $value2['I'],
+											];
+
+											$insert = $this->model_bantuan->insert_data('uph', $datauph);
+										}
+									}
+
+								}
+							}
+
+						}
+					}else if($name == 'rekapan_uph_skoring.xlsx'){
+						foreach ($loadexcel->getSheetNames() as $key1 => $value1) {
+							$data[$value1] = $loadexcel->getSheet($key1)->toArray(null, true, true ,true);
+
+							foreach ($data[$value1] as $key2 => $value2) {
+								if($key2 >= 5){
+									if(is_numeric($value2['A'])){
+										$data = [
+											'no' => $value2['A'],
+											'kabupaten' => $value2['B'],
+											'nama_poktan' => $value2['C'],
+											'nama_ketua' => $value2['D'],
+											'alamat' => $value2['E'],
+											'organisasi_dikukuhkan' => $value2['F'],
+											'luas_lahan_kelompok' => $value2['G'],
+											'luas_lahan_sawah_desa' => $value2['H'],
+											'pola_tanam' => $value2['I'],
+											'rata_rata_produksi' => $value2['J'],
+											'ketersediaan_bahan_baku_olahan' => $value2['K'],
+											'ketersediaan_unit_olahan_pakan_ternak' => $value2['L'],
+											'ketersediaan_lahan_utk_bangunan' => $value2['M'],
+											'luas_lahan_yg_tersedia' => $value2['N'],
+											'status_kepemilikan_lahan' => $value2['O'],
+											'lokasi_bangunan_tidak_tercemar' => $value2['P'],
+											'lokasi_bangunan_terpisah_dari_rumah_tinggal' => $value2['Q'],
+											'kesiapan_kelompok_mencari_bahan_baku' => $value2['R'],
+											'ketersediaan_listrik' => $value2['S'],
+											'ketersediaan_modal' => $value2['T'],
+											'usaha_yg_dimiliki_poktan' => $value2['U'],
+											'bersedia_memanfaatkan_mengelola_dan_mengoptimalkan_bantuan' => $value2['V'],
+											'bersedia_menyusun_ruk_dan_rab' => $value2['W'],
+											'bersedia_swadaya_apabila_anggaran_untuk_bangunan_kurang' => $value2['X'],
+											'bersedia_menerapkan_gmp' => $value2['Y'],
+											'bersedia_menggunakan_bahan_baku_dari_poktan' => $value2['Z'],
+											'bersedia_menyampaikan_laporan_harian' => $value2['AA'],
+											'nilai' => $value2['AB'],
+											'foto_open_camera_calon_lokasi' => $value2['AC'],
+											'keterangan' => $value2['AD'] .'-'. $value2['AE'],
+											'bulan' => $bulan,
+											'tahun' => $tahun,
+										];
+
+										$insert = $this->model_bantuan->insert_data('uph_skoring', $data);
+										// print_r($data);die;
+									}
+
+								}
+							}
+						}
+
+					}else if($name == 'evaluasi_pemanfaatan_sarana_uph.xlsx'){
+						foreach ($loadexcel->getSheetNames() as $key1 => $value1) {
+							$data[$value1] = $loadexcel->getSheet($key1)->toArray(null, true, true ,true);
+
+							foreach ($data[$value1] as $key2 => $value2) {
+								if($key2 >= 9){
+									if(is_numeric($value2['A'])){
+										$data = [
+											'nomor' => $value2['A'],
+											'kecamatan' => $value2['B'],
+											'desa' => $value2['C'],
+											'gapoktan' => $value2['D'],
+											'kelompok_tani' => $value2['E'],
+											'ketua' => $value2['F'],
+											'jenis_uph' => $value2['G'],
+											'jumlah_bahan_baku_yang_digunakan' => $value2['H'],
+											'jumlah_hasil_pengolahan' => $value2['I'],
+											'rendeman' => $value2['J'],
+											'jenis_pasar' => $value2['K'],
+											'kuantitas_penjualan' => $value2['L'],
+											'harga' => $value2['M'],
+											'kendala' => $value2['N'],
+											'solusi' => $value2['O'],
+											'kabupaten_kota' => $kabupaten_kota,
+											'bulan' => $bulan,
+											'tahun' => $tahun,
+										];
+										$insert = $this->model_bantuan->insert_data('uph_evaluasi_sarana', $data);
+
+									}
+								}
+							}
+						}
+
+					}else if($name == 'jabar-sp3t.xlsx'){
+
+						foreach ($loadexcel->getSheetNames() as $key1 => $value1) {
+							$data[$value1] = $loadexcel->getSheet($key1)->toArray(null, true, true ,true);
+							// print_r($data[$value1]);die;
+							foreach ($data[$value1] as $key2 => $value2) {
+								if($key2 >= 6){
+									if(is_numeric($value2['B'])){
+
+										$data = [
+											'nomor' => $value2['B'],
+											'provinsi' => $value2['C'],
+											'kabupaten' => $value2['D'],
+											'kecamatan' => $value2['E'],
+											'desa' => $value2['F'],
+											'gapoktan' => $value2['G'],
+											'nama_kelompok' => $value2['H'],
+											'ketua' => $value2['I'],
+											'no_kontak' => $value2['J'],
+											'tahun' => $value2['K'],
+											'kapasitas_produksi' => $value2['L'],
+											'jumlah_poktan_mitra_pemasok' => $value2['M'],
+											'jumlah_pasar_yg_sudah_berjalan' => $value2['N'],
+											'rendemen_penggilingan' => $value2['O'],
+											'potensi_pengembangan_korporasi' => $value2['P'],
+											'kendala_produksi' => $value2['Q'],
+											'bulan' => $bulan,
+										];
+
+										$insert = $this->model_bantuan->insert_data('SP3T', $data);
+
+									}
+								}
+							}
+						}
+
+					}else if($name == 'rekap_register_psat.xlsx'){
+						foreach ($loadexcel->getSheetNames() as $key1 => $value1) {
+							$data[$value1] = $loadexcel->getSheet($key1)->toArray(null, true, true ,true);
+							// print_r($data[$value1]);die;
+							foreach ($data[$value1] as $key2 => $value2) {
+								if($key2 >= 6){
+									$nom;
+									$poktan;
+									$alamat;
+									if(is_numeric($value2['A'])){
+										$nom = $value2['A'];
+										$poktan = $value2['B'];
+										$alamat = $value2['C'];
+										$data = [
+											'nomor' => $value2['A'],
+											'poktan_gapoktan' => $value2['B'],
+											'alamat' => $value2['C'],
+											'total' => $value2['D'],
+											'nama_pangan' => $value2['E'],
+											'nama_dagang' => $value2['F'],
+											'no_register' => $value2['G'],
+											'tgl_dikeluarkan' => $value2['H'],
+											'berlaku' => $value2['I'],
+										];
+										
+										$insert = $this->model_bantuan->insert_data('register_psat', $data);
+
+									}else{
+										$data = [
+											'nomor' => $nom,
+											'poktan_gapoktan' => $poktan,
+											'alamat' => $alamat,
+											'total' => $value2['D'],
+											'nama_pangan' => $value2['E'],
+											'nama_dagang' => $value2['F'],
+											'no_register' => $value2['G'],
+											'tgl_dikeluarkan' => $value2['H'],
+											'berlaku' => $value2['I'],
+										];
+										$insert = $this->model_bantuan->insert_data('register_psat', $data);
+
+									}
+								}
+							}
 						}
 					}
 

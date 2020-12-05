@@ -1,5 +1,15 @@
 $('.select2').select2();
+$('#nama_file').on('change', function() {
+    if(this.value == 'evaluasi_pemanfaatan_sarana_uph.xlsx'){
+      $('#kabupaten_kota').attr('disabled', false);
+    }else{
+      $('#kabupaten_kota').attr('disabled', true);
+    }
+  });
+
 $(document).ready(function(){
+
+
 
 
 $('.fileinput-upload').on('click', function(){
@@ -10,7 +20,8 @@ $('.fileinput-upload').on('click', function(){
   formData.append('nama_file',$('#nama_file').val());
   formData.append('bulan', $('#bulan').val());
   formData.append('tahun',$('#tahun').val());
-
+  formData.append('kabupaten_kota',$('#kabupaten_kota').val());
+  console.log(files[0]['name'].split(' ').join('_').toLowerCase());
   if($('#nama_file').val() == '0'){
     Swal.fire(
         'Pilih Nama File.',
@@ -38,7 +49,7 @@ $('.fileinput-upload').on('click', function(){
       return;
   };
 
-  if(files[0]['name'] != $('#nama_file').val()){
+  if(files[0]['name'].split(' ').join('_').toLowerCase() != $('#nama_file').val() ){
     Swal.fire(
         'Nama File Tidak Sesuai.',
         'Silahkan Pilih Sesuai Nama yang ditentukan.',
