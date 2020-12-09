@@ -12,9 +12,24 @@ class Model_bantuan extends CI_Model {
         }else if($param == 'rekap'){
           $this->db->select("*");
           $this->db->from("rekap_perkab");
-        }else{
+        }else if($param == 'bantuan'){
           $this->db->select("*");
           $this->db->from("bantuan");
+        }else if($param == 'uph'){
+          $this->db->select("*");
+          $this->db->from("uph");
+        }else if($param == 'uph-skoring'){
+          $this->db->select("*");
+          $this->db->from("uph_skoring");
+        }else if($param == 'uph-evaluasi-sarana'){
+          $this->db->select("*");
+          $this->db->from("uph_evaluasi_sarana");
+        }else if($param == 'sp3t'){
+          $this->db->select("*");
+          $this->db->from("sp3t");
+        }else if($param == 'register-psat'){
+          $this->db->select("*");
+          $this->db->from("register_psat");
         }
         return $this->db->get()->result();
     }

@@ -62,6 +62,56 @@ class Upload extends CI_Controller {
 		}
 	}
 
+	public function uph()
+	{
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
+		{
+			$this->twig->display('admin/upload/uph.html', $this->content);
+		}else{
+			redirect("dashboard");
+		}
+	}
+
+	public function uph_skoring()
+	{
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
+		{
+			$this->twig->display('admin/upload/uph_skoring.html', $this->content);
+		}else{
+			redirect("dashboard");
+		}
+	}
+
+	public function uph_evaluasi_sarana()
+	{
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
+		{
+			$this->twig->display('admin/upload/uph_evaluasi_sarana.html', $this->content);
+		}else{
+			redirect("dashboard");
+		}
+	}
+
+	public function sp3t()
+	{
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
+		{
+			$this->twig->display('admin/upload/sp3t.html', $this->content);
+		}else{
+			redirect("dashboard");
+		}
+	}
+
+	public function register_psat()
+	{
+		if ( $this->logged && $this->role == '10' || $this->role == '20')
+		{
+			$this->twig->display('admin/upload/register_psat.html', $this->content);
+		}else{
+			redirect("dashboard");
+		}
+	}
+
 	public function upload(){
 
 		// $data['siswa'] = $this->SiswaModel->view();

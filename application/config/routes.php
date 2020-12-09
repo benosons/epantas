@@ -56,7 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['^(logout|loginAdmin|Admin|register|cekusername)(/:any)?$'] = "auth/$0";
-$route['^(upload|siswa|form|getData|bantuan|laporan|rekap|deletedata)(/:any)?$'] = "Upload/$0";
+$route['^(upload|siswa|form|getData|bantuan|laporan|rekap|uph|uph_skoring|uph_evaluasi_sarana|sp3t|register_psat|deletedata)(/:any)?$'] = "Upload/$0";
 $route['^(dashboard|saveUser|listuser|updateUser|formUser|listDataUser|deleteUser|dataDetailUser|loadkota|hitungAll|profile|loaduser|infodata|listdatabanner|listdatabanneruser|loadsetting|simpansetting|savebanner|updatebanner|deletebanner|updateprofile)(/:any)?$'] = "sys/$0";
 $route['^(provinsi|kabupaten|kecamatan|gapoktan|addprov|addkab|addkec|addpoktan|savedataprovinsi|savedatakabupaten|savedatakecamatan|savedatapoktan|loadprovinsi|loadkabupaten|loadkecamatan|loadpoktan|loadkelompok|savekelompoktani|loadanggota|saveanggota|loadpejabat|savepejabat|loadpenyuluh|savepenyuluh)(/:any)?$'] = "Profile/$0";
 $route['^(apbntp|apbd|addapbntp|addapbd|saveapbntp|saveapbd)(/:any)?$'] = "Kegiatan/$0";
